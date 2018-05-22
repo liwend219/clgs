@@ -1,0 +1,439 @@
+body {
+    background: #e6e6e7;
+}
+
+#container {
+    margin-bottom: 1.65rem;
+}
+
+#container .nav_bg {
+    background: url("../images/fight_bg.png") no-repeat center;
+    background-size: cover;
+    width: 100%;
+}
+
+/*头部导航*/
+#nav {
+    width: 100%;
+    height: 0.88rem;
+    text-align: center;
+    line-height: 0.88rem;
+}
+
+#nav .title {
+    color: #ffffff;
+    font-size: 0.34rem;
+}
+
+/*内容选项区*/
+#items_box {
+    background: rgba(0, 0, 0, 0.2);
+    padding-bottom: 0.33rem;
+}
+
+#items_box .item {
+    padding: 0 0.3rem;
+    border-bottom: 0.01rem solid #757374;
+    overflow: hidden;
+    text-align: center;
+}
+
+#items_box .item .list {
+    overflow: hidden;
+    padding: 0 0.77rem;
+}
+
+#items_box .item .list .active {
+    border-bottom: 0.03rem solid #fcfcfc;
+}
+
+#items_box .item .list .entry {
+    color: #ffffff;
+    font-size: 0.3rem;
+    padding: 0.27rem 0 0.24rem 0;
+    width: 33.3%;
+}
+
+#items_box .item .list .entry_left {
+    float: left;
+}
+
+#items_box .item .list .entry_right {
+    float: right;
+}
+
+/*拼单公共部分*/
+.project {
+    position: relative;
+}
+
+.project .project_list {
+    background: #FFFFFF;
+    margin-bottom: 0.3rem;
+    position: relative;
+}
+
+.project .initiator_box {
+    border-bottom: 0.01rem solid #ededed;
+    padding: 0.13rem 0.3rem;
+}
+
+.project .initiator_box .initiator_icon {
+    width: 0.88rem;
+    height: 0.88rem;
+    vertical-align: middle;
+    border-radius: 50%;
+}
+
+.project .initiator_box .initiator_name {
+    font-size: 0.32rem;
+    color: #393939;
+    vertical-align: middle;
+    padding-left: 0.2rem;
+}
+
+.project .initiator_box .behavior {
+    font-size: 0.2rem;
+    color: #9c9c9c;
+    vertical-align: middle;
+    display: inline-block;
+    margin-top: 0.13rem;
+}
+
+.project .project_info .project_box {
+    margin: 0 0.3rem;
+    padding: 0.13rem 0 0.25rem 0;
+    overflow: hidden;
+    text-align: left;
+}
+
+.project .project_info .project_box .project_title {
+    font-size: 0.26rem;
+    color: #393939;
+}
+
+.project .project_info .project_box .project_name {
+    font-size: 0.26rem;
+    color: #393939;
+    font-weight: 600;
+    padding-left: 0.3rem;
+}
+
+.project .project_info .project_box .project_discount {
+    font-size: 0.2rem;
+    color: #1b7cfe;
+    float: right;
+    padding: 0.03rem 0.13rem;
+    border: 0.01rem solid #1b7cfe;
+    border-radius: 0.10rem;
+}
+
+.project .project_info {
+    text-align: center;
+}
+
+.project .project_info .info_details {
+    margin: 0 0.3rem 0 0.4rem;
+    padding-bottom: 0.25rem;
+    border-bottom: 0.01rem solid #ededed;
+    overflow: hidden;
+}
+
+.project .project_info .info_details .left span {
+    display: block;
+    font-size: 0.26rem;
+    margin: 0.05rem 0;
+}
+
+.project .project_info .info_details .left {
+    float: right;
+    width: 56%;
+}
+
+.project .project_info .info_details .right {
+    float: left;
+    width: 44%;
+}
+
+.project .project_info .info_details .expect_income .expect_money {
+    font-size: 0.36rem;
+    color: #dc393c;
+    font-weight: 600;
+    display: block;
+}
+
+.project .project_info .info_details .expect_income .expect_money .company {
+    font-size: 0.2rem;
+    color: #dc393c;
+    font-weight: 600;
+    font-style: normal;
+}
+
+.project .project_info .info_details .expect_income .expect_text {
+    font-size: 0.2rem;
+    color: #393939;
+}
+
+.project .project_info .info_details .product_details {
+    display: inline-block;
+    text-align: left;
+}
+
+.project .items {
+    overflow: hidden;
+    text-align: center;
+}
+
+.project .items span {
+    display: block;
+    width: 50%;
+    float: left;
+    padding: 0.3rem 0;
+    font-size: 0.32rem;
+    cursor: pointer;
+}
+
+.project .items .join_btn {
+    color: #d63f2b;
+}
+
+/*拼单不同部分*/
+/*#project_fight .project_info .info_details .expect_income {*/
+/*float: right;*/
+/*margin-top: 0.15rem;*/
+/*text-align: center;*/
+/*}*/
+
+/*#project_my .project_info .info_details .expect_income {*/
+/*float: left;*/
+/*margin-top: 0.15rem;*/
+/*text-align: center;*/
+/*}*/
+
+#project_fight .project_info .info_details .fight_state {
+    width: 1.2rem;
+    height: 1.2rem;
+    font-size: 0.42rem;
+}
+
+#project_myFight .project_info .info_details .fight_state {
+    width: 1.24rem;
+    height: 1.24rem;
+    font-size: 0.42rem;
+}
+
+#project_myFight .project .project_list .initiator_box .state {
+    float: right;
+    font-style: normal;
+    font-size: 0.26rem;
+    color: #ffffff;
+    padding: 0.1rem 0.14rem;
+    background-color: #ff5a5a;
+    border-radius: 0.5rem;
+    margin-top: 0.16rem;
+}
+
+#project_fight .items .join_btn {
+    border-left: 0.01rem solid #e1e1e1;
+    color: #d63f2b;
+}
+
+#project_myFight .items .join_btn {
+    border-left: 0.01rem solid #e1e1e1;
+    color: #d63f2b;
+}
+
+.release {
+    position: fixed;
+    bottom: 1.45rem;
+    right: 0;
+    cursor: pointer;
+}
+
+.release .release_btn {
+    width: 2.28rem;
+    height: 1.04rem;
+}
+
+.release .release_text {
+    color: #ffffff;
+    font-size: 0.26rem;
+    position: absolute;
+    top: 0.35rem;
+    left: 1.05rem;
+}
+
+/*提示信息*/
+#tip {
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 0.24rem;
+    padding: 0.1rem 0.2rem;
+    background: rgba(0, 0, 0, 0.5);
+    color: #ffffff;
+    border-radius: 0.1rem;
+    text-align: center;
+    z-index: 99;
+}
+
+/*数据加载状态提示*/
+.bottom_tip {
+    position: absolute;
+    width: 100%;
+    height: 0.75rem;
+    line-height: 0.75rem;
+    text-align: center;
+    display: block;
+    background: #ffffff;
+    font-size: 0.24rem;
+    color: #393939;
+    bottom: -0.75rem;
+    overflow: hidden;
+}
+
+.bottom_tip .load_img {
+    width: 1rem;
+    height: 0.75rem;
+    vertical-align: middle;
+}
+
+/*参与拼单模态框*/
+#joinFight_model {
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.1);
+    width: 100%;
+    height: 100%;
+}
+
+#joinFight_model .model_content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #ffffff;
+    border-radius: 0.3rem;
+    width: 85%;
+}
+
+#joinFight_model .model_content h3 {
+    font-size: 0.34rem;
+    color: #393939;
+    text-align: center;
+    padding: 0.24rem 0;
+}
+
+#joinFight_model .model_content ul li {
+    overflow: hidden;
+    border-top: 0.01rem solid #e0e0e0;
+    padding: 0.16rem 0.6rem;
+}
+
+#joinFight_model .model_content ul li h2 {
+    float: left;
+    font-size: 0.26rem;
+    font-weight: normal;
+    width: 50%;
+}
+
+#joinFight_model .model_content ul li span {
+    float: left;
+    font-size: 0.26rem;
+    width: 50%;
+}
+
+#joinFight_model .model_content ul li input {
+    float: left;
+    font-size: 0.26rem;
+    width: 50%;
+    outline: none;
+    border: none;
+}
+
+#joinFight_model .model_content ul .cost_box .cost {
+    color: #9c9c9c;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+#joinFight_model .model_content .model_option {
+    border-top: 0.01rem solid #e0e0e0;
+    overflow: hidden;
+}
+
+#joinFight_model .model_content .model_option span {
+    float: left;
+    width: 50%;
+    text-align: center;
+    padding: 0.3rem 0;
+    font-size: 0.32rem;
+    letter-spacing: 0.12rem;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+#joinFight_model .model_content .model_option .sure {
+    border-left: 0.01rem solid #e0e0e0;
+    color: #0e80fe;
+}
+
+/*圆形进度图*/
+.circle {
+    width: 1.2rem;
+    height: 1.2rem;
+    position: relative;
+    border-radius: 50%;
+    background: #d63f2b;
+}
+
+.clip_left,
+.clip_right {
+    width: 1.2rem;
+    height: 1.2rem;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.circle_left,
+.circle_right {
+    width: 1.2rem;
+    height: 1.2rem;
+    position: absolute;
+    border-radius: 50%;
+    background: #bfbfbf;
+    top: 0;
+    left: 0;
+}
+
+.circle_right,
+.clip_right {
+    clip: rect(0, auto, auto, 0.6rem);
+}
+
+.circle_left,
+.clip_left {
+    clip: rect(0, 0.6rem, auto, 0);
+}
+
+.mask {
+    width: 1.1rem;
+    height: 1.1rem;
+    border-radius: 50%;
+    left: 0.05rem;
+    top: 0.05rem;
+    background: #FFF;
+    position: absolute;
+    text-align: center;
+    line-height: 1.1rem;
+}
+
+.project_list .project_info .info_details .right .icon_full {
+    width: 1.2rem;
+    height: 1.2rem;
+}
+

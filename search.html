@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport"
+          content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"/>
+    <meta charset="UTF-8">
+    <title>搜索</title>
+    <link rel="icon" href="images/logo01.png" type="image/x-icon">
+    <link rel="stylesheet" href="css/init.css">
+    <link rel="stylesheet" type="text/css" href="css/search.css"/>
+    <script src="js/jquery-3.2.1.js"></script>
+    <script src="js/public.js"></script>
+    <script src="js/search.js"></script>
+    <script>
+        var cid = sessionStorage.getItem("cid");
+        if (cid == "" || cid == null) {
+            alert("请先登录");
+            window.location.href = "logoIn.html";
+        }
+    </script>
+</head>
+<body>
+
+<div id="contaier">
+      <form action="" method="post">
+
+    <!--头部搜索框-->
+    <div id="back_nav">
+        <a href="javascript:history.back(-1);">
+            <img src="images/back.png" alt="" class="back_btn">
+        </a>
+        <input type="text" name="search" id="search" placeholder=""/>
+        <span id="font">搜索</span>
+
+    </div>
+          	
+      	
+      </form>
+    <!--中部-->
+    <div class="box_search">
+        <div class="HotSearch">
+            <p>大家都在搜</p>
+            <ul class="one">
+                <li><span style="background: #d63f2b;">1</span>
+                    <div class="font"></div>
+                </li>
+                <li><span style="background: #d68c2b;">2</span>
+                    <div class="font"></div>
+                </li>
+                <li><span style="background: #b8d62b;">3</span>
+                    <div class="font"></div>
+                </li>
+            </ul>
+            <ul class="one">
+                <li><span>4</span>
+                    <div class="font"></div>
+                </li>
+                <li><span>5</span>
+                    <div class="font"></div>
+                </li>
+                <li><span>6</span>
+                    <div class="font"></div>
+                </li>
+            </ul>
+            <ul class="one">
+                <li><span>7</span>
+                    <div class="font"></div>
+                </li>
+                <li><span>8</span>
+                    <div class="font"></div>
+                </li>
+                <li><span>9</span>
+                    <div class="font"></div>
+                </li>
+            </ul>
+        </div>
+        <div class="his">
+            <p id="history">搜索历史<img src="images/del.png" id="icon_del"/></p>
+            <div class="box_his">
+                <span class="his_font" id="history_font1"></span>
+            </div>
+        </div>
+    </div>
+    <!--得到焦点后出来的页面-->
+    <div class="box_focus" style="display: none;">
+        <div class="font_big">股票</div>
+        <div class="sss">
+            <ul class="sss_li">
+               
+            </ul>
+                 <script type="text/template" id="templ">
+                 	<li class="search_msg">
+		                    <span class="symbol">@sy</span>
+		                    <span class="code">@code</span>
+		                    <button class="btn_btn">询价</button>
+                    </li>
+                 </script>
+
+        </div>
+
+        <div class="font_big">相关资讯</div>
+        <ul class="font_msg">
+            
+        </ul>
+           <script type="text/template" id="templ2">
+           		<li>
+	                <p id="information">@information</p>
+	                <p id="name_p"><span id="name_data">@name_data</span>&nbsp;&nbsp;&nbsp;&nbsp;<span id="name_user">@name_user</span>
+	                </p>
+            	</li>
+           </script>
+    </div>
+</div>
+</body>
+</html>

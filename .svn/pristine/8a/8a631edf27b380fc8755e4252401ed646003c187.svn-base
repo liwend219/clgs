@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"/>
+    <title>个人信息</title>
+    <link rel="icon" href="images/logo01.png" type="image/x-icon">
+    <link rel="stylesheet" href="css/init.css">
+    <link rel="stylesheet" href="css/mydata.css">
+    <script src="js/jquery-3.2.1.js"></script>
+    <script src="js/public.js"></script>
+    <script src="js/mydata.js"></script>
+    <script>
+        var cid = sessionStorage.getItem("cid");
+        if (cid == "" || cid == null) {
+            alert("请先登录");
+            window.location.href = "logoIn.html";
+        }
+    </script>
+</head>
+<body class="body">
+<!--头部-->
+<div id="back_nav">
+    <a href="personal.html">
+        <img src="images/back_w.png" alt="" class="back_btn">
+    </a>
+</div>
+<!--中部-->
+<div class="conent">
+    <div class="user_info">
+        <div class="info">
+            <div class="pic_head">
+                <img src="@img" alt="" class="icon">
+            </div>
+            <h3 class="info_name">@name</h3>
+            <div class="info_gf">
+                <div class="left">
+                    <p class="follow">@5</p>
+                    <p>关注</p>
+                </div>
+                <div id="info_x"></div>
+                <div class="right">
+                    <p class="Fans">@6</p>
+                    <p>粉丝</p>
+                </div>
+            </div>
+            <div id="edit">
+                <button class="edit2">编辑</button>
+            </div>
+
+        </div>
+    </div>
+    <div id="user_tip">
+        <p class="jianjie">@jianjie</p>
+    </div>
+</div>
+<div class="con">
+    <div id="items">
+        <i class="items_icon"></i>
+        <span class="item active v1">全部动态</span>
+    </div>
+
+    <div id="font_con">
+
+        <ul class="con_dynamic">
+            <script type="text/template" id="dynamics_box">
+                <li class="dynamic">
+                    <div class="font_time">
+                        <span class="time">@time</span>
+                        <span class="action">@action</span>
+                    </div>
+                    <p class="details"><img src="@images" class="head"/>@details</p>
+                    <p class="details2">@details2</p>
+                </li>
+            </script>
+        </ul>
+
+    </div>
+
+
+    <div id="font_tip" style="display: none;">
+        <img src="images/20171206110147.png" alt="" id="pic_tip"/>
+        暂无动态
+    </div>
+
+</div>
+</body>
+</html>

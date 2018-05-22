@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		 <meta name="viewport"content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"/>
+    <meta charset="UTF-8">
+    <title>搜索</title>
+    <link rel="icon" href="images/logo01.png" type="image/x-icon">
+    <link rel="stylesheet" href="css/init.css">
+    <link rel="stylesheet" type="text/css" href="css/zixuan——details.css"/>
+    <script src="js/jquery-3.2.1.js"></script>
+    <script src="js/public.js"></script>
+    <script src="js/zixuan——details.js"></script>
+    <script src="js/api.js"></script>
+	</head>
+	<body>
+		 <!--头部-->
+    <div id="back_nav">
+        <a href="javascript:history.back(-1);">
+            <img src="images/back.png" alt="" class="back_btn">
+        </a>
+        
+       <!--<i class="icon_search"></i>-->
+    </div>
+		<!--中部-->
+		<div class="name">
+					
+			
+		</div>
+		<script type="text/template" id="name">
+			  <div class="left">
+						<p class="title_name">@GPname</p>
+						<p class="daima">@GPcode</p>
+					</div>
+					
+					<div class="center">
+						<span class="title_number">@Cupr</span>
+						<div class="right">
+							<span>@cc</span><br />
+							<span style="margin-left: 0.15rem;">@dd</span>
+						</div>
+						
+					</div>
+					<a id="genghuan" href="zixuan——search.html">
+						更换股票
+					</a>
+		</script>
+		<div class="k_box">
+			<ul class="first">
+				<li class="fenshi">分时</li>
+				<li class="rk">日k</li>
+				<li class="zhouk">周k</li>
+				<li class="yuek">月k</li>
+				<li class="pankou">盘口</li>
+			</ul>
+			<div class="k_graph">
+				<!--图片-->
+				<img src="http://image.sinajs.cn/newchart/min/n/@img.gif" style="width: 100%;"/>
+			    <!--盘口-->
+			    <div id="Diskdata" style="display: none;">
+			    	
+			    </div>
+			    <script type="text/template" class="Diskdata">
+				  <ul>
+			    		<li>今开&nbsp;&nbsp;@jin</li>
+			    		<li>昨收&nbsp;&nbsp;@zuo</li>
+			    		<li>振幅&nbsp;&nbsp;@zhen</li>
+			    	</ul>
+			    	<ul>
+			    		<li>涨停&nbsp;&nbsp;@zhang</li>
+			    		<li>跌停&nbsp;&nbsp;@die</li>
+			    		<li>总手&nbsp;&nbsp;@zong</li>
+			    	</ul>
+			    	<ul>
+			    		<li>最高&nbsp;&nbsp;@gao</li>
+			    		<li>最低&nbsp;&nbsp;@di</li>
+			    		<li>总量&nbsp;&nbsp;@liang</li>
+			    	</ul>
+				</script>
+			</div>
+			<!--<div class="mai">
+				
+			</div>
+			<script type="text/template" id="mai">
+				<ul>
+					<li>卖1&nbsp;&nbsp;<span>@m1</span>&nbsp;&nbsp;&nbsp;@n1
+					</li>
+					<li>卖2&nbsp;&nbsp;<span>@m2</span>&nbsp;&nbsp;&nbsp;@n2
+					</li>
+					<li>卖3&nbsp;&nbsp;<span>@m3</span>&nbsp;&nbsp;&nbsp;@n3
+					</li>
+					<li>卖4&nbsp;&nbsp;<span>@m4</span>&nbsp;&nbsp;&nbsp;@n4
+					</li>
+					<li>卖5&nbsp;&nbsp;<span>@m5</span>&nbsp;&nbsp;&nbsp;@n5
+					</li>
+				</ul>
+				<ul>
+					<li>买1&nbsp;&nbsp;<span>@x1</span>&nbsp;&nbsp;&nbsp;@z1
+					</li>
+					<li>买2&nbsp;&nbsp;<span>@x2</span>&nbsp;&nbsp;&nbsp;@z2
+					</li>
+					<li>买3&nbsp;&nbsp;<span>@x3</span>&nbsp;&nbsp;&nbsp;@z3
+					</li>
+					<li>买4&nbsp;&nbsp;<span>@x4</span>&nbsp;&nbsp;&nbsp;@z4
+					</li>
+					<li>买5&nbsp;&nbsp;<span>@x5</span>&nbsp;&nbsp;&nbsp;@z5
+					</li>
+				</ul>
+			</script>-->
+		</div>
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		<div class="adviser" style="display: none;">
+			<p class="ad_name">
+				<i class="clear"></i>
+			</p>
+			<script type="text/template" id="ad_name">
+				<span class="GPname">@GPname</span>&nbsp;<span class="GPcode">@GPcode</span>
+			</script>
+			<p class="zhangdiefu">
+				
+			</p>
+			<script type="text/template" id="zhangdiefu">
+		    
+					最新<span class="zhangdie" style="@color">@4.82(@10.07)</span>&nbsp;&nbsp;涨停<span class="zhang">@zhang</span>&nbsp;&nbsp;跌停<span class="die">@die</span>
+			</script>
+		     <div class="tab_content">
+                <!------------------------------ 询价项目开始 ------------------------------>
+                <div class="tab_left tab">
+                    
+                    <div class="stock_term">
+                        <span class="term">投顾期限</span>
+                        <select name="" class="term_lists">
+                            <option value="5d">1周</option>
+                        	<option value="10d">2周</option>
+                            <option value="1m" selected="selected">1月</option>
+                            <option value="2m">2月</option>
+                            <option value="3m">3月</option>
+                        </select>
+                    </div>
+                    <div class="stock_price">
+                        <span class="price">执行价格</span>
+                        <select name="" class="price_lists">
+                            <option value="0">100%</option>
+                            <!--<option value="1">95%</option>-->
+                            <!--<option value="2">90%</option>-->
+                            <!--<option value="3">80%</option>-->
+                        </select>
+                    </div>
+                   
+                     <div class="stock_implement">
+                        <span class="implement">执行方式</span>
+                        <!--<select name="" class="implement_lists">
+                            <option value="0">T+5</option>
+                        </select>-->
+                        <span class="implement_lists" style="padding-left: 0.1rem;">
+                        	T+5
+                        </span>
+                    </div>
+                    <div class="stock_assets">
+                        <span class="assets">投顾资产(万)</span>
+                        <input type="text" placeholder="10的整数倍,最低20万" class="assets_text"
+                               onkeyup="value = value.replace(/[^\d]/g, '')">
+                    </div>
+
+                    <div class="info_submit">
+                        <button class="inquiry_btn">确定</button>
+
+                        <div class="agreement">
+                            <input type="checkbox" class="checkbox" checked="checked">
+                            <span class="text">我已阅读策略高手
+                                <a href="javascript:void(0);">《投资顾问协议》</a>
+                               <br />
+                            </span>
+                             <!--<a href="Journalismid_2.html" style="font-size: 0.18rem; line-height: 1.3rem;">充值遇到问题，点此查看细则公告</a>-->
+                        </div>
+                       
+                    </div>
+                </div>
+                </div>
+                <!------------------------------ 询价项目结束 ------------------------------>
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		</div>
+
+		
+		<div class="footer">
+			<ul>
+				<li class="xunjia">询价</li>
+				<li class="zixuan">添加自选</li>
+			</ul>
+		</div>
+		<div id="shaidow" style="display: none;"></div>
+		
+		
+		<!--询价模态框-->
+<div id="inquiry_model" style="display: none">
+    <div class="model_content">
+        <h3 class="title">报价</h3>
+        <ul>
+            <li class="code_box">
+                <h2 class="code_text">股票代码</h2>
+                <span class="code_name"></span>
+            </li>
+            <li class="implement_box">
+                <h2 class="implement_text">执行方式</h2>
+                <span class="category"></span>
+            </li>
+            <li class="price_box">
+                <h2 class="price_text">执行价格</h2>
+                <span class="price"></span>
+            </li>
+            <li class="term_box">
+                <h2 class="term_text">投顾期限</h2>
+                <span class="term"></span>
+            </li>
+            <li class="assets_box">
+                <h2 class="assets_text">投顾资产</h2>
+                <span class="assets"></span>
+            </li>
+            <li class="cost_box">
+                <h2 class="cost_text">投顾费用</h2>
+                <span class="cost"></span>
+            </li>
+        </ul>
+        <div class="model_option">
+            <span class="cancel">取消</span>
+            <span class="sure">确定</span>
+        </div>
+    </div>
+</div>
+
+		<!-- 询价记录模态框 -->
+<!--<div id="inquiryRecord_model" style="display: none">
+    <div class="model_content">
+        <i class="temporary_askid" style="display: none"></i>
+        <i class="temporary_principal" style="display: none"></i>
+        <i class="temporary_title" style="display: none"></i>
+        <i class="temporary_cost" style="display: none"></i>
+        <h3 class="title"></h3>
+        <p class="inquiryRecord_tip">提醒:投顾费用将在你的钱包中扣款!</p>
+        <div class="model_option">
+            <span class="cancel">取消</span>
+            <span class="sure">确定</span>
+        </div>
+    </div>
+</div>-->
+
+<!-- 实名认证模态框 -->
+<div id="realName_model" style="display: none">
+    <div class="model_content">
+        <h3 class="title">策略高手询价通知</h3>
+        <p class="realName_tip">您好! 您查询的投顾资产
+            <u>已超100万</u>, 为了保障您获得更多权益, 请务必进行实名认证, 才能继续使用。
+        </p>
+        <div class="model_option">
+            <span class="sure">前往认证</span>
+            <span class="cancel">暂不认证</span>
+        </div>
+    </div>
+</div>
+
+<!--提示信息-->
+<span id="tip" style="display: none"></span>
+			</body>
+	<script>
+		$(function(){
+			 var cid = sessionStorage.getItem("cid")
+            var code = sessionStorage.getItem("$_code")
+			$(".xunjia").click(function(){
+				$("#shaidow").css("display","block")
+				$(".adviser").css("display","block")
+				  $(".adviser").animate({bottom:'0rem'});
+			});
+			$(".clear").click(function(){
+				$("#shaidow").css("display","none")
+				$(".adviser").css("display","none")
+				$(".adviser").animate({bottom:'-7.5rem'},10,function(){
+				 	
+				 });
+			})
+			
+			 $.ajax({
+                type:"get",
+                url:"http://120.55.164.87:8090/app/SelectedStockList",
+                data:{"cid":cid},
+                success: function(data){
+                    var d = JSON.parse(data)
+//                  console.log(code.toUpperCase())
+                    for(let i =0;i<d.length;i++){
+//                      console.log(d[i].code)
+                        if(d[i].code == code.toUpperCase()){
+                            $('.zixuan').html('删除自选')
+                            
+                        }
+                    }
+                    
+                }
+            });
+
+            $('.zixuan').click(function(){
+                if($('.zixuan').text()=="添加自选"){
+                    $.ajax({
+                        type:"get",
+                        url:"http://120.55.164.87:8090/app/SelectedStockAdd",
+                        data:{"cid":cid,"code":code},
+                        success: function(data){
+                            var d = JSON.parse(data)
+                            if(d.rs){
+                                $('.zixuan').html('删除自选')
+                                var dom = '<img style="width:30px;height:30px;" src="images/circle_white@2x.png" alt="">'+
+                                '<br/>'+d.msg
+                                $('#tip').html(dom)
+                                $('#tip').css('display','block')
+                                window.clearTimeout(time1)
+                                var time1=window.setTimeout(function(){
+                                    $('#tip').css('display','none')
+                                },2500);
+                            }
+                        }
+                    });
+                    
+                }else{
+                    $.ajax({
+                        type:"get",
+                        url:"http://120.55.164.87:8090/app/SelectedStockDel",
+                        data:{"cid":cid,"code":code},
+                        success: function(data){
+                            var d = JSON.parse(data)
+                            if(d.rs){
+                                $('.zixuan').html('添加自选')
+                                var dom = '<img style="width:30px;height:30px;" src="images/circle_white@2x.png" alt="">'+
+                                '<br/>'+d.msg
+                                $('#tip').html(dom)
+                                $('#tip').css('display','block')
+                                window.clearTimeout(time1)
+                                var time1=window.setTimeout(function(){
+                                    $('#tip').css('display','none')
+                                },2500);
+                            }
+                        }
+                    });
+                }
+            })
+		})
+	</script>
+</html>

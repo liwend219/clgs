@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>设置</title>
+    <link rel="icon" href="images/logo01.png" type="image/x-icon">
+    <link rel="stylesheet" href="css/init.css">
+    <link rel="stylesheet" type="text/css" href="css/install.css"/>
+    <script src="js/jquery-3.2.1.js"></script>
+    <script src="js/public.js"></script>
+    <script src="js/install.js"></script>
+    <script>
+        var cid = sessionStorage.getItem("cid");
+        if (cid == "" || cid == null) {
+            alert("请先登录");
+            window.location.href = "logoIn.html";
+        }
+    </script>
+</head>
+<body>
+<!--头部-->
+<div id="back_nav">
+    <a href="javascript:history.back(-1);">
+        <img src="images/back.png" alt="" class="back_btn">
+    </a>
+    <span class="title">设置</span>
+</div>
+<!--中部-->
+<div class="lists">
+    <ul>
+        <li class="security">
+            <span>账户与安全</span>
+            <i></i>
+        </li>
+    </ul>
+    <ul>
+        <li class="push">
+            <span>推送设置</span>
+            <i></i>
+        </li>
+        <li class="cache">
+            <span>清理缓存</span>
+            <span id="cache_m">5.8M</span>
+        </li>
+    </ul>
+
+    <ul>
+        <li>
+            <span>分享给好友</span>
+            <i></i>
+        </li>
+        <li class="feedback">
+
+            <span>意见与反馈</span>
+            <i></i>
+        </li>
+        <li class="about">
+            <span>关于</span>
+            <i></i>
+        </li>
+
+    </ul>
+</div>
+<!--退出-->
+<button class="out_btn">退出</button>
+</body>
+</html>

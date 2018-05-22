@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title>充值</title>
+    <link rel="icon" href="images/logo01.png" type="image/x-icon">
+    <link rel="stylesheet" href="css/init.css">
+    <link rel="stylesheet" href="css/public.css">
+    <link rel="stylesheet" href="css/Recharge.css">
+    <link rel="stylesheet" href="css/ailipay_2.css">
+    <script src="js/jquery-3.2.1.js"></script>
+    <script src="js/public.js"></script>
+    <script>
+        var cid = sessionStorage.getItem("cid");
+        if (cid == "" || cid == null) {
+            alert("请先登录");
+            window.location.href = "logoIn.html";
+        }
+    </script>
+</head>
+
+<body>
+    <!--头部-->
+    <div id="back_nav">
+        <a href="javascript:history.back(-1);">
+            <img src="images/back_w.png" alt="" class="back_btn">
+        </a>
+        <span class="biaoti">充值</span>
+    </div>
+    <!--中部-->
+    <div class="balance">
+        <p class="font_m">@balance</p>
+        <p class="font_p">账户余额</p>
+    </div>
+
+    <div class="money">
+        <p class="p_v">充值金额</p>
+        <ul class="m1">
+            <li>100</li>
+            <li>1000</li>
+            <li>2000</li>
+            <li>5000</li>
+            <li>10000</li>
+            <li>20000</li>
+        </ul>
+    </div>
+    <div class="money_2">
+        <p class="p_m">支付方式</p>
+        <ul>
+            <!--<li>微信扫码</li>
+   		<li>支付宝扫码</li>-->
+            <li class="active_2">支付宝</li>
+        </ul>
+    </div>
+    <div class="sub">
+        <form action="http://www.i7quan.com/pay/PayBackground" method="post">
+            <input type="hidden" name="amount2" id="money" value="" />
+            <input type="hidden" name="cid" id="cid" value="" />
+            <input type="submit" class="sb" value="提&nbsp;&nbsp;交" />
+        </form>
+        <div class="Modal">
+            <img src="images/139942921770235018.png" />
+        </div>
+    </div>
+</body>
+<script type="text/javascript">
+    $(function () {
+        //判断是否在微信浏览器中打开，如果是就提示信息，如果不是就不提示
+        function is_weixn() {
+            var ua = navigator.userAgent.toLowerCase();
+            if (ua.match(/MicroMessenger/i) == "micromessenger") {
+                $(".Modal").css("display", "block")
+            } else {
+                $(".Modal").css("display", "none")
+            }
+        }
+        is_weixn()
+        //ajax获取余额
+        var cid = sessionStorage.getItem("cid");
+        $.ajax({
+            type: "POST",
+            url: "http://www.i7quan.com/app/userinfo",
+            data: { "cid": cid },
+            async: true,
+            dataType: "json",
+            success: function (data) {
+                var datas = data.datas;
+                var str = "";
+                var temp = $(".balance").html();
+                str += temp.replace("@balance", datas.余额);
+                $(".balance").html(str);
+            }
+        })
+        $("#cid").val(cid)
+
+
+
+        $(".money li").on("click", function () {
+            $(this).siblings('li').removeClass('active');
+            $(this).addClass('active');
+            var m = $(this).text()
+            $("#money").val(m)
+        });
+
+
+    })
+</script>
+
+</html>

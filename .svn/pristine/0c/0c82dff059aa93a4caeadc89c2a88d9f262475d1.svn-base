@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="./css/style.css">
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+    <title>vip商城</title>
+</head>
+<body>
+    <div class="course-list">
+        <div class="course-list-item">
+            <div style="width:480px;height:160px;margin-top:40px;">
+                <div class="course-list-pic">
+                    <div style="height:160px;margin:0 auto">
+                        <img src="./images/椭圆 1.png" style="height:160px" alt="">
+                    </div>
+                </div>
+                <div class="course-list-text">
+                    <div class="course-list-text-1">
+                        <div style="font-size:18px;text-align:left">
+                            <b>市场产品研究服务</b>
+                        </div>
+                        <div style="font-size:14px;">
+                            产品开发、包装、命名和上市,另外让消费者使用后的产品有好的满意度
+                        </div>
+                        <div style="font-size:20px">
+                            ￥3000 <span style="font-size:14px;">元</span>
+                        </div>
+                        <button class="course-list-btn" data-idx="0">
+                            查看详情
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="course-list-item">
+            <div style="width:480px;height:160px;margin-top:40px;">
+                <div class="course-list-pic">
+                    <div style="height:160px;margin:0 auto">
+                        <img src="./images/椭圆 1.png" style="height:160px" alt="">
+                    </div>
+                </div>
+                <div class="course-list-text">
+                    <div class="course-list-text-1">
+                        <div style="font-size:18px;text-align:left">
+                            <b>投融资咨询服务</b>
+                        </div>
+                        <div style="font-size:14px;">
+                            连接投融双方，协助企业获得多元化的融资渠道
+                        </div>
+                        <div style="font-size:20px">
+                            ￥3000 <span style="font-size:14px;">元</span>
+                        </div>
+                        <button class="course-list-btn" data-idx="1">
+                            查看详情
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="course-list">
+            <div class="course-list-item">
+                <div style="width:480px;height:160px;margin-top:40px;">
+                    <div class="course-list-pic">
+                        <div style="height:160px;margin:0 auto">
+                            <img src="./images/椭圆 1.png" style="height:160px" alt="">
+                        </div>
+                    </div>
+                    <div class="course-list-text">
+                        <div class="course-list-text-1">
+                            <div style="font-size:18px;text-align:left">
+                                <b>商业策划服务</b>
+                            </div>
+                            <div style="font-size:14px;">
+                                展现创业的潜力和价值，说服被人对项目进行投资和支持
+                            </div>
+                            <div style="font-size:20px">
+                                ￥3000 <span style="font-size:14px;">元</span>
+                            </div>
+                            <button class="course-list-btn" data-idx="2">
+                                查看详情
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="course-list-item">
+                <div style="width:480px;height:160px;margin-top:40px;">
+                    <div class="course-list-pic">
+                        <div style="height:160px;margin:0 auto">
+                            <img src="./images/椭圆 1.png" style="height:160px" alt="">
+                        </div>
+                    </div>
+                    <div class="course-list-text">
+                        <div class="course-list-text-1">
+                            <div style="font-size:18px;text-align:left">
+                                <b>软件和信息技术定制服务</b>
+                            </div>
+                            <div style="font-size:14px;">
+                                为企业量身定制一系列符合企业实际应用的软件
+                            </div>
+                            <div style="font-size:20px">
+                                ￥3000 <span style="font-size:14px;">元</span>
+                            </div>
+                            <button class="course-list-btn" data-idx="3">
+                                查看详情
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <script>
+            $('.course-list-btn').click(function(){
+                window.location.href="./course-detai-1.html"
+            })
+            $(".course-list-btn").mouseover(function(event){
+                $(".course-list-btn").eq(event.target.dataset.idx).css("background-color","#c8302d");
+                $(".course-list-btn").css("cursor","pointer");
+            });
+            $(".course-list-btn").mouseout(function(){
+                $(".course-list-btn").css("background-color","#de4b4b");
+            });
+        </script>
+</body>
+</html>

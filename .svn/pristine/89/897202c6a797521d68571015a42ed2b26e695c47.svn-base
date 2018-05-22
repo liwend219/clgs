@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    
+
+    <link rel="icon" href="images/logo01.png" type="image/x-icon">
+    <link rel="stylesheet" href="css/gupiao_guize.css">
+    <script src="js/jquery-3.2.1.js"></script>
+    <script src="js/public.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+    
+    <!-- 引入样式 -->
+    <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+    <!-- 引入组件库 -->
+    <script src="https://unpkg.com/element-ui/lib/index.js"></script>
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+
+    
+    
+    <title>T+D A股交易规则</title>
+    <style>
+        .el-collapse-item__header{
+            padding:0 10px;
+        }
+        .el-collapse-item__content{
+            padding:10px;
+            background: #f3f3f3;
+        }
+        .el-collapse-item__content{
+            padding:0.15rem;
+        }
+        a{
+            color:#6fb3e0;
+            font-size: 0.18rem;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <div id="back_nav">
+            <a href="javascript:history.back(-1);">
+                <img src="images/back.png" alt="" class="back_btn">
+            </a>
+            <span class="title" style="margin-left: 0;color: #393939">T+D A股交易规则</span>
+        </div>
+
+        <el-collapse @change="handleChange">
+            <el-collapse-item title="如何发布T+D策略？" name="1">
+                <div>
+                    　先申请T+D策略组，有多档资金和持仓时间可选，申请成功后即可发布T+D策略。
+                   
+                </div>
+            </el-collapse-item>
+            <el-collapse-item title="持仓时间时多久?" name="2">
+                <div>
+                    　　T+D策略遵循A股交易规则，最少持仓时间为两天，最长至策略组到期时间。若想延长持仓时间，可在到期前3天选择续期；如果到期时用户还有持仓，平台会自动进行点卖并清算。
+                </div>
+            </el-collapse-item>
+            <el-collapse-item title="T+D策略资金流转？" name="3">
+                <div>
+                    　T+D策略所产生的点买金额，交易综合费，递延费，盈亏等都由策略组的可用点买金额支取，只有等策略组清算成功后才会流转回账户可用余额。
+                </div>
+            </el-collapse-item>
+            <el-collapse-item title="停牌股要怎么处理？" name="4">
+                <div>
+                	当T+D期间点买人策略中股票遇到停牌时，点买人可以在T+D结束前继续持有，也可以选择放弃或买断该策略。当T+D时间到期前三个交易日，点买人必须做出选择是放弃本条策略，者全额买断本条策略。如果放弃策略，扣除策略对应市值的履约保证金，策略中股票归投资人所有，复牌后所有盈利或者亏损与点买人无关；如果点买入选择全额买断策略，点买人按点买成交价补缴响应的金额，复牌后所有盈利或亏算与投资人无关，100%归投资人所有。
+                	<br />
+                    	 若T+D到期前三个交易日，点买人不选择递延，也不选择买断，则默认为选择放弃。
+                </div>
+               
+            </el-collapse-item>
+
+            
+            
+            
+            
+            
+            
+            
+        </el-collapse><br>
+        <!--<div style="text-align:left;color:rgb(155, 155, 155);padding:0.15rem">
+            注意：<br>
+            1.平台不保证任何成交价格和成交时间，一切均以券商实际成交数据为准。<br>
+            2.最终解释权归本APP所有。
+        </div>-->
+    </div>
+    <script>
+        var vm = new Vue({
+            el:"#app",
+            data(){
+                return{
+                    activeNames:[1,2,3]
+                }
+            },
+            mounted(){
+                var arr=[];
+                for(let i=0;i<$('.el-collapse-item__header').length;i++){
+                    if($('.el-collapse-item__header').eq(i).html().length>82){
+                        arr.push(i)
+                    }
+                }
+                console.log(arr)
+            },
+            methods:{
+                handleChange(idnex) {
+                    
+                },
+            }
+        })
+    </script>
+</body>
+</html>

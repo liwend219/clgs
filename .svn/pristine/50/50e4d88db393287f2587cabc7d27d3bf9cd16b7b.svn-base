@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>申请策略组</title>
+		<link rel="icon" href="images/logo01.png" type="image/x-icon">
+		<link rel="stylesheet" type="text/css" href="css/init.css"/>
+	    <link rel="stylesheet" href="css/gupiao_t7.css">
+	    <script src="js/jquery-3.2.1.js"></script>
+	    <script src="js/public.js"></script>
+	    <script src="js/gupiao_t7.js"></script>
+	</head>
+	<body>
+		<div id="back_nav">
+            <a href=" ">
+                <img src="images/back.png" alt="" class="back_btn">
+            </a>
+            	<ul class="box">
+            	<li class="active">T+1</li>
+            	<li class="last">T+D</li>
+            	<div class="clear"></div>
+            	</ul>
+             <a id="right" href="">规则</a>
+        </div>
+		
+		<!--中部-->
+		<div class="shares">
+			<div class="left">
+				<span class="h3">乐视网</span>
+				<br />
+				<span class="sp1">SZ00024</span>
+			</div>
+			<div class="right">
+				<span class="h2">4.82</span>
+				<br />
+				<span class="sp2">-0.54&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-10.07%</span>
+			</div>
+		</div>
+		<div id="todaydata">
+			<ul>
+				<li>
+					<p>今开</p>
+					<p>883.50</p>
+				</li>
+				<li>
+					<p>昨收</p>
+					<p>883.50</p>
+				</li>
+				<li>
+					<p>成交量</p>
+					<p>883.50</p>
+				</li>
+				<li>
+					<p>成交额</p>
+					<p>883.50</p>
+				</li>
+			</ul>
+		</div>
+		<!--k线-->
+			<div class="k_box">
+			<ul class="first">
+				<li class="fenshi">分时</li>
+				<li class="rk">日k</li>
+				<li class="zhouk">周k</li>
+				<li class="yuek">月k</li>
+				<li class="pankou">盘口</li>
+			</ul>
+			<div class="k_graph">
+				<!--图片-->
+				<img src="http://image.sinajs.cn/newchart/min/n/@img.gif" style="width: 100%;"/>
+			    <!--盘口-->
+			    <div id="Diskdata" style="display: none;">
+			    	
+			    </div>
+			    <script type="text/template" class="Diskdata">
+				  <ul>
+			    		<li>今开&nbsp;&nbsp;@jin</li>
+			    		<li>昨收&nbsp;&nbsp;@zuo</li>
+			    		<li>振幅&nbsp;&nbsp;@zhen</li>
+			    	</ul>
+			    	<ul>
+			    		<li>涨停&nbsp;&nbsp;@zhang</li>
+			    		<li>跌停&nbsp;&nbsp;@die</li>
+			    		<li>总手&nbsp;&nbsp;@zong</li>
+			    	</ul>
+			    	<ul>
+			    		<li>最高&nbsp;&nbsp;@gao</li>
+			    		<li>最低&nbsp;&nbsp;@di</li>
+			    		<li>总量&nbsp;&nbsp;@liang</li>
+			    	</ul>
+				</script>
+			</div>
+			<div class="mai">
+				
+			</div>
+			<script type="text/template" id="mai">
+				<ul>
+					<li>卖1&nbsp;&nbsp;<span style="@color">@m1</span>&nbsp;&nbsp;&nbsp;@n1
+					</li>
+					<li>卖2&nbsp;&nbsp;<span>@m2</span>&nbsp;&nbsp;&nbsp;@n2
+					</li>
+					<li>卖3&nbsp;&nbsp;<span>@m3</span>&nbsp;&nbsp;&nbsp;@n3
+					</li>
+					<li>卖4&nbsp;&nbsp;<span>@m4</span>&nbsp;&nbsp;&nbsp;@n4
+					</li>
+					<li>卖5&nbsp;&nbsp;<span>@m5</span>&nbsp;&nbsp;&nbsp;@n5
+					</li>
+				</ul>
+				<ul>
+					<li>买1&nbsp;&nbsp;<span>@x1</span>&nbsp;&nbsp;&nbsp;@z1
+					</li>
+					<li>买2&nbsp;&nbsp;<span>@x2</span>&nbsp;&nbsp;&nbsp;@z2
+					</li>
+					<li>买3&nbsp;&nbsp;<span>@x3</span>&nbsp;&nbsp;&nbsp;@z3
+					</li>
+					<li>买4&nbsp;&nbsp;<span>@x4</span>&nbsp;&nbsp;&nbsp;@z4
+					</li>
+					<li>买5&nbsp;&nbsp;<span>@x5</span>&nbsp;&nbsp;&nbsp;@z5
+					</li>
+				</ul>
+			</script>
+		</div>
+		
+		
+		<div class="button">
+	发起策略
+</div>
+	</body>
+	<script>
+		$(function(){
+			$(".box li").click(function(){
+			$(this).siblings('li').removeClass('active');
+            $(this).addClass('active');
+			})
+			
+			
+				$(".fenshi").css("border-bottom","0.01rem solid rgb(21, 165, 122)")
+				$(".k_box .first li").click(function(){
+					$(this).siblings('li').css("border-bottom","0.01rem solid #FFFFFF");
+					$(this).css("border-bottom","0.01rem solid rgb(21, 165, 122)");
+				});
+		})
+	</script>
+</html>

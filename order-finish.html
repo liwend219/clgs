@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="./css/style.css">
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+    <title>订单完成</title>
+</head>
+<body>
+    <div class="body-title">
+        <div class="body-title-text">
+            投资咨询必修课
+        </div>
+    </div>
+    <br>
+    <br>
+    <div class="submit-order-icon">
+        <img src="./images/组 27.png" style="margin:0 auto;" alt="">
+        <br><br>
+        <div style="font-size:26px;">
+            购买成功！
+        </div>
+        <br>
+        <div style="color:rgb(160, 160, 160);font-size:14px;">
+            我们会尽快为您发货，请您耐心等待，谢谢！
+        </div>
+        <br>
+        <br>
+        <br>
+        <button class="gopay">返回首页</button>
+    </div>
+    <br>
+    <script>
+        $('.gopay').click(function(){
+            window.location.href="./VIP1.html"
+        })
+        $(".gopay").mouseover(function(){
+            $(".gopay").css("background-color","#c8302d");
+            $(".gopay").css("cursor","pointer");
+        });
+        $(".gopay").mouseout(function(){
+            $(".gopay").css("background-color","#de4b4b");
+        });
+    </script>
+</body>
+</html>

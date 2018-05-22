@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"/>
+    <title>拼单介绍</title>
+    <link rel="icon" href="images/logo01.png" type="image/x-icon">
+    <link rel="stylesheet" href="css/help.css">
+    <script src="js/jquery-3.2.1.js"></script>
+</head>
+<body>
+<!--头部-->
+<div id="back_nav" class="fixd">
+    <a href="javascript:history.back(-1);">
+        <img src="images/back.png" alt="" class="back_btn">
+    </a>
+    <span class="title">拼单介绍</span>
+</div>
+<!--中部-->
+<div class="top"></div>
+<div class="gz_box">
+    <p class="p_con">策略高手区别于同行最显著的特点之一就是<u class="p_con red">拼单功能</u>：</p>
+    <p class="h_sm">何为拼单功能：</p>
+    <p class="p_con">策略高手的投顾建议分为<u class="p_con">100万以上的策略方案</u>和<u class="p_con">100万以下的策略方案</u>，针对于<u class="p_con">100万以下的策略方案</u>，标的、期限相同的，可以进行拼单操作，拼成<u
+            class="p_con">100万以上的策略方案</u>，拼单成功。</p>
+    <p class="h_sm">那为什么要进行拼单？有何优势呢？</p>
+    <p class="h_sm_5 red">1、服务费便宜：</p>
+    <p class="p_con"><u class="p_con">100万以上策略方案</u>相比于<u class="p_con">100万以下的策略方案</u>，服务费比例低。拼单成功后可以享受较低的服务费率。</p>
+    <p class="h_sm">举例：</p>
+    <p class="p_con">假设10万策略方案的服务费率是10%，100万策略方案的服务费率是8%，如果标的、期限相同，拼成10个10万的策略方案，那就可以平摊享受8%的服务费率，节省了2%的服务费率。
+        （以上提及的服务费率只是假设，为了方便说明，实际服务费率根据实际情况报价。）</p>
+    <p class="h_sm_5 red">2、策略方案的发起人是排行榜名列前茅的高手或者专业的金融人士：</p>
+
+    <p class="p_con margin">策略方案的发起是需要审核的，审核通过后才能发起拼单。</p>
+    <p class="p_con margin">高手排行榜是根据1个月、3个月、6个月的盈利能力来排名的，只有排名在前的高手以及资深的专业人士发布的策略才能审核通过，从而为拼单的策略方案提供了更好的投资机会。</p>
+    <p class="h_sm_5 red">3、策略方案的发起人能享受到2%的利润分成：</p>
+    <p class="p_con">盈亏计算方法：盈利=（标的期末价格-标的期初价格）/标的期初价格*名义本金-服务费。</p>
+    <p class="p_con">如果有盈利，策略的发起人将获得盈利*2%的分成，其余98%的盈利由其他参与人平分。</p>
+</div>
+</body>
+<script>
+    $(function () {
+        var w = $(window).width();
+        if (w > 750) {
+            w = 750;
+        }
+        $("html").css("font-size", w / 7.5 + "px");
+        $(window).resize(function () {
+            var w = $(window).width();
+            if (w > 750) {
+                w = 750;
+            }
+            $("html").css("font-size", w / 7.5 + "px");
+        });
+
+        $("#footer_nav .nav_box .nav_item .nav_img").click(function () {
+            var img_src = $(this).attr("src");
+            console.log(img_src);
+            $(this).attr()
+        })
+
+    });
+</script>
+</html>

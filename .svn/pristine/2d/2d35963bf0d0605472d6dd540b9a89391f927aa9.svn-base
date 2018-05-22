@@ -1,0 +1,244 @@
+body {
+    background: #FFFFFF;
+}
+
+.conent {
+    padding: 0 0.3rem;
+    background-color: #393939;
+}
+
+#back_nav {
+    background-color: #393939;
+    width: 100%;
+    height: 0.88rem;
+    overflow: hidden;
+    line-height: 0.88rem;
+}
+
+#back_nav .back_btn {
+    width: 0.2rem;
+    height: 0.36rem;
+    margin: 0.26rem 0 0 0.28rem;
+}
+
+#back_nav .title {
+    margin-left: -0.48rem;
+    font-size: 0.34rem;
+    color: #393939;
+    letter-spacing: 0.03rem;
+}
+
+.user_info {
+    background: #393939;
+    padding: 0.2rem 0;
+    overflow: hidden;
+}
+
+.user_info .info_name {
+    line-height: 0.68rem;
+    font-size: 0.36rem;
+    color: #FFFFFF;
+    height: 0.68rem;
+}
+
+.user_info .pic_head {
+    width: 1.5rem;
+    height: 1.5rem;
+    border-radius: 50%;
+    overflow: hidden;
+    float: left;
+    margin-right: 0.3rem;
+}
+
+.user_info .icon {
+    width: 1.5rem;
+    height: 1.5rem;
+}
+
+.info_gf {
+    width: 1.7rem;
+    font-size: 0.3rem;
+    text-align: center;
+    float: left;
+}
+
+#info_x {
+    display: inline-block;
+    height: 0.4rem;
+    width: 0.01rem;
+    background: #FFFFFF;
+    position: relative;
+    top: 0.2rem;
+}
+
+.info_gf .left {
+    float: left;
+}
+
+.info_gf .right {
+    float: right;
+}
+
+.info_gf p {
+    font-size: 0.28rem;
+    color: #FFFFFF;
+}
+
+#user_tip {
+    width: 100%;
+    padding: 0.2rem 0;
+    background: #393939;
+    border-top: 0.01rem solid #5d5d5d;
+}
+
+#user_tip p {
+    font-size: 0.3rem;
+    color: #FFFFFF;
+}
+
+.user_info .edit {
+    display: inline-block;
+    width: 1.5rem;
+    height: 0.6rem;
+    float: right;
+    border-radius: 0.4rem;
+    font-size: 0.28rem;
+    color: #FFFFFF;
+    text-align: center;
+    position: relative;
+    top: -0.3rem;
+    padding: 0.11rem 0;
+    background: #de4239;
+    border: none;
+    line-height: 0.38rem;
+}
+
+.edit2 {
+    display: inline-block;
+    width: 1.5rem;
+    height: 0.6rem;
+    float: right;
+    border-radius: 0.4rem;
+    font-size: 0.28rem;
+    color: #FFFFFF;
+    text-align: center;
+    position: relative;
+    top: -0.3rem;
+    padding: 0.11rem 0;
+    line-height: 0.38rem;
+    background: #393939;
+    border: 0.01rem solid #FFFFFF;
+}
+
+#edit {
+    width: 1.3rem;
+    height: 0.6rem;
+    float: right;
+}
+
+.con {
+    width: 100%;
+}
+
+.con #font_tip {
+    width: 4rem;
+    height: 4rem;
+    margin: 0 auto;
+    text-align: center;
+    font-size: 0.32rem;
+    color: #363636;
+    position: relative;
+    top: 1rem;
+}
+
+.con #pic_tip {
+    width: 4rem;
+    height: 4rem;
+}
+
+.info_name #smrz {
+    display: inline-block;
+    width: 1rem;
+    height: 0.3rem;
+    padding: 0.02rem 0;
+    text-align: center;
+    background: #e34440;
+    font-size: 0.2rem;
+    line-height: 0.26rem;
+    border-radius: 0.1rem;
+    font-weight: 100;
+}
+
+#items {
+    width: 100%;
+    height: 0.7rem;
+    padding: 0 0.3rem;
+    margin-top: 0.2rem;
+}
+
+#items .items_icon {
+    width: 0.1rem;
+    height: 0.7rem;
+    background-color: #393939;
+    float: left;
+}
+
+#items .item {
+    padding: 0.14rem 0.12rem;
+    float: left;
+    margin-left: 0.12rem;
+    font-size: 0.32rem;
+    vertical-align: middle;
+    cursor: pointer;
+    font-weight: 600;
+    color: #393939;
+}
+
+#font_con {
+    border-top: 0.01rem solid #e7e7e6;
+    margin-top: 0.2rem;
+    padding: 0 0.3rem;
+}
+
+#font_con ul li {
+    width: 100%;
+    border-bottom: 0.01rem solid #e7e7e6;
+    padding: 0.3rem 0;
+}
+
+#font_con ul li:last-child {
+    border: none;
+}
+
+.font_time {
+    width: 100%;
+}
+
+.time {
+    color: #aeaeae;
+    font-size: 0.2rem;
+}
+
+.action {
+    margin-left: 0.2rem;
+    color: #393939;
+    font-size: 0.28rem;
+}
+
+.details, .details2 {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    color: #393939;
+    font-size: 0.34rem;
+    margin-top: 0.2rem;
+}
+
+.head {
+    width: 0.5rem;
+    height: 0.5rem;
+    border-radius: 50%;
+    overflow: hidden;
+    float: left;
+    margin-right: 0.15rem;
+}

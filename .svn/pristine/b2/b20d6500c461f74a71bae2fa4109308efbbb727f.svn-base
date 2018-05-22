@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"/>
+          <meta name="viewport"
+          content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"/>
+    <title>交易</title>
+    <link rel="icon" href="images/logo01.png" type="image/x-icon">
+    <link rel="stylesheet" href="css/init.css">
+    <link rel="stylesheet" href="css/public.css">
+    <link rel="stylesheet" href="css/adviser.css">
+    <script src="js/jquery-3.2.1.js"></script>
+    <script src="js/public.js"></script>
+    <script src="js/verification.js"></script>
+    <script src="js/api.js"></script>
+    <script src="js/adviser.js"></script>
+    <!--<script>
+        var cid = sessionStorage.getItem("cid");
+        if (cid == "" || cid == null) {
+            alert("请先登录");
+            window.location.href = "logoIn.html";
+        }
+    </script>-->
+</head>
+
+<body>
+<div id="container">
+    <!------------------------------ 导航栏开始 ------------------------------>
+    <div id="nav">
+        <span class="title">投顾建议</span>
+    </div>
+    <!------------------------------ 导航栏结束 ------------------------------>
+
+    <!------------------------------ 一级选项卡开始 ------------------------------>
+    <div class="items_box">
+        <ul class="item">
+            <li class="list" id="enquiry">
+                <a href="javascript: void(0)" class="entry">询价</a>
+            </li>
+            <li class="list" id="deal_record">
+                <a href="javascript: void(0)" class="entry">成交</a>
+            </li>
+            <li class="list" id="settlement_record">
+                <a href="javascript: void(0)" class="entry">结算</a>
+            </li>
+        </ul>
+    </div>
+    <!------------------------------ 一级选项卡结束 ------------------------------>
+
+    <div class="list_content">
+        <div class="part_one part">
+            <!------------------------------ 二级选项卡开始 ------------------------------>
+            <ul class="item_submenu">
+                <li class="list_submenu">
+                    <a href="javascript: void(0)" class="entry_submenu left" id="inquiry_project">询价项目</a>
+
+                    <a href="javascript: void(0)" class="entry_submenu right" id="inquiry_record">询价记录</a>
+                </li>
+            </ul>
+            <!------------------------------ 二级选项卡结束 ------------------------------>
+
+            <div class="tab_content">
+                <!------------------------------ 询价项目开始 ------------------------------>
+                <div class="tab_left tab">
+                    <div class="stock_code">
+                        <span class="code">股票代码　<img src="./images/icon_help.png" style="width:16px;height:16px; vertical-align:middle;" onclick="showHelpMade(event,1)" alt=""></span>
+                        
+                        <input type="text" placeholder="请输入股票代码" class="code_text" maxlength="6"
+                               onkeyup="value = value.replace(/[^\d]/g, '')">
+                    </div>
+                    <div class="stock_name">
+                        <span class="name">股票名称</span>
+                        <input type="text" class="name_text" onfocus=this.blur()>
+                    </div>
+                    <div class="stock_term">
+                        <span class="term">投顾期限　<img src="./images/icon_help.png" style="width:16px;height:16px; vertical-align:middle;" onclick="showHelpMade(event,4)" alt=""></span>
+                        <select name="" class="term_lists">
+                        	<option value="5d">1周</option>
+                        	<option value="10d">2周</option>
+                            <option value="1m" selected="selected">1月</option>
+                            <!--<option value="2m">2月</option>
+                            <option value="3m">3月</option>-->
+                        </select>
+                    </div>
+                    <div class="stock_implement">
+                        <span class="implement">执行方式　<img src="./images/icon_help.png" style="width:16px;height:16px; vertical-align:middle;" onclick="showHelpMade(event,2)" alt=""></span>
+                        <!--<select name="" class="implement_lists">
+                        	 <option value="T+1">T+1</option>
+                        	 <option value="T+2">T+2</option>
+                            <option value="T+5" selected="selected">T+5</option>
+                            <!--<option value="1" disabled="disabled">中式</option>
+                            <option value="2" disabled="disabled">法式</option>
+                            <option value="3" disabled="disabled">俄式</option>-->
+                        <!--</select>-->
+                        <span class="implement_lists" style="padding-left: 0.1rem;">
+                        	T+5
+                        </span>
+                    </div>
+                    <div class="stock_price">
+                        <span class="price">执行价格　<img src="./images/icon_help.png" style="width:16px;height:16px; vertical-align:middle;" onclick="showHelpMade(event,3)" alt=""></span>
+                        <select name="" class="price_lists">
+                            <option value="0">100%</option>
+                            <!--<option value="1">95%</option>-->
+                            <!--<option value="2">90%</option>-->
+                            <!--<option value="3">80%</option>-->
+                        </select>
+                    </div>
+                    
+                    <div class="stock_assets">
+                        <span class="assets">投顾资产　<img src="./images/icon_help.png" style="width:16px;height:16px; vertical-align:middle;" onclick="showHelpMade(event,5)" alt=""></span>
+                        <input type="text" placeholder="10的整数倍,最低30万" class="assets_text"
+                               onkeyup="value = value.replace(/[^\d]/g, '')">
+                    </div>
+
+                    <div class="info_submit">
+                        <button class="inquiry_btn">立即询价</button>
+
+                        <div class="agreement">
+                            <input type="checkbox" class="checkbox" checked="checked">
+                            <span class="text">我已阅读策略高手
+                                <a href="javascript:void(0);">《投资顾问协议》</a>
+                               <br />
+                            </span>
+                             
+                        </div>
+                       
+                    </div>
+                </div>
+                <!------------------------------ 询价项目结束 ------------------------------>
+
+                <!------------------------------ 询价记录开始 ------------------------------>
+                <div class="tab_right tab content" style="display: none">
+                    <!--数据加载提示-->
+                    <span class="bottom_tip" style="display: none">
+                        <img src="images/load.gif" alt="" class="load_img">正在加载...
+                    </span>
+
+                    <!-- 询价记录模板 -->
+                    <script type="text/template" id="inquiry">
+                        <ul class="content_lists">
+                            <i class="asKid">@asKid</i>
+                            <li class="title_box">
+                                <h3 class="title">@code @name</h3>
+                                <img src="@srcImg" alt="" class="label">
+                            </li>
+                            <li class="entry_box">
+                                <h3 class="entry_text">询价时间</h3>
+                                <span class="entry_time">@time</span>
+                            </li>
+                            <li class="implement_box">
+                                <h3 class="implement_text">执行方式</h3>
+                                <span class="category">@category</span>
+                            </li>
+                            <li class="price_box">
+                                <h3 class="price_text">执行价格</h3>
+                                <span class="price">@price</span>
+                            </li>
+                            <li class="term_box">
+                                <h3 class="term_text">投顾期限</h3>
+                                <span class="term">@term</span>
+                            </li>
+                            <li class="assets_box">
+                                <h3 class="assets_text">投顾资产</h3>
+                                <span class="assets">@assets</span>
+                            </li>
+                            <li class="cost_box">
+                                <h3 class="cost_text">投顾费用</h3>
+                                <span class="cost">@cost</span>
+                            </li>
+                            <button class="btn" style="@display">提交</button>
+                        </ul>
+                    </script>
+
+                </div>
+                <!------------------------------ 询价记录结束 ------------------------------>
+            </div>
+        </div>
+
+        <!------------------------------ 成交开始 ------------------------------>
+        <div class="part_two part" style="display: none">
+            <div class="deal_box content">
+                <!--数据加载提示-->
+                <span class="bottom_tip" style="display: none">
+                    <img src="images/load.gif" alt="" class="load_img">正在加载...
+                </span>
+
+                <!-- 成交模板 -->
+                <script type="text/template" id="deal">
+                    <ul class="content_lists">
+                        <i class="oid" id="@id">@oid</i>
+                        <li class="title_box">
+                            <h3 class="title">@code @name</h3>
+                            <i class="state">@state</i>
+                        </li>
+                        <li class="investment_box">
+                            <h3 class="investment_text">投顾资产</h3>
+                            <span class="investment_assets">@assets</span>
+                        </li>
+                        <li class="available_box">
+                            <h3 class="available_text">可用资产</h3>
+                            <span class="available_assets">@available</span>
+                        </li>
+                        <li class="init_box">
+                            <h3 class="init_text">期初价</h3>
+                            <span class="init_price">@init_price</span>
+                        </li>
+                        <!--<li class="current_box">
+                            <h3 class="current_text">当前价</h3>
+                            <span class="current_price"></span>
+                        </li>
+                        <li class="position_box">
+                            <h3 class="position_text">持仓盈亏</h3>
+                            <span class="situation"></span>
+                        </li>-->
+                        <li class="expire_box">
+                            <h3 class="expire_text">到期时间</h3>
+                            <span class="expire_time">@expire_time</span>
+                        </li>
+                        <li class="more">查看详情</li>
+                    </ul>
+                </script>
+
+            </div>
+        </div>
+        <!------------------------------ 成交结束 ------------------------------>
+
+        <!------------------------------ 结算开始 ------------------------------>
+        <div class="part_three part" style="display: none">
+            <div class="settlement_content content">
+                <!--数据加载提示-->
+                <span class="bottom_tip" style="display: none">
+                    <img src="images/load.gif" alt="" class="load_img">正在加载...
+                </span>
+
+                <!-- 结算模板 -->
+                <script type="text/template" id="settlement">
+                    <ul class="content_lists">
+                        <li class="title_box">
+                            <h3 class="title">@code @name</h3>
+                            <img src="@labelImg" alt="" class="label">
+                        </li>
+                        <li class="assets_box">
+                            <h3 class="assets_text">投顾资产</h3>
+                            <span class="assets">@assets</span>
+                        </li>
+                        <li class="init_box">
+                            <h3 class="init_text">期初价</h3>
+                            <span class="init_price">@init_price</span>
+                        </li>
+                        <li class="settlement_box">
+                            <h3 class="settlement_text">结算价</h3>
+                            <span class="settlement_price">@settlement_price</span>
+                        </li>
+                        <li class="start_box">
+                            <h3 class="start_text">成交时间</h3>
+                            <span class="start_time">@start_time</span>
+                        </li>
+                        <li class="end_box">
+                            <h3 class="end_text">结束时间</h3>
+                            <span class="end_time">@end_time</span>
+                        </li>
+                        <li class="settlement_state">
+                            <h3 class="state_text">结算盈亏</h3>
+                            <span class="state_price">@state_price</span>
+                        </li>
+                    </ul>
+                </script>
+
+            </div>
+        </div>
+        <!------------------------------ 结算结束 ------------------------------>
+    </div>
+
+    <!------------------------------ 底部导航栏开始 ------------------------------>
+    <div id="footer_nav">
+        <ul class="nav_box">
+            <li class="nav_item">
+                <a href="index.html">
+                    <img src="images/icon_home.png" alt="" class="nav_img">
+                    <span class="nav_name">首页</span>
+                </a>
+            </li>
+            <li class="nav_item">
+                <a href="adviser.html">
+                    <img src="images/icon_adviser_active.png" alt="" class="nav_img">
+                    <span class="nav_name">交易</span>
+                </a>
+            </li>
+            <!--<li class="nav_item">
+                <a href="fight.html">
+                    <img src="images/icon_fight.png" alt="" class="nav_img">
+                    <span class="nav_name">拼单</span>
+                </a>
+            </li>-->
+            <li class="nav_item">
+                <a href="master.html">
+                    <img src="images/icon_killer.png" alt="" class="nav_img">
+                    <span class="nav_name">高手</span>
+                </a>
+            </li>
+            <li class="nav_item">
+                <a href="personal.html">
+                    <img src="images/icon_personal.png" alt="" class="nav_img">
+                    <span class="nav_name">我的</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <!------------------------------ 底部导航栏结束 ------------------------------>
+</div>
+
+<!--询价模态框-->
+<div id="inquiry_model" style="display: none">
+    <div class="model_content">
+        <h3 class="title">报价</h3>
+        <ul>
+            <li class="code_box">
+                <h2 class="code_text">股票代码</h2>
+                <span class="code_name"></span>
+            </li>
+            <li class="implement_box">
+                <h2 class="implement_text">执行方式</h2>
+                <span class="category"></span>
+            </li>
+            <li class="price_box">
+                <h2 class="price_text">执行价格</h2>
+                <span class="price"></span>
+            </li>
+            <li class="term_box">
+                <h2 class="term_text">投顾期限</h2>
+                <span class="term"></span>
+            </li>
+            <li class="assets_box">
+                <h2 class="assets_text">投顾资产</h2>
+                <span class="assets"></span>
+            </li>
+            <li class="cost_box">
+                <h2 class="cost_text">投顾费用</h2>
+                <span class="cost"></span>
+            </li>
+        </ul>
+        <div class="model_option">
+            <span class="cancel">取消</span>
+            <span class="sure">确定</span>
+        </div>
+    </div>
+</div>
+<!-- 帮助模态框 -->
+<div id="cover">
+    <div id="cover-bg"></div>
+    <div id="cover-content">
+        <div class="cover-content-title"></div>
+        <div class="cover-content-content"></div>
+    </div>
+</div>
+<!-- 询价记录模态框 -->
+<div id="inquiryRecord_model" style="display: none">
+    <div class="model_content">
+        <i class="temporary_askid" style="display: none"></i>
+        <i class="temporary_principal" style="display: none"></i>
+        <i class="temporary_title" style="display: none"></i>
+        <i class="temporary_cost" style="display: none"></i>
+        <h3 class="title"></h3>
+        <p class="inquiryRecord_tip">提醒:投顾费用将在你的钱包中扣款!</p>
+        <div class="model_option">
+            <span class="cancel">取消</span>
+            <span class="sure">确定</span>
+        </div>
+    </div>
+</div>
+
+<!-- 实名认证模态框 -->
+<div id="realName_model" style="display: none">
+    <div class="model_content">
+        <h3 class="title">策略高手询价通知</h3>
+        <p class="realName_tip">您好! 您查询的投顾资产
+            <u>已超100万</u>, 为了保障您获得更多权益, 请务必进行实名认证, 才能继续使用。
+        </p>
+        <div class="model_option">
+            <span class="sure">前往认证</span>
+            <span class="cancel">暂不认证</span>
+        </div>
+    </div>
+</div>
+
+<!--提示信息-->
+<span id="tip" style="display: none"></span>
+</body>
+
+</html>

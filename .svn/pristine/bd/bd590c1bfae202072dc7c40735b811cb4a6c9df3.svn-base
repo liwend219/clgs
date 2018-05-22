@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"/>
+    <title>拼单</title>
+    <link rel="icon" href="images/logo01.png" type="image/x-icon">
+    <link rel="stylesheet" href="css/init.css">
+    <link rel="stylesheet" href="css/public.css">
+    <link rel="stylesheet" href="css/fight.css">
+    <script src="js/jquery-3.2.1.js"></script>
+    <script src="js/public.js"></script>
+    <script src="js/verification.js"></script>
+    <script src="js/api.js"></script>
+    <script src="js/fight.js"></script>
+    <script>
+        var cid = sessionStorage.getItem("cid");
+        if (cid == "" || cid == null) {
+            alert("请先登录");
+            window.location.href = "logoIn.html";
+        }
+    </script>
+</head>
+<body>
+<div id="container">
+    <div class="nav_bg">
+        <div id="nav">
+            <span class="title">拼单</span>
+        </div>
+
+        <div id="items_box">
+            <ul class="item">
+                <li class="list">
+                    <a href="javascript: void (0)" class="entry entry_left" id="fight">拼单项目</a>
+
+                    <a href="javascript: void (0)" class="entry entry_right" id="myFight">我的拼单</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div id="project_content">
+        <div id="project_fight" class="item">
+            <div class="project">
+                <!--数据加载提示-->
+                <span class="bottom_tip" style="display: none">
+                    <img src="images/load.gif" alt="" class="load_img">正在加载...
+                </span>
+            </div>
+        </div>
+
+        <!--拼单项目模板-->
+        <script type="text/template" id="fight_items">
+            <div class="project_list">
+                <i class="id" style="display: none">@sid</i>
+                <i class="completed" style="display: none">@completed</i>
+                <div class="initiator_box">
+                    <img src="@icon" alt="" onerror="this.src='images/icon.png'" class="initiator_icon">
+                    <span class="initiator_name">@user_name</span>
+                    <span class="behavior">发起</span>
+                </div>
+                <div class="project_info">
+                    <div class="project_box">
+                        <span class="project_title">拼单项目</span>
+                        <span class="project_name">【@code @shares】</span>
+                        <span class="project_discount">拼即减0.3%起</span>
+                    </div>
+                    <div class="info_details">
+                        <!--<div class="expect_income">-->
+                        <!--<span class="expect_money">12.100-->
+                        <!--<i class="company">元</i>-->
+                        <!--</span>-->
+                        <!--<span class="expect_text">服务费立减</span>-->
+                        <!--</div>-->
+                        <div class="left">
+                            <div class="product_details">
+                                <span class="product_term">策略期限: @term</span>
+                                <span class="activity_time">活动截止: @time</span>
+                                <span class="join_num">已参投人数: @join_num人</span>
+                            </div>
+                        </div>
+                        <div class="right">
+                            <div class="circle" style="@hide">
+                                <!--左半边圆-->
+                                <div class="circle_left"></div>
+                                <!--右半边圆-->
+                                <div class="circle_right"></div>
+                                <div class="mask">
+                                    <span class="percentage" style="display: none"></span>
+                                    <span class="fight_state"
+                                          style="@fightState_color; @fightState_font; @fightState_space">@fight_state</span>
+                                </div>
+                            </div>
+                            <img src="images/icon_full.png" class="icon_full" alt="" style="@show">
+                        </div>
+                    </div>
+                </div>
+                <div class="items">
+                    <span class="details_btn">查看详情</span>
+                    <span class="join_btn" style="@joinBtn_color">@state</span>
+                </div>
+            </div>
+        </script>
+
+
+        <div id="project_myFight" class="item" style="display: none">
+            <div class="project">
+                <!--数据加载提示-->
+                <span class="bottom_tip" style="display: none">
+                    <img src="images/load.gif" alt="" class="load_img">正在加载...
+                </span>
+            </div>
+        </div>
+
+        <!--我的拼单模板-->
+        <script type="text/template" id="myFight_items">
+            <div class="project_list">
+                <i class="id" style="display: none">@sid</i>
+                <i class="completed" style="display: none">@completed</i>
+                <div class="initiator_box">
+                    <img src="@icon" alt="" onerror="this.src='images/icon.png'" class="initiator_icon">
+                    <span class="initiator_name">@user_name</span>
+                    <span class="behavior">发起</span>
+                    <i class="state">@state</i>
+                </div>
+                <div class="project_info">
+                    <div class="project_box">
+                        <span class="project_title">拼单项目</span>
+                        <span class="project_name">【@code @shares】</span>
+                        <span class="project_discount">拼即减0.3%起</span>
+                    </div>
+                    <div class="info_details">
+                        <!--<div class="expect_income">-->
+                        <!--<span class="expect_money">12.100-->
+                        <!--<i class="company">元</i>-->
+                        <!--</span>-->
+                        <!--<span class="expect_text">预期到账收益</span>-->
+                        <!--</div>-->
+                        <div class="left">
+                            <div class="product_details">
+                                <span class="product_term">策略期限: @term</span>
+                                <span class="activity_time">活动截止: @time</span>
+                                <span class="join_num">已参投人数: @join_num人</span>
+                            </div>
+                        </div>
+                        <div class="right">
+                            <div class="circle" style="@hide">
+                                <!--左半边圆-->
+                                <div class="circle_left"></div>
+                                <!--右半边圆-->
+                                <div class="circle_right"></div>
+                                <div class="mask">
+                                    <span class="percentage" style="display: none"></span>
+                                    <span class="fight_state"
+                                          style="@myFightState_color; @myFightState_font; @myFightState_space">@myFight_state</span>
+                                </div>
+                            </div>
+                            <img src="images/icon_full.png" class="icon_full" alt="" style="@show">
+                        </div>
+                    </div>
+                </div>
+                <div class="items">
+                    <span class="details_btn">查看详情</span>
+                    <span class="join_btn" style="@joinBtn_color">@myState</span>
+                </div>
+            </div>
+        </script>
+    </div>
+</div>
+
+<div class="release">
+    <img src="images/icon_release.png" alt="" class="release_btn">
+    <span class="release_text">我要发布</span>
+</div>
+
+<div id="footer_nav">
+    <ul class="nav_box">
+        <li class="nav_item">
+            <a href="index.html">
+                <img src="images/icon_home.png" alt="" class="nav_img">
+                <span class="nav_name">首页</span>
+            </a>
+        </li>
+        <li class="nav_item">
+            <a href="adviser.html">
+                <img src="images/icon_adviser.png" alt="" class="nav_img">
+                <span class="nav_name">交易</span>
+            </a>
+        </li>
+        <li class="nav_item">
+            <a href="fight.html">
+                <img src="images/icon_fight_active.png" alt="" class="nav_img">
+                <span class="nav_name">拼单</span>
+            </a>
+        </li>
+        <li class="nav_item">
+            <a href="master.html">
+                <img src="images/icon_killer.png" alt="" class="nav_img">
+                <span class="nav_name">高手</span>
+            </a>
+        </li>
+        <li class="nav_item">
+            <a href="personal.html">
+                <img src="images/icon_personal.png" alt="" class="nav_img">
+                <span class="nav_name">我的</span>
+            </a>
+        </li>
+    </ul>
+</div>
+
+<!--提示信息-->
+<span id="tip" style="display: none"></span>
+
+<!--参与拼单模态框-->
+<div id="joinFight_model" style="display: none">
+    <div class="model_content">
+        <i class="id" style="display: none"></i>
+        <i class="senate_value" style="display:none"></i>
+        <i class="total_value" style="display:none"></i>
+        <i class="code" style="display:none"></i>
+        <i class="term" style="display:none"></i>
+        <h3 class="title">参与拼单</h3>
+        <ul>
+            <li class="strategy_box">
+                <h2 class="strategy_text">策略发起人</h2>
+                <span class="strategy_name"></span>
+            </li>
+            <li class="collageProject_box">
+                <h2 class="collageProject_text">拼单项目</h2>
+                <span class="collageProject_name"></span>
+            </li>
+            <li class="subscription_box">
+                <h2 class="subscription_text">认购金额(万)</h2>
+                <input type="text" placeholder="10的整数倍,最低10万" class="subscription_price"
+                       onkeyup="value = value.replace(/[^\d]/g, '')">
+            </li>
+            <li class="cost_box">
+                <h2 class="cost_text">投顾费用</h2>
+                <span class="cost"></span>
+            </li>
+        </ul>
+        <div class="model_option">
+            <span class="cancel">取消</span>
+            <span class="sure">确定</span>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

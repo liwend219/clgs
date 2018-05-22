@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"/>
+    <title>七拳网-策略高手</title>
+    <link rel="icon" href="images/logo01.png" type="image/x-icon">
+    <script src="js/jquery-3.2.1.js"></script>
+    <style>
+        * {
+            margin: 0 auto;
+            padding: 0;
+            font-size: 14px;
+            box-sizing: border-box;
+            font-family: "微软雅黑" !important;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .top {
+            text-align: center;
+        }
+
+        .top .big {
+            width: 100%;
+            z-index: 9;
+        }
+
+        .top .anzhuo {
+            display: block;
+            width: 4.7rem;
+            height: 0.8rem;
+        }
+
+        .top .pingguo {
+            display: block;
+            width: 4.7rem;
+            height: 0.8rem;
+            margin-top: 0.3rem;
+        }
+
+        .anzhuo img {
+            width: 4.7rem;
+            height: 0.8rem;
+        }
+
+        .pingguo img {
+            width: 4.7rem;
+            height: 0.8rem;
+        }
+
+        .Modal {
+            width: 100%;
+            background: rgba(52, 52, 52, .5);
+            height: 15rem;
+            position: absolute;
+            top: 0;
+            display: none;
+        }
+
+        .Modal img {
+            width: 4rem;
+            float: right;
+        }
+
+        .top p {
+            text-align: center;
+            font-size: 0.18rem;
+            color: #393939;
+            margin-top: 0.3rem;
+        }
+        .web{
+        	width: 4.7rem;
+        	height: 0.8rem;
+        	background: #393939;
+        	line-height: 0.8rem;
+        	margin-top: 0.3rem;
+        	
+        }
+        .web a{
+        	color: #FFFFFF;
+        	font-size: 0.3rem;
+        }
+    </style>
+    <script>
+        $(function () {
+            var w = $(window).width();
+            if (w > 750) {
+                w = 750;
+            }
+            $("html").css("font-size", w / 7.5 + "px");
+            $(window).resize(function () {
+                var w = $(window).width();
+                if (w > 750) {
+                    w = 750;
+                }
+                $("html").css("font-size", w / 7.5 + "px");
+            });
+
+            $(".anzhuo").click(function () {
+                window.location.href = "http://www.i7quan.com/down/7q.apk"
+            })
+
+            //判断是否在微信浏览器中打开，如果是就提示信息，如果不是就不提示
+            function is_weixn() {
+                var ua = navigator.userAgent.toLowerCase();
+                if (ua.match(/MicroMessenger/i) == "micromessenger") {
+                    $(".Modal").css("display", "block")
+                } else {
+                    $(".Modal").css("display", "none")
+                }
+            }
+
+            $(".anzhuo").click(function () {
+                is_weixn()
+            })
+            $(".web").click(function(){
+            	window.location.href="http://www.i7quan.com/web/logoIn.html"
+            })
+             $(".pingguo").click(function () {
+               window.location.href="https://itunes.apple.com/cn/app/%E7%AD%96%E7%95%A5%E9%AB%98%E6%89%8B/id1328732131?mt=8"
+            })
+
+        });
+    </script>
+</head>
+<body>
+<!--中部-->
+<div class="top">
+    <img class="big" src="images/6E2462DC4910C750822303D406C3A383.jpg"/>
+    
+    <span class="anzhuo">
+			<!--http://www.i7quan.com/down/7q.apk-->
+			<img src="images/6E2462DC4910C750822303D406C3A385.jpg"/>
+		</span>
+    <span class="pingguo">
+			<img src="images/6E2462DC4910C750822303D406C3A384.jpg"/>
+		</span>
+		<p class="web"><a href="http://www.i7quan.com/web/logoIn.html">免下载登入</a></p>
+		<p>copyright@2018 www.i7quan.com</p>
+</div>
+<div class="Modal">
+    <img src="images/139942921770235018.png"/>
+</div>
+</body>
+</html>

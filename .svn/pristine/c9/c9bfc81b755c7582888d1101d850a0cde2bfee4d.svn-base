@@ -1,0 +1,149 @@
+body {
+    background: #e6e6e7;
+}
+
+#back_nav {
+    background-color: #393939;
+    width: 100%;
+    height: 0.88rem;
+    text-align: center;
+    overflow: hidden;
+    line-height: 0.88rem;
+}
+
+#back_nav .back_btn {
+    float: left;
+    width: 0.2rem;
+    height: 0.36rem;
+    margin: 0.26rem 0 0 0.28rem;
+}
+
+#back_nav .title {
+    margin-left: -0.48rem;
+    font-size: 0.34rem;
+    color: #FFFFFF;
+    letter-spacing: 0.03rem;
+}
+
+.lists ul {
+    background: #ffffff;
+}
+
+.lists ul li {
+    padding: 0.2rem 0;
+    margin: 0 0.3rem;
+    overflow: hidden;
+    border-bottom: 0.01rem solid #ededed;
+    cursor: pointer;
+}
+
+.lists ul li:last-child {
+    border-bottom: none;
+}
+
+.lists ul:first-child li:first-child {
+    padding: 0.118rem 0;
+}
+
+.lists ul:last-child {
+    margin-top: 0.3rem;
+}
+
+.lists ul li .font_left span:first-child {
+    font-size: 0.32rem;
+    color: #393939;
+    vertical-align: middle;
+    float: left;
+}
+
+.lists ul li i {
+    background: url("../images/arrow.png") no-repeat center;
+    background-size: cover;
+    width: 0.16rem;
+    height: 0.27rem;
+    float: right;
+    margin-top: 0.1rem;
+}
+
+.items_right {
+    display: inline-block;
+    width: 0.6rem;
+    height: 0.6rem;
+    border-radius: 50%;
+    float: right;
+}
+
+.items_right img {
+    width: 0.6rem;
+    height: 0.6rem;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.font_left {
+    display: inline-block;
+    width: 94%;
+}
+
+.right {
+    float: right;
+}
+
+.nickname {
+    color: #aeaeae;
+    font-size: 0.25rem;
+    position: relative;
+    top: 0.09rem;
+}
+
+.pic_head {
+    position: relative;
+    top: 0.07rem;
+}
+
+.first i {
+    position: relative;
+    top: 0.08rem;
+}
+
+#select {
+    height: 0.45rem;
+    font-size: 0.28rem;
+    border: none;
+    outline: none;
+    color: #ff5a5a;
+}
+
+#select option {
+    border: none;
+    outline: none;
+}
+
+.shiming {
+    float: right;
+}
+
+.real_state {
+    font-size: 0.2rem;
+    color: #ffffff;
+    background: #D63F2B;
+    font-style: normal;
+    padding: 0.05rem 0.15rem;
+    border-radius: 0.15rem;
+    margin-left: 0.2rem;
+    position: relative;
+    top: 0.1rem;
+}
+
+.zhuangtai {
+    font-size: 0.3rem;
+    color: #393939;
+
+}
+
+.usertext {
+    color: #aeaeae;
+    font-size: 0.25rem;
+    position: relative;
+    top: 0.09rem;
+}

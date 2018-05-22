@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<link rel="icon" href="images/logo01.png" type="image/x-icon">
+		<link rel="stylesheet" href="css/gupiao_t6.css">
+		<script src="js/jquery-3.2.1.js"></script>
+		<script src="js/public.js"></script>
+		<title>T+D策略确认</title>
+	</head>
+
+	<body>
+		<div>
+			<div id="back_nav">
+				<a href="javascript:history.back(-1);">
+					<img src="images/back.png" alt="" class="back_btn">
+				</a>
+				<span class="title" style="margin-left: 0;color: #393939">T+D策略确认</span>
+			</div>
+			<div class="detail">
+				<div class="detail-1">
+					<span>金额</span>
+					<span style="float:right"><input placeholder="输入其他金额，单位万元" type="number" id="money"> 万元</span>
+				</div>
+				<div style="border-bottom:1px solid #ededed">
+					<div class="detail-2">
+						<div class="detail-2-item active v1" data-idx="1">1万</div>
+						<div class="detail-2-item" data-idx="2">2万</div>
+						<div class="detail-2-item" data-idx="3">3万</div>
+						<div class="detail-2-item" data-idx="5">5万</div>
+						<div class="detail-2-item" data-idx="10">10万</div>
+						<div class="detail-2-item" data-idx="20">20万</div>
+						<div class="detail-2-item" data-idx="30">30万</div>
+						<div class="detail-2-item" data-idx="100">100万</div>
+					</div>
+				</div>
+				<div class="detail-3">
+					<div class="detail-3-item">
+						<span class="font">持仓时间</span>
+
+						<span class="tic" data-idx="20">t+20</span>
+						<span class="tic" data-idx="10">t+10</span>
+						<span class="tic" data-idx="5">t+5</span>
+						<span class="tic active" data-idx="3">t+3</span>
+
+					</div>
+					<!--<div class="t1-select">T+1</div>-->
+				</div>
+			</div>
+			<div class="box">
+				<ul>
+					<li><span class="left">触发止盈</span><span class="right">180%</span></li>
+					<li><span class="left">触发止损</span><span class="right">103%</span></li>
+					<li><span class="left">递延条件</span><span class="right">105%</span></li>
+					<li><span class="left">盈利分成</span><span class="right">90%</span></li>
+				</ul>
+			</div>
+			<div class="box">
+				<ul>
+					<li><span class="left">递延费</span><span class="right">1363.00</span></li>
+					<li><span class="left">保证金</span><span class="right">52.32</span></li>
+					<li><span class="left">总费用</span><span class="right" style="color:#ec6d6d">1415.32</span></li>
+					<li><span class="left">余额</span><span class="right" style="color:#ec6d6d">10900.00</span></li>
+				</ul>
+			</div>
+			<br>
+			<div class="detail-4">
+				<div class="detail-4-title">发表策略即代表已同意以下协议</div>
+				<div class="detail-4-item">
+					《平仓点卖人参与沪深A股交易合作及费用及资费标准》
+				</div>
+				<div class="detail-4-item">
+					《平台股票人与点买人参与沪深A股交易合作协议》
+				</div>
+				<div class="detail-4-item">
+					《平台服务协议》
+				</div>
+			</div>
+			<div class="zhanwei">
+
+			</div>
+			<div class="button">
+				提交
+			</div>
+		</div>
+		<script>
+			$(function() {
+
+				$('.detail-2-item').click(function() {
+					$(this).siblings('.detail-2-item').removeClass('active');
+					$(this).addClass('active');
+					var money = $('.detail-2 .active').attr("data-idx")
+					sessionStorage.setItem("money", money)
+					$('#money').val("")
+				})
+				$('.detail-3-item .tic').click(function() {
+
+					$(this).siblings('.tic').removeClass('active');
+					$(this).addClass('active');
+					var holdDays = $('.detail-3-item .active').attr("data-idx")
+					sessionStorage.setItem("holdDays", holdDays)
+				})
+				$('#money').bind('input propertychange', function() {
+					//					console.log($('#money').val())
+					var val = $('#money').val()
+					if(val > 100) {
+						alert("策略组金额不能超过100万")
+						$('#money').val("")
+					}
+					else if(val < 1) {
+						alert("策略组金额不能低于一万")
+						$('#money').val("")
+					}
+					if(val.length>0){
+						$(".detail-2-item").siblings('.detail-2-item').removeClass('active');
+					}
+					else{
+						$(".v1").addClass('active');
+						var money1 = $('.detail-2 .active').attr("data-idx")
+						console.log(money1)
+						sessionStorage.setItem("money", money1)
+					}
+					
+
+					var v = val
+					sessionStorage.setItem("money", v)
+				})
+//				$('#money').focus(function(){
+//					$(".detail-2-item").siblings('.detail-2-item').removeClass('active');
+//				})
+				//				拿到默认money
+				var money = $('.detail-2 .active').attr("data-idx")
+				sessionStorage.setItem("money", money)
+				//				拿到默认天数
+				var holdDays = $('.detail-3-item .active').attr("data-idx")
+				sessionStorage.setItem("holdDays", holdDays)
+				//					获取参数数据
+
+				$(".button").click(function() {
+					var id = sessionStorage.getItem("my_id")
+					var cid = sessionStorage.getItem("cid")
+					var money = sessionStorage.getItem("money")
+					var holdDays = sessionStorage.getItem("holdDays")
+					console.log("金额",money)
+					console.log("id",id)
+					console.log("cid",cid)
+					console.log("天数",holdDays)
+					var principal = money/5
+					console.log(principal)
+					$.ajax({
+						type: "post",
+						url: "http://139.196.178.5:8006/api/union/scheme/outCreate.json",
+						dataType: "json",
+						data: {
+							"UserID": id,
+							"cid": cid,
+							"money": money, //1w--100w
+							"deferConditionRatio": 105, //递延线比例
+							"quitGainRatio": 180, //止盈
+							"quitLossRatio": 103, //止损
+							"principal": principal, //保证金点买金额/杠杆
+							"deferCharge": 33, //综合费万11*交易天数
+							"holdDays": holdDays
+						},
+						success: function(data) {
+							console.log(data)
+						}
+					})
+				})
+
+			})
+		</script>
+		<script>
+			$(function() {
+				//T+D策略初始化
+				//	        http://139.196.178.5:8006/api/home/scheme/index1.json?device=1
+				$.ajax({
+					type: "post",
+					url: "http://139.196.178.5:8006/api/home/scheme/index1.json",
+					dataType: "json",
+					data: {
+						"device": 1
+					},
+					success: function(data) {
+						console.log(data.datas.strRisk)
+						//					拿到金额
+//						console.log(data.datas.strRisk.tradingMoneyList.value);
+						var Amoney = data.datas.strRisk.tradingMoneyList.value;
+
+					}
+				});
+			})
+		</script>
+	</body>
+
+</html>

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"/>
+    <title>充值</title>
+    <link rel="icon" href="images/logo01.png" type="image/x-icon">
+    <link rel="stylesheet" href="css/init.css">
+    <link rel="stylesheet" href="css/public.css">
+    <link rel="stylesheet" href="css/Recharge.css">
+    <script src="js/jquery-3.2.1.js"></script>
+    <script src="js/public.js"></script>
+    <script src="js/Recharge.js"></script>
+    <script src="js/verification.js"></script>
+    <script>
+        var cid = sessionStorage.getItem("cid");
+        if (cid == "" || cid == null) {
+            alert("请先登录");
+            window.location.href = "logoIn.html";
+        }
+    </script>
+</head>
+<body>
+<!--头部-->
+<div id="back_nav">
+    <a href="javascript:history.back(-1);">
+        <img src="images/back_w.png" alt="" class="back_btn">
+    </a>
+    <span class="biaoti">充值</span>
+</div>
+<!--中部-->
+<form action="http://www.i7quan.com/pay/zn_qkpay_sub_app" method="post">
+    <input type="hidden" name="cid" id="cid" value=""/>
+    <div class="money v">
+        <span style="margin-left: 0.6rem;">金额：</span>
+        <input type="number" placeholder="" id="money_inpt" name="money" placeholder="请输入金额"/>
+    </div>
+    <div class="phone v">
+        <span style="margin-left: 0.3rem;">手机号：</span>
+        <input type="number" name="phone" id="phone" value="" placeholder="请输入该卡号银行预留手机号"/>
+    </div>
+    <div class="cardno">
+        <span>银行卡号：</span>
+        <input type="number" name="cardno" id="cardno" value="" placeholder="请输入充值用的银行卡号"/>
+    </div>
+
+
+    <div class="sub_box">
+        <input type="submit" class="sub_btn" id="sb" value="确定" disabled="disabled">
+    </div>
+</form>
+<div class="xian" style="text-align: center;">
+				<dl>
+					<dt>机构名称</dt>
+                    <dd>工商银行</dd>
+                    <dd>农业银行</dd>
+                    <dd>中国银行</dd>
+                    <dd>建设银行</dd>
+                    <dd>交通银行</dd>
+                    <dd>兴业银行</dd>
+                    <dd>中信银行</dd>
+                    <dd>平安银行</dd>
+                    <dd>中国邮政储蓄银行</dd>
+                    <dd>浦发银行</dd>
+                    <dd>光大银行</dd>
+                    <dd>上海银行</dd>
+				</dl>
+				<dl>
+					<dt>单笔限额</dt>
+                    <dd>0.5万</dd>
+                    <dd>0.2万</dd>
+                    <dd>0.2万</dd>
+                    <dd>0.5万</dd>
+                    <dd>2万</dd>
+                    <dd>2万</dd>
+                    <dd>0.5万</dd>
+                    <dd>0.5万</dd>
+                    <dd>2万</dd>
+                    <dd>5万</dd>
+                    <dd>2万</dd>
+                    <dd>5万</dd>
+				</dl>
+				<dl>
+					<dt>日累计限额</dt>
+					<dd>0.5万</dd>
+					<dd>1万</dd>
+					<dd>1万</dd>
+					<dd>0.5万</dd>
+					<dd>5万</dd>
+					<dd>5万</dd>
+					<dd>1万</dd>
+					<dd>0.5万</dd>
+					<dd>5万</dd>
+					<dd>10万</dd>
+					<dd>5万</dd>
+					<dd>无限额</dd>
+				</dl>
+				 <a href="Journalismid_2.html" style="font-size: 0.18rem; line-height: 2rem;">充值遇到问题，点此查看细则公告</a>
+	   </div>
+</body>
+</html>
+

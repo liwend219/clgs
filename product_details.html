@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"/>
+    <title>产品详情</title>
+    <link rel="icon" href="images/logo01.png" type="image/x-icon">
+    <link rel="stylesheet" href="css/init.css">
+    <link rel="stylesheet" href="css/product_details.css">
+    <script src="js/jquery-3.2.1.js"></script>
+    <script src="js/public.js"></script>
+    <script src="js/api.js"></script>
+    <script src="js/product_details.js"></script>
+    <script>
+        var cid = sessionStorage.getItem("cid");
+        if (cid == "" || cid == null) {
+            alert("请先登录");
+            window.location.href = "logoIn.html";
+        }
+    </script>
+</head>
+<body>
+<div id="container">
+    <div id="back_nav">
+        <a href="javascript:history.back(-1);">
+            <img src="images/back.png" alt="" class="back_btn">
+        </a>
+        <span class="title">产品详情</span>
+    </div>
+
+    <div id="product">
+
+    </div>
+
+    <script type="text/template" id="shares_info">
+        <h3 class="title">@stock_info</h3>
+        <div class="price_box">
+            <span class="profit_loss">浮动盈亏</span>
+            <span class="init_price">期初价:@init_price</span>
+            <span class="current_price">当前价:@current_price</span>
+        </div>
+        <span class="profit">@profit</span>
+        <span class="proposal">(仅供参考)</span>
+    </script>
+
+    <div class="content">
+        <ul class="content_lists">
+            <li class="implement_box">
+                <h3 class="implement_text">执行价格</h3>
+                <span class="category"></span>
+            </li>
+            <li class="price_box">
+                <h3 class="price_text">执行价</h3>
+                <span class="price"></span>
+            </li>
+            <li class="term_box">
+                <h3 class="term_text">投顾期限</h3>
+                <span class="term"></span>
+            </li>
+            <li class="investment_box">
+                <h3 class="investment_text">投顾资产</h3>
+                <span class="investment_assets"></span>
+            </li>
+            <li class="available_box">
+                <h3 class="available_text">可用资产</h3>
+                <span class="available_assets"></span>
+            </li>
+            <li class="cost_box">
+                <h3 class="cost_text">投顾费用</h3>
+                <span class="cost"></span>
+            </li>
+        </ul>
+    </div>
+
+    <div id="state_diagram">
+        <div class="state_content">
+            <div class="state_start">
+                <span class="start_title">投顾生效日</span>
+                <span class="start_time"></span>
+            </div>
+            <div class="state_end">
+                <span class="end_title">投顾到期日</span>
+                <span class="end_time"></span>
+            </div>
+        </div>
+        <span class="diagram_line">
+            <img src="images/icon_state_active.png" alt="" class="current_diagram">
+            <img src="images/icon_state.png" alt="" class="init_diagram">
+        </span>
+    </div>
+
+    <div id="careful">
+        <h3 class="careful_title">平仓注意事项</h3>
+        <span>1) 当天9:00之前确认平仓,按(T+0)当天执行,执行价格为开盘后半小时加权平均值执行;</span>
+        <span>2) 当天9:00之后确认平仓,按(T+1)当天执行,执行价格为第二个工作日开盘后半小时加权平均值执行;</span>
+    </div>
+
+    <div id="close_position">
+        <div class="position_btn">平仓</div>
+    </div>
+</div>
+
+<!--平仓模态框-->
+<div id="closePosition_model" style="display: none">
+    <div class="model_content">
+        <h3 class="title">平仓</h3>
+        <ul>
+            <li class="code_box">
+                <h2 class="code_text">股票代码</h2>
+                <span class="code_name"></span>
+            </li>
+            <li class="closePosition_box">
+                <h2 class="closePosition_text">平仓资产(万)</h2>
+                <input type="text" class="closePosition_assets" onkeyup="value = value.replace(/[^\d]/g, '')">
+            </li>
+        </ul>
+        <div class="model_option">
+            <span class="cancel">我再想想</span>
+            <span class="sure">确定</span>
+        </div>
+    </div>
+</div>
+
+<!--提示信息-->
+<span id="tip" style="display: none"></span>
+</body>
+</html>

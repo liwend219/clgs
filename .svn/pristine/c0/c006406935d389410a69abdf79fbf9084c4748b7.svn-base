@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"/>
+    <title>钱包</title>
+    <link rel="icon" href="images/logo01.png" type="image/x-icon">
+    <link rel="stylesheet" href="css/init.css">
+    <link rel="stylesheet" href="css/wallet.css">
+    <script src="js/jquery-3.2.1.js"></script>
+    <script src="js/public.js"></script>
+    <script src="js/wallet.js"></script>
+    <script>
+        var cid = sessionStorage.getItem("cid");
+        if (cid == "" || cid == null) {
+            alert("请先登录");
+            window.location.href = "logoIn.html";
+        }
+    </script>
+</head>
+<body class="body">
+<!--头部-->
+<div id="back_nav">
+    <a href="javascript:history.back(-1);">
+        <img src="images/back_w.png" alt="" class="back_btn">
+    </a>
+    <span class="title">钱包</span>
+    <span class="detailed">明细</span>
+</div>
+<!--中部-->
+<div class="money">
+    <div>
+        <p class="one_font">钱包账户（元）</p>
+        <p class="one_number">0</p>
+        <p class="two_font">可提现金额&nbsp;<span id="mm">8,000</span>&nbsp;冻结资金&nbsp;<span id="mv">12,000</span></p>
+    </div>
+</div>
+<div class="lists">
+    <ul>
+        <li class="Recharge">
+            <span>充值</span>
+            <i></i>
+        </li>
+        <li class="raisecash">
+            <span>提现</span>
+            <i></i>
+        </li>
+    </ul>
+    <ul>
+        <li class="bank_btn">
+            <span>银行卡</span>
+            <i></i>
+        </li>
+    </ul>
+</div>
+
+
+</body>
+</html>

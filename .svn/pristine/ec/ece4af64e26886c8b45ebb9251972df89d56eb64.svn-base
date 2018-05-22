@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"/>
+    <title>注册</title>
+    <link rel="icon" href="images/logo01.png" type="image/x-icon">
+    <link rel="stylesheet" href="css/init.css">
+    <link rel="stylesheet" href="css/register.css">
+    <script src="js/jquery-3.2.1.js"></script>
+    <script src="js/public.js"></script>
+    <script src="js/verification.js"></script>
+    <script src="js/api.js"></script>
+    <script src="js/register.js"></script>
+</head>
+
+<body>
+<div id="container">
+    <div id="back_nav">
+        <a href="javascript:history.back(-1);">
+            <img src="images/back.png" alt="" class="back_btn">
+        </a>
+        <span class="title">注册</span>
+    </div>
+    <form action="" id="register_info">
+        <span class="register_item">
+            <i class="icon_account"></i>
+            <input type="text" onkeyup="value = value.replace(/[^\d]/g, '')" maxlength="11" class="register_phone"
+                   placeholder="请输入您的手机号码">
+        </span>
+        <span class="register_item">
+            <i class="icon_code"></i>
+            <input type="text" class="register_code" placeholder="请输入手机验证码">
+            <button type="button" class="getCode">获取验证码</button>
+        </span>
+        <span class="register_item">
+            <i class="icon_key"></i>
+            <input type="password" class="register_password" placeholder="请输入您的密码">
+        </span>
+        <span class="register_item">
+            <i class="icon_key"></i>
+            <input type="password" class="register_password_sec" placeholder="请再次输入您的密码">
+        </span>
+        <span class="register_item">
+            <i class="icon_code2"></i>
+            <input type="text" class="register_code2" placeholder="请输入推荐号">
+        </span>
+        <input type="button" class="register_btn" value="注册">
+        <div class="agreement">
+            <input type="checkbox" class="checkbox" checked="checked">
+            <span class="text">我已阅读策略高手
+                <a href="javascript:void(0);">《用户注册协议》</a>
+            </span>
+        </div>
+
+    </form>
+</div>
+
+<!--提示信息-->
+<span id="tip" style="display: none"></span>
+</body>
+
+</html>

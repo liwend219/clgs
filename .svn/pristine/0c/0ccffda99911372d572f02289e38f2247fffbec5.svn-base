@@ -1,0 +1,108 @@
+
+$(function () {
+        //获取cid
+    var cid = sessionStorage.getItem("cid");
+    $("#search").focus();
+    //搜索
+    $("#font").click(function () {
+		var v1 = $("#search").val();
+        //搜索
+        $.ajax({
+            type: "POST",
+            url: "http://106.15.59.178:8005/Shares/Search",
+            data: {"code": v1},
+            dataType: "json",
+            success: function (data) {
+            	console.log(data)
+            	
+                var str = "";
+                var temp = $("#templ").html();
+                $(data).each(function (i, v) {
+//              	console.log(data[i].名称)
+                    str += temp.replace("@sy", data[i].名称)
+                        .replace("@code", data[i].代码)
+                        .replace("@cd", data[i].代码)
+                        .replace("@v1", data[i].代码)
+                });
+                $(".sss_li").html(str);
+                //点击询价
+                $(".search_msg").each(function (i, v) {
+                    $(".btn_btn").eq(i).click(function () {
+//                  	console.log($(".ipt_h").eq(i).text())
+                        sessionStorage.setItem("stock_code", $(".ipt_h").eq(i).text())
+                        sessionStorage.setItem("stock_name", $(".symbol").eq(i).text())
+                        sessionStorage.setItem("index_jump", "首页搜索");
+                        window.location.href = "adviser.html"
+                    })
+                })
+                //点击进入自选
+                 $(".search_msg").each(function (i, v) {
+                 	$(".search_msg").eq(i).click(function () {
+                 		 sessionStorage.setItem("$_code", $(".cd").eq(i).val());
+                 		 window.location.href = "zixuan——details.html"
+                 	})
+                 })
+                 //点击询价
+                $(".search_msg").each(function (i, v) {
+                    $(".btn_btn").eq(i).click(function () {
+                        sessionStorage.setItem("stock_code", $(".code").eq(i).text())
+                        sessionStorage.setItem("stock_name", $(".symbol").eq(i).text())
+                        sessionStorage.setItem("index_jump", "首页搜索");
+                        window.location.href = "adviser.html"
+                        event.stopPropagation();
+                    })
+                })
+                 
+            },
+            error: function () {
+                alert("网络错误")
+            }
+        });
+    });
+
+    
+    //监测输入框是否发生变化
+    $("#search").on('input',function () {
+        if ( $("#search").val() != "") {
+             $(".box_search").css("display", "none");
+            $(".box_focus").css("display", "block");
+        }
+        else {
+          $(".sss_li").html("");
+         $("#search").val("");
+         $(".font_msg").html("")
+        }
+    });
+    //逻辑
+    //点击后输入框显示同样的文字,并跳到下一个页面显示输入对应的信息
+    $(".one li").click(function () {
+        var result = $.trim($(this).text().substring(1));
+        $(".box_search").css("display", "none");
+        $(".box_focus").css("display", "block");
+        $("#search").val(result);
+        $(".his_font").text(result);
+    });
+
+//  //点击删除回到第一个页面并且input里面的值去掉
+//  $(".icon_del").click(function () {
+//      $(".sss_li").html("");
+//      $("#search").val("");
+//      window.location.reload();
+//  })
+    //获取热搜关键词
+    $.ajax({
+        type: "POST",
+        url: "http://www.i7quan.com/app/HotSearch",
+        dataType: "json",
+        success: function (data) {
+//      	console.log(data)
+            $(data).each(function (i, v) {
+            });
+            $(".font").each(function (i, v) {
+                $(this).html(data[i])
+            })
+        }
+    });
+
+
+})

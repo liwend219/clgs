@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		 <meta name="viewport"
+          content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"/>
+		<title>申请提示</title>
+		 <script src="js/jquery-3.2.1.js"></script>
+		 <style>
+		 	*{
+		 		margin: 0;padding: 0;
+		 	}
+		 	body{
+		 		padding: 0 0.3rem;
+		 	}
+		 	div{
+		 		text-align: center;
+		 		font-size: 0.4rem;
+		 		margin-top: 3rem;
+		 		border: 1px solid #C0C0C0;
+		 		height: 3rem;
+		 		border-radius: 0.5rem;
+		 	}
+		 	.title{
+		 		font-size: 0.4rem;
+		 		color: #393939;
+		 		line-height: 0.8rem;
+		 		border-bottom: 1px solid #CCCCCC;
+		 		
+		 	}
+		 	.tip{
+		 		margin-top: 0.8rem;
+		 		font-size: 0.38rem;
+		 		font-weight: 600;
+		 		color: #393939;
+		 	}
+		 </style>
+	</head>
+	<body>
+	         <div>
+	         	<p class="title">提示</p>
+	         	<p class="tip">申请成功</p>
+	         </div>
+	</body>
+	<script type="text/javascript">
+		var w = $(window).width();
+        if (w > 750) {
+            w = 750;
+        }
+        $("html").css("font-size", w / 7.5 + "px");
+        $(window).resize(function () {
+            var w = $(window).width();
+            if (w > 750) {
+                w = 750;
+            }
+            $("html").css("font-size", w / 7.5 + "px");
+        });
+	</script>
+</html>

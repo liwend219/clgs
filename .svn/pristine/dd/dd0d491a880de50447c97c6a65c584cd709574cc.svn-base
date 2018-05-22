@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    
+
+    <link rel="icon" href="images/logo01.png" type="image/x-icon">
+    <link rel="stylesheet" href="css/gupiao_guize.css">
+    <script src="js/jquery-3.2.1.js"></script>
+    <script src="js/public.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+    
+    <!-- 引入样式 -->
+    <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+    <!-- 引入组件库 -->
+    <script src="https://unpkg.com/element-ui/lib/index.js"></script>
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+
+    
+    
+    <title>T+1 A股交易规则</title>
+    <style>
+        .el-collapse-item__header{
+            padding:0 10px;
+        }
+        .el-collapse-item__content{
+            padding:10px;
+            background: #f3f3f3;
+        }
+        .el-collapse-item__content{
+            padding:0.15rem;
+        }
+        a{
+            color:#6fb3e0;
+            font-size: 0.18rem;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <div id="back_nav">
+            <a href="javascript:history.back(-1);">
+                <img src="images/back.png" alt="" class="back_btn">
+            </a>
+            <span class="title" style="margin-left: 0;color: #393939">T+1 A股交易规则</span>
+        </div>
+
+        <el-collapse @change="handleChange">
+            <el-collapse-item title="什么是点买人，什么是投资人？" name="1">
+                <div>
+                    　　点买人是指策略提供人，通过平台发布股票买卖策略，如选择什么股票，买多少股，止盈点是多少，止损点是多少，何时买入，何时卖出；投资人是实际购买股票的自然人或者法人，投资人提供资金，证券账号，自由选择平台上的股票策略，根据实际情况匹配，并严格按照策略要求买卖股票。
+                   
+                </div>
+            </el-collapse-item>
+            <el-collapse-item title="什么是点买交易?" name="2">
+                <div>
+                    　　点买交易是本平台通过点买人发起股票策略（选择股票，选择购买数量），平台收集这些策略后转发给所以投资人，投资人根据自己选择是否匹配，如匹配成功，则点买人与投资人生成一个协议，投资人按点买人的策略要求执行买入对于股票操作，如盈，按一定比例分成，如亏损，按一定比例各自承担！
+                </div>
+            </el-collapse-item>
+            <el-collapse-item title="点买时间是什么时候？" name="3">
+                <div>
+                    　　股票交易日的上午09:30-11:30，下午13:00-14:55
+                </div>
+            </el-collapse-item>
+            <el-collapse-item title="持仓时间是多久？" name="4">
+                <div>A股为T+1交易规则，所以最少持仓时间为两天（即当天买入，不可以当天卖出），最长持仓时间为20个交易日。</div>
+               
+            </el-collapse-item>
+              <el-collapse-item title="什么是止盈？" name="5">
+                <div>
+                    　止盈是该条策略的盈利线，当达到预设的止盈点的时候，系统会自动发起卖出指令给投资人。
+                </div>
+            </el-collapse-item>
+              <el-collapse-item title="什么是止损？" name="6">
+                <div>
+                    　　止损是该条策略的亏损线，当达到预设的止损点的时候，系统会自动发起卖出指令给投资人。
+                </div>
+            </el-collapse-item>
+              <el-collapse-item title="什么是交易综合费？" name="7">
+                <div>
+                    　　交易综合费是当策略第一次发起时，点买人要支付给平台的费用，费用包括交易印花税、过户费、佣金以及平台的居间费和下一个交易日的递延费。此费用只在第一天收取，一般标准为48元/万（数据仅供参考，以实际平台公布为准。）
+                </div>
+            </el-collapse-item>
+             <el-collapse-item title="什么是履约保证金？" name="8">
+                <div>
+                    　　履约保证金是点买人委托平台冻结在三方支付公司，用于策略亏损时的赔付金额，如盈利，全额返还。如亏损，按实际亏损赔付，且履约保证金为赔付上限，超出亏损部分由投资人自己承担。
+                </div>
+            </el-collapse-item>
+             <el-collapse-item title="什么是递延费？" name="9">
+                <div>
+                    　　策略持仓超过T+1时，第二个交易日闭市后，点买人需要缴纳的服务费用，扣费时间为15:30；直接从点买人平台余额中扣除。如点买人不想递延，请务必在第二个交易日的14:50分前发起卖出指令，否则视为要求递延，递延成功即扣费，扣费标准一般为18元/万（数据仅供参考，以实际平台公布为准）。
+                </div>
+            </el-collapse-item>
+             <el-collapse-item title="递延费的条件有哪些？" name="10">
+                <div>
+                    　　递延有以下三个条件且按优级最高排列<br />
+			1.持仓股票不在黑名单中（即，不是高风险股，也不是即将停盘股）<br />
+			2.策略满足（浮动盈亏+履约保证金）/点买金额>6%（数据仅供参考，以平台实际最新公布的为准）<br />
+			3.点买人平台余额充足（下一个交易日要持仓需要在上一个交易日扣款，如果发现点买人余额不足或部分不足，系统优先以盈亏从小到大平仓，直到够付递延费或全部策略卖出）
+                </div>
+            </el-collapse-item>
+             <el-collapse-item title="停牌股要怎么处理？" name="11">
+                <div>
+                    　　当发生停牌，点买人必须缴纳停牌期间的递延费，直至复盘卖出结算；若停牌期间不缴纳递延费，一旦累计递延费超过该策略的履约保证金，视用户放弃该策略，投资人自动接管，该策略的盈亏不再跟点买人有关，所有权归投资人。<br />
+                    停牌期间用户也可自行选择是否放弃本条策略，或者全额买断本条策略。如果点买人选择全额买断策略，点买人按点买成交价补缴相应的金额，复牌后所有盈利或亏损与投资人无关，100%归点买人所有。如果点买人选择放弃策略，履约保证金不作退还，归投资人所有，复牌后所有盈利或亏损与点买人无关，100%归投资人所有。
+                </div>
+            </el-collapse-item>
+            <el-collapse-item title="盈亏怎么结算？" name="12">
+                <div>
+                    　　如策略盈利，点买人获得盈利部分的90%，投资人获得盈利部分的10%（具体分成方式以协议或平台公告为准，本数据仅为参考）；如策略亏损，点买人按实际亏损情况将履约保证金为赔付上限。如有超额亏损，由投资人自己承担？<br />
+例：盈利1000元，点买人获利1000*90%=900元，投资人获利100元。
+                </div>
+            </el-collapse-item>
+            <el-collapse-item title="点买，点卖时出现部分成交后怎么结算？" name="13">
+                <div>
+                    　点买时因行情波动原因，无法全部按策略的数量买入时，以实际买入数量为准；点卖时因行情波动原因，无法全部卖出，需等到全部卖出后方可清算。
+                </div>
+            </el-collapse-item>
+            
+            
+            
+            
+            
+            
+            
+        </el-collapse><br>
+        <!--<div style="text-align:left;color:rgb(155, 155, 155);padding:0.15rem">
+            注意：<br>
+            1.平台不保证任何成交价格和成交时间，一切均以券商实际成交数据为准。<br>
+            2.最终解释权归本APP所有。
+        </div>-->
+    </div>
+    <script>
+        var vm = new Vue({
+            el:"#app",
+            data(){
+                return{
+                    activeNames:[1,2,3]
+                }
+            },
+            mounted(){
+                var arr=[];
+                for(let i=0;i<$('.el-collapse-item__header').length;i++){
+                    if($('.el-collapse-item__header').eq(i).html().length>82){
+                        arr.push(i)
+                    }
+                }
+                console.log(arr)
+            },
+            methods:{
+                handleChange(idnex) {
+                    
+                },
+            }
+        })
+    </script>
+</body>
+</html>

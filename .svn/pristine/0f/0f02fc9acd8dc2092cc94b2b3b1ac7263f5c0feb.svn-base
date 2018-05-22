@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport"
+          content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"/>
+		<title>策略高手</title>
+		<link rel="icon" href="images/logo01.png" type="image/x-icon">
+    <script src="js/jquery-3.2.1.js"></script>
+    <style>
+    	* {
+            margin: 0 auto;
+            padding: 0;
+            font-size: 14px;
+            box-sizing: border-box;
+            font-family: "微软雅黑" !important;
+        }
+        .top img{
+        	width: 100%;
+        }
+        .anzhuo{
+        	display: block;
+        	width: 100%;
+        	text-align: center;
+        	position: absolute;
+        	top: 48rem;
+        }
+        .anzhuo img{
+        	width: 50%;
+        }
+        .pingguo{
+        	display: block;
+        	width: 100%;
+        	text-align: center;
+        	position: absolute;
+        	top: 44rem;
+        }
+         .pingguo img{
+        	width: 50%;
+        }
+        .font{
+        	width: 41%;
+        	position: absolute;
+        	top: 22rem;
+        	left: 16rem;
+        }
+        .font p{
+        	color: #aaaaab;
+        	margin-top: 0.1rem;
+        }
+        .black{
+        	width: 52%;
+            background: #393939;
+        	position: absolute;
+        	top: 30rem;
+        	left: 14.1rem;
+        	padding: 0.3rem 1.4rem;
+        	color: #a6a6a6;
+        }
+    </style>
+    <script>
+    	$(function(){
+    		$("#az").click(function () {
+                window.location.href = "http://www.i7quan.com/down/7q.apk"
+           });
+           $("#pg").click(function () {
+                window.location.href = "https://itunes.apple.com/cn/app/%E7%AD%96%E7%95%A5%E9%AB%98%E6%89%8B/id1328732131?mt=8"
+           });
+    	})
+    	
+    </script>
+	</head>
+	<body>
+		<div class="top">
+			<img src="images/20180131170937.png"/>
+		</div>
+		<span class="anzhuo">
+			<img  id="az" src="images/20180131170948.png"/>
+		</span>
+		<span class="pingguo">
+			<img id="pg" src="images/20180131170942.png"/>
+		</span>
+		<div class="font">
+		<p>①优化界面，简化操作；</p>
+		<p>②增加高手排行，拼单策略两大特色功能；</p>
+		<p>③满足多元化需求；</p>
+		</div>
+		<div class="black">
+			<p>app1.0已停用，为您造成的不变敬请谅解，请您下载最新版app使用；</p>
+		</div>
+	</body>
+</html>

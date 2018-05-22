@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+	    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>三角形主机</title>
+		<link rel="icon" href="images/logo01.png" type="image/x-icon">
+		<link rel="stylesheet" type="text/css" href="css/init.css"/>
+   		<script src="js/jquery-3.2.1.js"></script>
+   		<style type="text/css">
+   			body {
+    background: #e6e6e7;
+}
+
+#back_nav {
+    background-color: #FFFFFF;
+    width: 100%;
+    height: 0.88rem;
+    text-align: center;
+    overflow: hidden;
+    line-height: 0.88rem;
+}
+
+#back_nav .back_btn {
+    float: left;
+    width: 0.2rem;
+    height: 0.36rem;
+    margin: 0.26rem 0 0 0.28rem;
+}
+
+#back_nav .title {
+    margin-left: 0.88rem;
+    font-size: 0.34rem;
+    color: #393939;
+    letter-spacing: 0.03rem;
+}
+
+#back_nav .detailed {
+    float: right;
+    font-size: 0.3rem;
+    color: #393939;
+    margin: 0 0.3rem;
+}
+    .button{
+      	width: 100%;
+      	height: 1rem;
+      	background: #e0433b;
+      	color: #FFFFFF;
+      	text-align: center;
+      	line-height: 1rem;
+      	font-size: 0.36rem;
+      	position: fixed;
+      	bottom: 0;
+      }
+      .pic img{
+      	width: 100%;
+      }
+      .pic p{
+      	width: 100%;
+      	height: 0.8rem;
+      	background: #FFFFFF;
+      }
+      .Modal {
+            width: 100%;
+            background: rgba(52, 52, 52, .5);
+            height: 100rem;
+            position: absolute;
+            top: 0;
+            display: none;
+        }
+
+        .Modal img {
+            width: 4rem;
+            float: right;
+        }
+   		</style>
+	</head>
+	<body>
+<!--中部-->
+<div class="zhanwei"></div>
+<div class="pic">
+	<img src="images/134.jpg"/>
+	<p></p>
+</div>
+
+
+<div class="button">
+	抢先预购
+</div>
+
+
+<div class="Modal">
+    <img src="images/139942921770235018.png"/>
+</div>
+	</body>
+	<script>
+    $(function () {
+        var w = $(window).width();
+        if (w > 750) {
+            w = 750;
+        }
+        $("html").css("font-size", w / 7.5 + "px");
+        $(window).resize(function () {
+            var w = $(window).width();
+            if (w > 750) {
+                w = 750;
+            }
+            $("html").css("font-size", w / 7.5 + "px");
+        });
+
+        $("#footer_nav .nav_box .nav_item .nav_img").click(function () {
+            var img_src = $(this).attr("src");
+            console.log(img_src);
+            $(this).attr()
+        })
+ //点击进入填写地址页面
+        $(".button").click(function(){
+        	window.location.href = "logoIn.html"
+        })
+        //点击图片进入官网
+//      $(".pic img").click(function(){
+//      	window.location.href = "https://acuteangle.com"
+//      })
+        //点击detailed进入订单页面
+//      $(".detailed").click(function(){
+//      	window.location.href = "Triangle_3.html"
+//      })
+            //判断是否在微信浏览器中打开，如果是就提示信息，如果不是就不提示
+            function is_weixn() {
+                var ua = navigator.userAgent.toLowerCase();
+                if (ua.match(/MicroMessenger/i) == "micromessenger") {
+                    $(".Modal").css("display", "block")
+                } else {
+                    $(".Modal").css("display", "none")
+                }
+            }
+            is_weixn()
+    });
+</script>
+</html>

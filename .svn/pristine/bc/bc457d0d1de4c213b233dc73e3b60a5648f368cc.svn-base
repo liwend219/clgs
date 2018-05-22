@@ -1,0 +1,80 @@
+body {
+    background: #FFFFFF;
+}
+
+#back_nav {
+    background-color: #F7F7F8;
+    width: 100%;
+    height: 0.88rem;
+    text-align: center;
+    overflow: hidden;
+    line-height: 0.88rem;
+}
+
+#back_nav .back_btn {
+    float: left;
+    width: 0.2rem;
+    height: 0.36rem;
+    margin: 0.26rem 0 0 0.28rem;
+}
+
+#back_nav .title {
+    margin-left: -0.48rem;
+    font-size: 0.34rem;
+    color: #393939;
+    letter-spacing: 0.03rem;
+}
+
+.logo {
+    width: 1.2rem;
+    height: 1.2rem;
+    display: block;
+    margin-top: 0.8rem;
+    margin-bottom: 0.32rem;
+}
+
+.font_s {
+    font-size: 0.38rem;
+    font-family: "微软雅黑";
+    text-align: center;
+}
+
+.font_z {
+    font-size: 0.3rem;
+    text-align: center;
+}
+
+.lists ul {
+    background: #ffffff;
+    margin-top: 0.3rem;
+}
+
+.lists ul li {
+    padding: 0.2rem 0;
+    margin: 0 0.3rem;
+    overflow: hidden;
+    border-bottom: 0.01rem solid #ededed;
+    cursor: pointer;
+}
+
+.lists ul li:last-child {
+    border-bottom: none;
+}
+
+.lists ul li span, a {
+    font-size: 0.32rem;
+    color: #393939;
+    vertical-align: middle;
+}
+
+.tip {
+    width: 100%;
+    height: 1.5rem;
+    text-align: center;
+    position: absolute;
+    top: 90%;
+}
+
+.tip p {
+    font-size: 0.2rem;
+}

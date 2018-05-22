@@ -1,0 +1,180 @@
+body {
+    background: #e6e6e7;
+}
+
+/*支付信息不同部分*/
+.payment_method {
+    background: #ffffff;
+    margin-top: 0.3rem;
+}
+
+.payment_method ul li {
+    overflow: hidden;
+    padding: 0.18rem 0.1rem;
+    margin: 0 0.2rem;
+}
+
+.payment_method ul li span {
+    font-size: 0.24rem;
+    color: #393939;
+    float: left;
+}
+
+.payment_method ul li h2 {
+    float: left;
+    font-size: 0.24rem;
+    color: #aeaeae;
+    font-weight: normal;
+    width: 40%;
+    text-align: left;
+}
+
+/*优惠明细*/
+.payment_content .payment_info li .preferential_details {
+    background: #ff5a5a;
+    padding: 0.05rem 0.1rem;
+    font-size: 0.24rem;
+    color: #ffffff;
+    letter-spacing: 0.02rem;
+    border-top-left-radius: 0.1rem;
+    border-bottom-left-radius: 0.1rem;
+    float: left;
+}
+
+/*箭头*/
+.payment_content .payment_info li .arrow {
+    border-left: 0.2rem solid #ff5a5a;
+    border-top: 0.21rem solid transparent;
+    border-bottom: 0.21rem solid transparent;
+    width: 0;
+    height: 0;
+    float: left;
+}
+
+.payment_content .payment_info li .discount {
+    font-size: 0.24rem;
+    color: #d63f2b;
+    line-height: 0.42rem;
+    text-align: center;
+    float: none;
+}
+
+/*公共部分*/
+/*头部信息*/
+#container .result {
+    background: #2e2e32;
+    width: 100%;
+    height: 0.88rem;
+    text-align: center;
+    line-height: 0.88rem;
+    overflow: hidden;
+    padding: 0 0.2rem;
+}
+
+#container .result .result_title {
+    font-size: 0.34rem;
+    color: #ffffff;
+}
+
+#container .result .complete a {
+    font-size: 0.24rem;
+    color: #ffffff;
+    float: right;
+}
+
+/*支付信息*/
+.payment_content {
+    background: #ffffff;
+    text-align: center;
+    margin-top: 0.3rem;
+}
+
+.payment_content .payment_result img {
+    width: 1.24rem;
+    height: 1.22rem;
+    margin: 0.4rem 0 0.2rem 0;
+}
+
+.payment_content .payment_result .payment_text {
+    font-size: 0.24rem;
+    color: #d63f2b;
+    display: block;
+}
+
+.payment_content .payment_result .payment_price {
+    font-size: 0.5rem;
+    color: #000000;
+    display: block;
+    font-weight: 600;
+    margin: 0.25rem 0;
+}
+
+.payment_content .payment_info li {
+    overflow: hidden;
+    padding: 0.18rem 0.1rem;
+    margin: 0 0.2rem;
+    border-top: 0.01rem solid #ededed;
+}
+
+/*.payment_content .payment_info li:nth-child(1) {*/
+/*padding: 0.28rem 0.1rem;*/
+/*margin: 0 0.2rem;*/
+/*line-height: 0.48rem;*/
+/*}*/
+
+/*.payment_content .payment_info li .order_text {*/
+/*font-size: 0.3rem;*/
+/*}*/
+
+/*.payment_content .payment_info li .order_name {*/
+/*font-size: 0.3rem;*/
+/*}*/
+
+.payment_content .payment_info li h2 {
+    float: left;
+    font-size: 0.24rem;
+    color: #aeaeae;
+    font-weight: normal;
+    width: 40%;
+    text-align: left;
+}
+
+.payment_content .payment_info li span {
+    font-size: 0.24rem;
+    color: #393939;
+    float: left;
+}
+
+/*常见问题*/
+/*.common_problem {*/
+/*background: #ffffff;*/
+/*margin-top: 0.3rem;*/
+/*}*/
+
+/*.common_problem ul li {*/
+/*margin: 0 0.2rem;*/
+/*border-top: 0.01rem solid #ededed;*/
+/*position: relative;*/
+/*}*/
+
+/*.common_problem ul li a {*/
+/*padding: 0.15rem 0.1rem;*/
+/*font-size: 0.24rem;*/
+/*color: #717171;*/
+/*display: inline-block;*/
+/*width: 100%;*/
+/*}*/
+
+/*.common_problem ul li:nth-child(1) a {*/
+/*border-top: none;*/
+/*}*/
+
+/*.common_problem ul li i {*/
+/*background: url("../images/arrow.png") no-repeat;*/
+/*background-size: cover;*/
+/*width: 0.16rem;*/
+/*height: 0.28rem;*/
+/*position: absolute;*/
+/*top: 0.15rem;*/
+/*right: 0;*/
+/*}*/

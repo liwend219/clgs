@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+	    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>提交订单</title>
+		<link rel="icon" href="images/logo01.png" type="image/x-icon">
+		<link rel="stylesheet" type="text/css" href="css/init.css"/>
+		<link rel="stylesheet" type="text/css" href="css/Triangle_1.css"/>
+   		<script src="js/jquery-3.2.1.js"></script>
+   		<script src="js/Triangle_1.js"></script>
+	</head>
+ <script>  
+$(function(){
+	
+	    //提示信息框隐藏
+    function tipMsg() {
+        setTimeout(function () {
+            $("#tip").fadeOut(1000);
+        }, 1000);
+    }
+            var id = sessionStorage.getItem("user_id")
+//          console.log(id)
+             var cid = sessionStorage.getItem("cid")
+             var ProductData;
+		$.ajax({
+        		type: "post",
+	            url: "http://106.15.59.178:8001/api/User/GetProductList",
+	            data:{"UserID":id,"CID":cid},
+	            dataType: "json",
+	            success: function (data) {
+//	            	console.log(data.datas)
+	            	ProductData=data.datas;
+	            	var i=0;
+	            	$(data.datas).each(function(i,v){
+//fangxialakuang
+	//ID 
+	var d=data.datas[i];
+
+	$("#productDrp").append("<option class=\"ptone\" value='"+d.DeliveryDay+"' data-id='"+d.ID+"'' data-name='"+d.Name+"'' data-price='"+d.Price+"''>发货期："+d.DeliveryDay+"-"+d.DeliveryDay2+"天</option>");
+	console.log(d.DeliveryDay)	
+	console.log(d.DeliveryDay2)
+	if(i==0){
+		setProduct(d.ID,d.Name,d.Price);
+	}
+	
+	            	})
+	            	$("#productDrp").change(function(){
+					var id=$(this).find("option:selected").attr("data-id");
+					var name=$(this).find("option:selected").attr("data-name");
+					var price=$(this).find("option:selected").attr("data-price");
+					
+					setProduct(id,name,price);
+		});	
+//      不能超过三台
+               var t = $("#quantity");
+//			    console.log(t.val())
+			    $("#add").click(function(){  
+			    	if(parseInt(t.val())<100){
+			    		 t.val(parseInt(t.val())+1); 
+			    	}else{  
+			                $("#add").attr("disabled","disabled")
+			                 $("#tip").text("每人限购100台").css("display", "block");
+                   				 tipMsg();
+			               }  
+			        $("#min").removeAttr("disabled");                 //当按加1时，解除$("#min")不可读状态  
+			        setTotal();  
+			    })  
+			    $("#min").click(function(){  
+			               if (parseInt(t.val())>1) {                     //判断数量值大于1时才可以减少  
+			                t.val(parseInt(t.val())-1)  
+			                }else{  
+			                $("#min").attr("disabled","disabled")        //当$("#min")为1时，$("#min")不可读状态  
+			               }  
+			        setTotal();  
+			    })  
+			   
+			    setTotal();  
+              
+	            }
+        	})
+		 function setTotal(){  
+			       $(".total").html((parseInt($("#quantity").val())*$("#ProdctMoney").html()).toFixed(2));  
+			    }  
+		function setProduct(ID,Name,Price){
+			var ProductID = ID
+            	sessionStorage.setItem("ProductID",ProductID)
+            	var ProductName = Name
+            	sessionStorage.setItem("ProductName",ProductName)
+            	var ProductPrice = Price
+            	sessionStorage.setItem("ProductPrice",ProductPrice)
+            	var str = "";
+            	var temp = $("#list").html();
+//          	str += temp.replace($(".ptone").html(),ProductName)
+//          	           .replace("@money", ProductPrice)
+////	            	           .replace("@time", data.datas[i].BTime)
+//              $("#list").html(str);
+				$("#ProdctMoney").html(ProductPrice);
+				setTotal();
+		}
+		
+		 
+})  
+</script>  
+	<body>
+		<!--头部-->
+<div id="back_nav">
+    <a href="Triangle.html">
+        <img src="images/back.png" alt="" class="back_btn">
+    </a>
+    <span class="title">提交订单</span>
+</div>
+</div>
+<!--中部-->
+
+<div class="top">
+	<div class="left">
+		<h3 class="name">联系人</h3><span class="phone">*********</span>
+	<p class="address_m">点击输入具体地址</p>
+	</div>
+	
+	<img src="images/rrright.png" alt="" />
+</div>
+<div id="list">
+	<ul>
+		<li class="lih">订单信息</li>
+		<li class="con">
+			<div class="left">
+				<select name="" id="productDrp">
+				</select>
+			</div>
+			<div class="right">
+				&nbsp;&nbsp;￥<span class="money" id="ProdctMoney"></span>
+				<input id="min" name="" type="button" value="-" />  
+				<input id="quantity" name="" type="text" value="1" disabled="disabled"/>  
+				<input id="add" name="" type="button" value="+" />  
+			</div>
+		</li>
+		<li class="lih"><span class="left">配送方式</span><span class="right">包邮</span></li>
+	</ul>
+</div>
+
+<div class="footer">
+	<div class="left">需支付:￥<label class="total"></label></div>
+	<div class="right">确认下单</div>
+</div>
+<!-- 实名认证模态框 -->
+<div id="realName_model" style="display: none">
+    <div class="model_content">
+        <p class="inquiryRecord_tip">请确认您的【三角形主机】商品订单，费用<span class="total"></span>元。</p>
+        <p class="tip">提醒:费用将在您的钱包中扣款!</p>
+        <div class="model_option">
+            <span class="cancel">取消</span>
+            <span class="sure">确定</span>
+        </div>
+    </div>
+</div>
+
+
+   <!--提示信息-->
+    <span id="tip" style="display: none"></span>
+	</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"/>
+    <title>关注</title>
+    <link rel="icon" href="images/logo01.png" type="image/x-icon">
+    <link rel="stylesheet" href="css/init.css">
+    <link rel="stylesheet" type="text/css" href="css/follow.css"/>
+    <script src="js/jquery-3.2.1.js"></script>
+    <script src="js/public.js"></script>
+    <script src="js/follow.js"></script>
+    <script>
+        var cid = sessionStorage.getItem("cid");
+        if (cid == "" || cid == null) {
+            alert("请先登录");
+            window.location.href = "logoIn.html";
+        }
+    </script>
+</head>
+<body>
+<!--头部-->
+<div id="back_nav">
+    <a href="javascript:history.back(-1);">
+        <img src="images/back.png" alt="" class="back_btn">
+    </a>
+    <span class="title">关注</span>
+</div>
+<!--中部-->
+<div class="box">
+    <div class="user_follow">
+        <ul class="dynamics_box">
+
+        </ul>
+        <script type="text/template" id="dynamics_box">
+            <li class="dynamic">
+                <span class="img_box">
+                    <img src="@img" alt="" class="icon">
+                </span>
+                <div class="info">
+                    <p class="info_name">@1</p>
+                    <span class="info_phone">@2</span>
+                    <input type="hidden" value="@_id" class="AttentList_id" />
+                    
+                    <div id="edit">
+                        <button class="edit2">取消关注</button>
+                    </div>
+                </div>
+            </li>
+        </script>
+
+
+    </div>
+</div>
+
+<!--提示信息-->
+<span id="tip" style="display: none"></span>
+</body>
+</html>

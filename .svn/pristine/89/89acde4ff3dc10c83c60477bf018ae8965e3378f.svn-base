@@ -1,0 +1,103 @@
+.balance{
+	width: 100%;
+	height: 3.2rem;
+	background: #df3732;
+	color: #FFFFFF;
+	padding: 1rem 0.3rem 0 0.3rem;
+	text-align: center;
+}
+.font_m{
+	font-size: 0.55rem;
+    font-weight: 600;
+}
+.font_p{
+	font-size: 0.26rem;
+}
+.p_v{
+	padding: 0 0.3rem;
+	font-size: 0.28rem;
+	color: #333333;
+	margin-top: 0.2rem;
+}
+.p_m{
+	padding: 0 0.3rem;
+	font-size: 0.28rem;
+	color: #333333;
+	margin-bottom: 0.2rem;
+	margin-top: 0.2rem;
+}
+.money{
+	width: 100%;
+	padding: 0 0.2rem;
+	height: 0.8rem;
+}
+.money ul{
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	flex-wrap:wrap;
+}
+.money li{
+	width: 25%;
+	text-align: center;
+	float: left;
+	color: #333;
+	padding: 0.1rem 0.2rem;
+	border: 2px solid #CCCCCC;
+	margin-top: 0.2rem;
+	margin-left: 0.3rem;
+}
+.money_2{
+	margin-top: 1.3rem;
+	width: 100%;
+	padding: 0 0.2rem;
+	height: 0.8rem;
+}
+.money_2 ul{
+	width: 100%;
+}
+.money_2 li{
+	width: 25%;
+	text-align: center;
+	margin-left:0.3rem;
+	color: #333;
+	padding: 0.1rem 0.2rem;
+	border: 2px solid #CCCCCC;
+}
+
+.money .active{
+	border: 2px solid #df3732;
+}
+.money_2 .active_2{
+	border: 2px solid #df3732;
+}
+
+.sub{
+	width: 100%;
+	padding: 0.3rem;
+	margin-top: 0.7rem;
+}
+.sb{
+	width: 100%;
+	height: 0.88rem;
+	font-size: 0.35rem;
+	color: #FFFFFF;
+	background: #df3732;
+	border: none;
+	outline: none;
+	border-radius: 0.5rem;
+}
+.Modal {
+            width: 100%;
+            background: rgba(52, 52, 52, .7);
+            height: 15rem;
+            position: absolute;
+            top: 0;
+            left: 0;
+            display: none;
+}
+
+.Modal img {
+            width: 4rem;
+            float: right;
+        }

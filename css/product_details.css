@@ -1,0 +1,299 @@
+body {
+    background: #e6e6e7;
+}
+
+#container {
+    margin-bottom: 0.89rem;
+}
+
+/* 头部导航 */
+#back_nav {
+    background-color: #F7F7F8;
+    width: 100%;
+    height: 0.88rem;
+    text-align: center;
+    overflow: hidden;
+    line-height: 0.88rem;
+}
+
+.fixd {
+    position: fixed;
+    top: 0;
+}
+
+.top {
+    width: 100%;
+    height: 0.88rem;
+}
+
+#back_nav .back_btn {
+    float: left;
+    width: 0.2rem;
+    height: 0.36rem;
+    margin: 0.26rem 0 0 0.28rem;
+}
+
+#back_nav .title {
+    margin-left: -0.48rem;
+    font-size: 0.34rem;
+    color: #393939;
+    letter-spacing: 0.03rem;
+}
+
+/*产品信息*/
+#product {
+    padding: 0.25rem 0.29rem;
+    background-color: #FFFFFF;
+}
+
+#product .title {
+    font-size: 0.42rem;
+    color: #393939;
+}
+
+#product .price_box {
+    margin: 0.22rem 0;
+}
+
+#product .price_box .profit_loss {
+    font-size: 0.32rem;
+    color: #393939;
+}
+
+#product .price_box .init_price {
+    margin-left: 0.3rem;
+    font-size: 0.24rem;
+    color: #393939;
+}
+
+#product .price_box .current_price {
+    margin-left: 0.3rem;
+    font-size: 0.24rem;
+    color: #393939;
+}
+
+#product .profit {
+    font-size: 0.4rem;
+    color: #d63f2b;
+}
+
+#product .proposal {
+    font-size: 0.24rem;
+    color: #9c9c9c;
+    margin-left: 0.18rem;
+}
+
+#container .content {
+    background: #ffffff;
+    margin-top: 0.33rem;
+}
+
+#container .content .content_lists li {
+    overflow: hidden;
+    border-bottom: 0.01rem solid #eeeeee;
+    margin: 0 0.2rem;
+    padding: 0.14rem 0 0.14rem 0.1rem;
+}
+
+#container .content .content_lists li span {
+    float: left;
+    font-size: 0.26rem;
+    width: 50%;
+    color: #9c9c9c;
+}
+
+#container .content .content_lists li h3 {
+    float: left;
+    font-size: 0.26rem;
+    width: 50%;
+    font-weight: 500;
+}
+
+/*状态图*/
+#state_diagram {
+    padding: 0.46rem 0.2rem;
+}
+
+#state_diagram .state_content {
+    padding: 0 0.79rem;
+    overflow: hidden;
+    margin-bottom: 0.12rem;
+}
+
+#state_diagram .state_content .state_start {
+    float: left;
+    text-align: center;
+}
+
+#state_diagram .state_content .state_end {
+    float: right;
+    text-align: center;
+}
+
+#state_diagram .state_content div span {
+    display: block;
+    font-size: 0.26rem;
+    color: #393939;
+}
+
+#state_diagram .state_content div span:nth-child(2) {
+    font-size: 0.2rem;
+    color: #393939;
+}
+
+#state_diagram .diagram_line {
+    position: relative;
+    width: 100%;
+    height: 0.02rem;
+    background-color: #ffffff;
+    display: inline-block;
+}
+
+#state_diagram .diagram_line .current_diagram {
+    position: absolute;
+    left: 1.5rem;
+    top: -0.18rem;
+    width: 0.36rem;
+    height: 0.36rem;
+}
+
+#state_diagram .diagram_line .init_diagram {
+    position: absolute;
+    right: 1.53rem;
+    top: -0.12rem;
+    width: 0.24rem;
+    height: 0.24rem;
+}
+
+/*平仓注意事项*/
+#careful {
+    padding: 0.18rem 0.3rem;
+    background: #ffffff;
+}
+
+#careful .careful_title {
+    font-size: 0.26rem;
+    color: #393939;
+    margin-bottom: 0.2rem;
+    letter-spacing: 0.01rem;
+    font-weight: normal;
+}
+
+#careful span {
+    display: block;
+    font-size: 0.2rem;
+    color: #9c9c9c;
+    line-height: 0.4rem;
+}
+
+/*平仓按钮*/
+#close_position {
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    background-color: #ffffff;
+    cursor: pointer;
+}
+
+#close_position .position_btn {
+    width: 100%;
+    height: 0.88rem;
+    background-color: #d8402e;
+    text-align: center;
+    line-height: 0.88rem;
+    font-size: 0.32rem;
+    color: #ffffff;
+}
+
+/*平仓模态框*/
+#closePosition_model {
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.1);
+    width: 100%;
+    height: 100%;
+}
+
+#closePosition_model .model_content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #ffffff;
+    border-radius: 0.3rem;
+    width: 80%;
+}
+
+#closePosition_model .model_content h3 {
+    font-size: 0.34rem;
+    color: #393939;
+    text-align: center;
+    padding: 0.24rem 0;
+}
+
+#closePosition_model .model_content ul li {
+    overflow: hidden;
+    border-top: 0.01rem solid #e0e0e0;
+    padding: 0.16rem 0.6rem;
+}
+
+#closePosition_model .model_content ul li h2 {
+    float: left;
+    font-size: 0.26rem;
+    font-weight: normal;
+    width: 50%;
+}
+
+#closePosition_model .model_content ul li span {
+    float: left;
+    font-size: 0.26rem;
+    width: 50%;
+}
+
+#closePosition_model .model_content ul li input {
+    font-size: 0.26rem;
+    border: none;
+    outline: none;
+    margin-top: 0.04rem;
+    float: left;
+    width: 50%;
+}
+
+#closePosition_model .model_content .model_option {
+    border-top: 0.01rem solid #e0e0e0;
+    overflow: hidden;
+}
+
+#closePosition_model .model_content .model_option span {
+    float: left;
+    width: 50%;
+    text-align: center;
+    padding: 0.3rem 0;
+    font-size: 0.32rem;
+    letter-spacing: 0.05rem;
+    cursor: pointer;
+    color: #9c9c9c;
+}
+
+#closePosition_model .model_content .model_option .sure {
+    border-left: 0.01rem solid #e0e0e0;
+    color: #0e80fe;
+    letter-spacing: 0.12rem;
+
+}
+
+/*提示信息*/
+#tip {
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 0.24rem;
+    padding: 0.1rem 0.2rem;
+    background: rgba(0, 0, 0, 0.5);
+    color: #ffffff;
+    border-radius: 0.1rem;
+    text-align: center;
+    z-index: 99;
+}

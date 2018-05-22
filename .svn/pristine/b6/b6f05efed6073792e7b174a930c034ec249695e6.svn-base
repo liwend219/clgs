@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>银行支付</title>
+		<link rel="icon" href="images/logo01.png" type="image/x-icon">
+		<link rel="stylesheet" type="text/css" href="css/pay.css"/>
+		 <link rel="stylesheet" href="css/init.css">
+		<script src="js/jquery-3.2.1.js"></script>
+		<script src="js/public.js"></script>
+	</head>
+	<body>
+		<!--头部-->
+<div id="back_nav">
+    <a href="javascript:history.back(-1);" class="btn_tip">
+        <img src="images/back.png" alt="" class="back_btn">
+    </a>
+    <span class="title">银行转账</span>
+</div>
+<!--中部-->
+		<div id="pic_card">
+    <div class="pic_bank"><img src="images/20171228101943.jpg"/></div>
+    <div class="card">
+    	<p id="card_num"><span>10655501040009370</span></p>
+        <p id="bank">无锡新城中铁电子商务有限公司</p>
+        <p id="card_type">中国农业银行股份有限公司无锡新城支行</p>
+        <!--<p id="card_num"><span>10655501040009370</span></p>-->
+    </div>
+</div>
+<div id="tip">
+    <p>温馨提示:</p>
+    <p>1）转账时请仔细核对卡号、户名及支行信息，避免操作出错；</p>
+    <p>2）转账时请<span style="color: red;">必须</span>备注<span style="color: red;">"姓名"+"注册账号手机尾号后四位"，</span>以便财务核对及时入账，方便您的购买；</p>
+    <p>3）转账成功后请保存好交易回执单并及时致电平台客服电话：(021) 3617 8682</p>
+</div>
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+				<!--<div class="container">-->
+			
+		
+	     <!--头部-->
+		<!--<div class="header">
+			<p>账户充值</p>
+		</div>-->
+	   <!--中部-->
+	  <!--<div class="con">-->
+	  	<!--个人资料-->
+				  	  <!--<div class="user_info">
+				  	      <p>收款方：无锡新城中铁电子商务有限公司</p>
+				  	      <p>开户行：中国农业银行股份有限公司无锡新城支行</p>
+				  	      <p>账    号：10655501040009370</p>
+				  	      <p>备 注：网银转账需要备注姓名及手机尾号</p>
+				  	      <p>备 注：如充值遇到问题请联系客服：‭(021) 3617 8682‬</p>
+			    		</div>-->
+	                <!--充值及银行-->
+	                <!--<div class="box">
+	                	<p class="font-1">充值方式：网上银行</p>
+	                	<div class="bankname">
+	                		<ul>
+	                			<li class="gongshang active" v="icbc"></li>
+	                			<li class="nongye" v="abc"></li>
+	                			<li class="zhongguo" v="boc"></li>
+	                			<li class="jianshe" v="ccb"></li>
+	                			<li class="jiaotong" v="comm"></li>
+	                			<li class="xingye" v="cib"></li>
+	                			<li class="zhongxin" v="cncb"></li>
+	                			<li class="pufa" v="cncb"></li>
+	                			<li class="youzheng" v="cncb"></li>
+	                			<li class="shanghai" v="cncb"></li>
+	                			<li class="guangda" v="cncb"></li>
+	                			<li class="pingan"></li>
+	                		</ul>
+	                	</div>
+	                </div>-->
+	               
+	
+	  
+<!--	  </div>-->
+	   
+	  <!--</div>-->
+	</body>
+	<script>
+		
+		
+		
+		
+		
+		
+		
+//		$(function(){
+//				 $(".bankname ul li").on("click", function () {
+//          $(this).siblings('li').removeClass('active');
+//          $(this).addClass('active');
+//      });
+//      $(".gongshang").click(function(){
+//      	setTimeout(function () {
+//         window.open("https://mybank.icbc.com.cn/icbc/newperbank/perbank3/frame/frame_index.jsp#")
+//      }, 1000);
+//      	
+//      })
+//      
+//        $(".nongye").click(function(){
+//        		setTimeout(function () {
+//         	window.open("https://perbank.abchina.com/EbankSite/startup.do")
+//      }, 1000);
+//      
+//      })
+//      
+//       $(".zhongguo").click(function(){
+//       	setTimeout(function () {
+//         window.open("https://ebsnew.boc.cn/boc15/login.html")
+//      }, 1000);
+//      	
+//      })
+//       $(".jianshe").click(function(){
+//       	setTimeout(function () {
+//         	window.open("https://ibsbjstar.ccb.com.cn/CCBIS/V6/common/login.jsp?UDC_CUSTOMER_ID=&UDC_CUSTOMER_NAME=&UDC_COOKIE=e1b9cb9b0b6cbf2dAJmLDUDDfYMe5mpyx9gF1522721758606eyyDyu85om9zfE6H5kfye3d71ddedd679c8386b5472e9fecc7a3&UDC_SESSION_ID=3gtc9wRiCHD6rli345df23a96f7-20180403200242")
+//      }, 1000);
+//      
+//      })
+//       $(".jiaotong").click(function(){
+//       	setTimeout(function () {
+//         window.open("https://pbank.95559.com.cn/personbank/logon.jsp")
+//      }, 1000);
+//      	
+//      })
+//       $(".xingye").click(function(){
+//       	setTimeout(function () {
+//         window.open("https://personalbank.cib.com.cn/pers/main/login.do")
+//      }, 1000);
+//      	
+//      })
+//         $(".zhongxin").click(function(){
+//         	setTimeout(function () {
+//         window.open("https://i.bank.ecitic.com/perbank6/signIn.do ")
+//      }, 1000);
+//      	
+//      })
+//          $(".pufa").click(function(){
+//          	setTimeout(function () {
+//         window.open("https://ebank.spdb.com.cn/nbper/prelogin.do")
+//      }, 1000);
+//      	
+//      })
+//             $(".youzheng").click(function(){
+//             	setTimeout(function () {
+//         window.open("https://pbank.psbc.com/pweb/prelogin.do?_locale=zh_CN&BankId=9999")
+//      }, 1000);
+//      	
+//      })
+//          $(".shanghai").click(function(){
+//          	setTimeout(function () {
+//         window.open("https://ebanks.bankofshanghai.com/pweb/prelogin.do?LoginType=R&_locale=zh_CN")
+//      }, 1000);
+//      	
+//      })
+//         $(".guangda").click(function(){
+//         	setTimeout(function () {
+//         	window.open("https://www.cebbank.com/per/prePerlogin.do?_locale=zh_CN")
+//      }, 1000);
+//      
+//      })
+//            $(".pingan").click(function(){
+//            	setTimeout(function () {
+//         window.open("https://bank.pingan.com.cn/m/member/ibank/index.html#newLogin/home/index")
+//      }, 1000);
+//      	
+//      })
+//		})
+	</script>
+</html>

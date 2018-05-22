@@ -1,0 +1,301 @@
+#container {
+    margin-bottom: 1rem;
+    width: 7.5rem;
+}
+
+/*头部导航*/
+#container .banner_bg {
+    background: url("../images/master_banner.png") no-repeat center;
+    background-size: cover;
+    width: 7.5rem;
+    height: 4.3rem;
+    text-align: center;
+}
+
+.banner_bg .nav_title {
+    display: inline-block;
+    font-size: 0.34rem;
+    color: #ffffff;
+    margin-top: 0.66rem;
+}
+
+.banner_bg .title {
+    font-size: 0.48rem;
+    color: #b8b8b8;
+    margin-top: 0.42rem;
+}
+
+.banner_bg .icon_gold {
+    width: 2.69rem;
+    height: 2rem;
+    position: relative;
+    top: 0.13rem;
+}
+
+/*近期排行*/
+.ranking .items {
+    padding: 0 0.25rem;
+    text-align: center;
+    overflow: hidden;
+    border-bottom: 0.01rem solid #E7E7E6;
+}
+
+.ranking .items .item {
+    width: 33.3%;
+    float: left;
+    font-size: 0.32rem;
+    color: #333333;
+    padding: 0.15rem 0;
+    cursor: pointer;
+}
+
+.ranking .items .active {
+    border-bottom: 0.03rem solid #e6c07a;
+}
+
+/*排行信息*/
+.info_box ul li {
+    margin: 0 0.2rem;
+    padding: 0.22rem 0.42rem 0.22rem 0.1rem;
+    border-bottom: 0.01rem solid #ededed;
+    overflow: hidden;
+    position: relative;
+    text-align: center;
+    cursor: pointer;
+}
+
+.info_box ul li .left {
+    float: left;
+    overflow: hidden;
+}
+
+.info_box ul li .left .rank_num {
+    font-size: 0.48rem;
+    color: #393939;
+    font-weight: 700;
+    position: absolute;
+    top: 0.35rem;
+    left: 0.1rem;
+}
+
+.info_box ul li .left .user_icon {
+    width: 0.88rem;
+    height: 0.88rem;
+    margin-left: 0.8rem;
+    float: left;
+    border-radius: 50%;
+}
+
+.info_box ul li .left .user_name {
+    float: left;
+    font-size: 0.26rem;
+    color: #393939;
+    margin-left: 0.24rem;
+    font-weight: normal;
+}
+
+.info_box ul li .left .real_name {
+    font-size: 0.20rem;
+    color: #ffffff;
+    margin-left: 0.14rem;
+    padding: 0.02rem 0.1rem;
+    background: #d63f2b;
+    display: inline-block;
+    border-radius: 0.1rem;
+    position: absolute;
+    bottom: 0.3rem;
+    left: 1.8rem;
+}
+
+.info_box ul li .left .fans {
+    font-style: normal;
+    font-size: 0.2rem;
+    color: #656565;
+    position: absolute;
+    bottom: 0.3rem;
+    left: 2.9rem;
+}
+
+.info_box ul li .mid {
+    position: absolute;
+    width: 2rem;
+    margin-left: 3.3rem;
+}
+
+.info_box ul li .mid .profit {
+    display: block;
+    font-size: 0.32rem;
+    font-weight: 600;
+    margin-bottom: 0.1rem;
+    color: #c3a15e;
+    position: relative;
+    left: 0.2rem;
+}
+
+.info_box ul li .mid .profit_text {
+    display: block;
+    font-size: 0.2rem;
+    color: #656565;
+    font-weight: 600;
+     position: relative;
+    left: 0.2rem;
+}
+
+.info_box ul li .right {
+    float: right;
+    width: 1rem;
+    border: 0.02rem solid #cead6f;
+    color: #cead6f;
+    /*padding: 0.01rem 0.1rem;*/
+   	height: 0.45rem;
+    border-radius: 0.5rem;
+    margin-top: 0.27rem;
+}
+
+.info_box ul li .right span {
+    font-size: 0.2rem;
+    cursor: pointer;
+    line-height: 0.45rem;
+}
+.info_box ul li:nth-child(1) .rank_num_1 {
+    position: absolute;
+    background: url("../images/icon_1.png") no-repeat center;
+    background-size: cover;
+    width: 0.8rem;
+    height:1.2rem;
+    top: 0.3rem;
+    left:0.1rem;
+}
+.info_box ul li:nth-child(2) .rank_num_1 {
+    position: absolute;
+    background: url("../images/icon_2@2x.png") no-repeat center;
+    background-size: cover;
+    width: 0.8rem;
+    height:1.2rem;
+    top: 0.3rem;
+    left: 0.1rem;
+}
+.info_box ul li:nth-child(3) .rank_num_1 {
+    position: absolute;
+    background: url("../images/icon_3@2x.png") no-repeat center;
+    background-size: cover;
+    width: 0.8rem;
+    height:1.2rem;
+    top: 0.3rem;
+    left: 0.1rem;
+}
+.info_box ul li .rank_change{
+	display: none;
+}
+/*.info_box ul li:nth-child(2) .rank_change{
+	display: none;
+}
+.info_box ul li:nth-child(3) .rank_change{
+	display: none;
+}*/
+.info_box ul li:nth-child(1) .rank_num{
+	display: none;
+}
+.info_box ul li:nth-child(2) .rank_num{
+	display: none;
+}
+.info_box ul li:nth-child(3) .rank_num{
+	display: none;
+}
+/*.info_box ul li:nth-child(1) .rank_laber {
+    position: absolute;
+    background: url("../images/first.png") no-repeat center;
+    background-size: cover;
+    width: 0.44rem;
+    height: 0.46rem;
+    top: 0.19rem;
+    left: 0.66rem;
+}
+
+.info_box ul li:nth-child(2) .rank_icon {
+    position: absolute;
+    background: url("../images/icon_second.png") no-repeat center;
+    background-size: cover;
+    width: 0.28rem;
+    height: 0.29rem;
+    top: 0.15rem;
+    left: 0.61rem;
+}
+
+.info_box ul li:nth-child(2) .rank_laber {
+    position: absolute;
+    background: url("../images/second.png") no-repeat center;
+    background-size: cover;
+    width: 0.44rem;
+    height: 0.46rem;
+    top: 0.19rem;
+    left: 0.66rem;
+}
+
+.info_box ul li:nth-child(3) .rank_icon {
+    position: absolute;
+    background: url("../images/icon_third.png") no-repeat center;
+    background-size: cover;
+    width: 0.28rem;
+    height: 0.29rem;
+    top: 0.15rem;
+    left: 0.61rem;
+}
+
+.info_box ul li:nth-child(3) .rank_laber {
+    position: absolute;
+    background: url("../images/third.png") no-repeat center;
+    background-size: cover;
+    width: 0.44rem;
+    height: 0.46rem;
+    top: 0.19rem;
+    left: 0.66rem;
+}*/
+
+.info_box ul li .rank_id {
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+}
+
+/*提示信息*/
+#tip {
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 0.24rem;
+    padding: 0.1rem 0.2rem;
+    background: rgba(0, 0, 0, 0.5);
+    color: #ffffff;
+    border-radius: 0.1rem;
+    text-align: center;
+    z-index: 99;
+}
+
+.state_tip {
+    width: 100%;
+    text-align: center;
+}
+
+.state_tip p {
+    text-align: center;
+    font-size: 0.32rem;
+    color: #393939;
+}
+
+.state_tip img {
+    width: 3.5rem;
+    margin-top: 4rem;
+}
+
+.button_goma{
+	margin-top: 0.2rem;
+			background: #D63F2B;
+        	padding: 0.1rem 0.3rem;
+        	outline: none;
+        	border: none;
+        	border-radius: 0.3rem;
+        	color: #FFFFFF;
+}

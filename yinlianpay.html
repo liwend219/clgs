@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>银联充值</title>
+	</head>
+	<link rel="icon" href="images/logo01.png" type="image/x-icon">
+    <link rel="stylesheet" href="css/init.css">
+    <link rel="stylesheet" href="css/public.css">
+    <link rel="stylesheet" href="css/Recharge.css">
+    <script src="js/jquery-3.2.1.js"></script>
+    <script src="js/public.js"></script>
+     <script>
+        var cid = sessionStorage.getItem("cid");
+        if (cid == "" || cid == null) {
+            alert("请先登录");
+            window.location.href = "logoIn.html";
+        }
+    </script>
+    <style type="text/css">
+    	
+    	.btn_sub{
+    		 width: 100%;
+    height: 0.9rem;
+    background-color: #D63F2B;
+    margin: 0 auto;
+    outline: none;
+    border: none;
+    border-radius: 0.5rem;
+    font-size: 0.32rem;
+    color: #FFFFFF;
+    letter-spacing: 0.05rem;
+    cursor: pointer;
+    font-family: "微软雅黑";
+
+    	}
+    	#bank{
+    		height: 0.95rem;
+    		position: relative;
+    		top: -0.03rem;
+    		font-size: 0.32rem;
+    		color: #393939;
+    		width: 3rem;
+    		outline: none;
+    		border: none;
+    		background:#F7F7F8;
+    	}
+    </style>
+	<body>
+		<!--头部-->
+<div id="back_nav">
+    <a href="javascript:history.back(-1);">
+        <img src="images/back_w.png" alt="" class="back_btn">
+    </a>
+    <span class="biaoti">充值</span>
+</div>
+		<!--中部-->
+<form action="http://www.i7quan.com/pay/ysb_wgpay_sub_oem" method="post">
+    <!--<input type="hidden" name="cid" id="cid" value=""/>-->
+    <div class="money v">
+        <span style="margin-left: 0.6rem;">金额：</span>
+        <input type="number" placeholder="" id="money_inpt" name="money" placeholder="请输入金额"/>
+    </div>
+    <div class="phone v">
+        <span style="margin-left: 0.3rem;">手机号：</span>
+        <input type="number" name="account" id="phone" value="" placeholder="请输入登入的手机号"/>
+    </div>
+    <div class="cardno">
+        <span>&nbsp;&nbsp;&nbsp;&nbsp;选择银行：</span>
+        <select name="bankcode" id="bank">
+                    <option value="icbc">工商银行</option>
+                    <option value="abc">农业银行</option>
+                    <option value="boc">中国银行</option>
+                    <option value="ccb">建设银行</option>
+                    <option value="comm">交通银行</option>
+                    <option value="cib">兴业银行</option>
+                    <option value="cncb">中信银行</option>
+                    <option value="spdb">浦发银行</option>
+                    <option value="ceb">光大银行</option>
+					<option value="psbc">中国邮政储蓄</option>	
+					<option value="bosh">上海银行</option>						
+               </select>
+    </div>
+
+
+    <div class="sub_box">
+        <input type="submit" class="btn_sub" value="确定" >
+    </div>
+</form>
+	</body>
+</html>

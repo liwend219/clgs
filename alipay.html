@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>充值选项</title>
+		<link rel="icon" href="images/logo01.png" type="image/x-icon">
+    <link rel="stylesheet" href="css/init.css">
+     <link rel="stylesheet" href="css/wallet.css">
+    <script src="js/jquery-3.2.1.js"></script>
+    <script src="js/public.js"></script>
+	</head>
+	<body >
+		   <div class="box">
+		<!--头部-->
+<div id="back_nav">
+    <a href="javascript:history.back(-1);">
+        <img src="images/back_w.png" alt="" class="back_btn">
+    </a>
+    <span class="title" style="margin-left: 0;">账户充值</span>
+</div>
+<!--中部-->
+<div class="lists2">
+<ul  style="margin-top: 0;">
+        <!--<li class="Recharge">
+        	<div class="pic">
+        		<img src="images/u=3803414368,4006671032&fm=27&gp=0.jpg" style="width: 2rem;"/>
+        	</div>
+        	
+            <div class="center">
+            <span class="font_1">快捷支付</span><br />
+            <span style="color: #666;font-size: 0.26rem;">即时到账，无需网银</span>
+            <i></i>
+            </div>
+            
+            
+        </li>-->
+        <li class="raisecash" >
+        	<div class="pic">
+        		<img src="images/aliali.jpg" style="width: 2rem;height: 1.2rem;"/>
+        	</div>
+        	
+             <div class="center">
+	            <span class="font_1">支付宝充值</span><br />
+	            <span style="color: #666;font-size: 0.26rem;">手机支付，免手续费</span>
+	            <i></i>
+            </div>
+        </li>
+        
+        
+        <!--<li class="wangyinpay" >
+        	<div class="pic">
+        		<img src="images/yinlianpay.jpg" style="width: 2rem;"/>
+        	</div>
+        	
+             <div class="center">
+	            <span class="font_1">网银支付</span><br />
+	            <span style="color: #666;font-size: 0.26rem;">网银支付，只支持电脑操作</span>
+	            <i></i>
+            </div>
+        </li>-->
+         <li class="yinlianpay" >
+        	<div class="pic">
+        		<img src="images/timgq.jpg" style="width: 2rem;height: 1.2rem;"/>
+        	</div>
+        	
+             <div class="center">
+	            <span class="font_1">银行转账</span><br />
+	            <span style="color: #666;font-size: 0.26rem;">支持大额支付</span>
+	            <i></i>
+            </div>
+        </li>
+       
+    </ul>
+   </div>
+
+   	
+   </div>
+   <div id="d_box" style="width: 100%;">
+   	
+   </div>
+    <a href="Journalismid_2.html" style="font-size: 0.18rem; line-height: 1.3rem;color: #df3732;text-align: center;display: inline-block;width: 100%;">充值遇到问题，点此查看细则公告</a>
+	</body>
+	<script type="text/javascript">
+		$(function(){
+//		
+			             //打开快捷
+                $(".Recharge").click(function () {
+                    window.location.href = "Recharge.html";
+                });
+                 //打开支付宝
+                $(".raisecash").click(function () {
+//                  window.location.href = "alipay_2.html";
+                 var icid = sessionStorage.getItem("cid");
+                 window.location.href = "http://www.i7quan.com/pay/alipay?cid="+icid;
+                })
+                 //打开银联
+                $(".yinlianpay").click(function () {
+                    window.location.href = "bankpay.html";
+                })
+                //打开网银
+//              $(".wangyinpay").click(function () {
+//                  window.location.href = "wangyinpay.html";
+//              })
+		
+		})
+			   
+	</script>
+</html>

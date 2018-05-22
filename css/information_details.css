@@ -1,0 +1,84 @@
+#container {
+    padding: 0 0.3rem;
+    text-align: center;
+    margin: 0.88rem 0;
+}
+
+#container .content_title {
+    font-size: 0.48rem;
+    color: #393939;
+}
+
+#container .author_box {
+    margin: 0.3rem 0.45rem;
+    padding: 0.12rem 0;
+    border-bottom: 0.01rem solid #ededed;
+    border-top: 0.01rem solid #ededed;
+    vertical-align: middle;
+}
+
+#container .author_box .author_icon {
+    width: 0.71rem;
+    height: 0.71rem;
+    vertical-align: middle;
+}
+
+#container .author_box .author_name {
+    margin-left: 0.24rem;
+    font-size: 0.32rem;
+    color: #565656;
+    vertical-align: middle;
+    font-weight: 600;
+}
+
+#container .author_box .real_state {
+    margin-left: 0.12rem;
+    font-size: 0.2rem;
+    font-style: normal;
+    color: #ffffff;
+    background: #4e91f7;
+    border-radius: 0.1rem;
+    padding: 0.02rem 0.1rem;
+    vertical-align: middle;
+}
+
+#container .author_box .follow {
+    margin-left: 0.68rem;
+    border: 0.02rem solid #d63f2b;
+    padding: 0.01rem 0.1rem;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    vertical-align: middle;
+    display: inline-block;
+}
+
+#container .author_box .follow span {
+    font-size: 0.2rem;
+    color: #d63f2b;
+}
+
+#container .article {
+    font-size: 0.34rem;
+    color: #565656;
+    text-align: left;
+    white-space: pre-line;
+}
+
+/* 头部导航 */
+#back_nav {
+    background-color: #f7f7f8;
+    width: 100%;
+    height: 0.88rem;
+    text-align: center;
+    overflow: hidden;
+    line-height: 0.88rem;
+    position: fixed;
+    bottom: 0;
+}
+
+#back_nav .back_btn {
+    float: left;
+    width: 0.2rem;
+    height: 0.36rem;
+    margin: 0.26rem 0 0 0.28rem;
+}

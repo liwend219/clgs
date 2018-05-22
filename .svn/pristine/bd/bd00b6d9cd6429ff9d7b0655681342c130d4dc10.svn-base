@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>网银充值</title>
+		<link rel="stylesheet" type="text/css" href="css/init.css"/>
+		<script src="js/jquery-3.2.1.js"></script>
+		<script src="js/public.js"></script>
+		<style type="text/css">
+			*{
+				margin: 0;padding: 0;	
+				box-sizing: border-box;
+			}
+			#back_nav {
+    background-color: #df3732;
+    width: 100%;
+    height: 0.88rem;
+    text-align: center;
+    overflow: hidden;
+    line-height: 0.88rem;
+}
+
+#back_nav .back_btn {
+    float: left;
+    width: 0.2rem;
+    height: 0.36rem;
+    margin: 0.26rem 0 0 0.28rem;
+}
+
+#back_nav .title {
+    margin-left: 0.88rem;
+    font-size: 0.34rem;
+    color: #FFFFFF;
+    letter-spacing: 0.03rem;
+}
+
+#back_nav .detailed {
+    float: right;
+    font-size: 0.3rem;
+    color: #FFFFFF;
+    margin: 0 0.3rem;
+}
+			.ebank_important{
+				width: 100%;
+				padding:0 0.3rem;
+			}
+			.bank_logo{
+        		width: 70%;
+        		 border: 0.01rem solid #d4d4d4;
+        		 margin-left: 0.1rem;
+        	}
+			.bankpic {
+            width: 100%;
+            height: 0.5rem;
+        	}
+        	ul{
+        		width: 100%;
+        		display: flex;
+        		flex-wrap: wrap;
+        		text-align: left;
+        	}
+        	ul li{
+        		width: 33.3%;
+        		margin-top: 0.15rem;
+        		display: flex;
+        		align-items: center;
+        	}
+        	
+        	.btn{
+        		width: 100%;
+        		text-align: center;
+        	}
+        	.btn_blue{
+        		width: 75%;
+        		height: 0.7rem;
+        		background: #df3732;
+        		border: none;
+        		outline: none;
+        		color: #FFFFFF;
+        		border-radius: 0.5rem;
+        		margin-top: 3rem;
+        	}
+		</style>
+	</head>
+	<body>
+				<!--头部-->
+<div id="back_nav">
+    <a href="javascript:history.back(-1);">
+        <img src="images/back_w.png" alt="" class="back_btn">
+    </a>
+    <span class="title" style="margin-left: 0;">网银充值</span>
+</div>
+<!--中部-->
+		    <form id="from1" name="from1" action="app/gwpay" method="POST">
+		    	<div id="close_position">
+		    		 <input type="hidden" name="cid"  id="ipt_cid"/>
+      				 <p style="margin: 0.2rem ;"><span style="color: #393939;font-size: 0.3rem;margin-left: 0.2rem;">充值金额：</span> <input type="number" name="money"  id="ipt_num"/></p>
+		    	</div>
+       
+
+                <div class="ebank_important" id="eBanksDiv" style="">
+                    <ul class="ebank_logo dn" id="allBanksLogo">
+                        <li>
+                            <input type="radio" name="bankCode" data-bankcode="01" id="abc" value="01030000" checked="checked">
+                            <span class="bank_logo bank01">
+                                <img src="images/bankpic/ABC.jpg" class="bankpic" />
+                            </span>
+                        </li>
+                        <li>
+                            <input type="radio" name="bankCode" data-bankcode="47" id="comm" value="03010000">
+                            <span class="bank_logo bank47">
+                                <img src="images/bankpic/BCOM.jpg" class="bankpic" />
+                            </span>
+                        </li>
+                        <li>
+                            <input type="radio" name="bankCode" data-bankcode="31" id="CYB" value="03090000">
+                            <span class="bank_logo bank31">
+
+                                <img src="images/bankpic/CYB.jpg" class="bankpic" />
+                            </span>
+                        </li>
+                        <li>
+                            <input type="radio" name="bankCode" data-bankcode="26" id="boc" value="01040000">
+                            <span class="bank_logo bank26">
+                                <img src="images/bankpic/BOC.jpg" class="bankpic" />
+
+                            </span>
+                        </li>
+                        <li>
+                            <input type="radio" name="bankCode" data-bankcode="36" id="bosh" value="04012900">
+                            <span class="bank_logo bank36">
+                                <img src="images/bankpic/BOS.jpg" class="bankpic" />
+                            </span>
+                        </li>
+                        <li>
+                            <input type="radio" name="bankCode" data-bankcode="32" id="ccb" value="01050000">
+                            <span class="bank_logo bank32">
+                                <img src="images/bankpic/CCB.jpg" class="bankpic" />
+                            </span>
+                        </li>
+                        <li>
+                            <input type="radio" name="bankCode" data-bankcode="42" id="ceb" value="03030000">
+                            <span class="bank_logo bank42">
+                                <img src="images/bankpic/CEB.jpg" class="bankpic" />
+                            </span>
+                        </li>
+                        <li>
+                            <input type="radio" name="bankCode" data-bankcode="09" id="icbc" value="01020000">
+                            <span class="bank_logo bank09">
+                                <img src="images/bankpic/ICBC.jpg" class="bankpic" />
+                            </span>
+                        </li>
+                        <li>
+                            <input type="radio" name="bankCode" data-bankcode="99" id="psbc" value="01000000">
+                            <span class="bank_logo bank99">
+                                <img src="images/bankpic/PSBC.jpg" class="bankpic" />
+                            </span>
+                        </li>
+                        <li>
+                            <input type="radio" name="bankCode" data-bankcode="99" id="cncb" value="03020000">
+                            <span class="bank_logo bank99">
+                                <img src="images/bankpic/ECITIC.jpg" class="bankpic" />
+                            </span>
+                        </li>
+                        <li>
+                            <input type="radio" name="bankCode" data-bankcode="99" id="spdb" value="03100000">
+                            <span class="bank_logo bank99">
+                                <img src="images/bankpic/SPDB.jpg" class="bankpic" />
+                            </span>
+                        </li>
+                    </ul>
+                    <div class="clear"></div>
+                
+            </div>
+        <div class="btn">
+            <input id="btnPay" name="btnPay" type="submit" class="btn_blue" value="到网上银行支付"disabled="disabled">
+        </div>
+    </form>
+	</body>
+	<script>
+	$(function(){
+		var cid = sessionStorage.getItem("cid");
+		$("#ipt_cid").val(cid)
+	       //当钱中有值是下面按钮才可用
+    var $cid = $("#ipt_cid").val();
+    var $idnum = $("#ipt_num").val();
+     $('input[type=number]').on('keyup', function(){
+		    var val= $(this).val();
+		    console.log(val);
+		    if(val < 1) {
+		        $(".btn_blue").prop("disabled", true);
+		    }else {
+		        $(".btn_blue").prop("disabled", false);
+		    }
+		});
+	})
+	</script>
+</html>

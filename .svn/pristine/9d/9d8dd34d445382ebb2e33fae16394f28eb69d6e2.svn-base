@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<meta charset="UTF-8">
+		<title>t+1确认</title>
+		<link rel="icon" href="images/logo01.png" type="image/x-icon">
+    	<link rel="stylesheet" href="css/init.css">
+    	<link rel="stylesheet" type="text/css" href="css/gupiao.css"/>
+    	 <script src="js/jquery-3.2.1.js"></script>
+		 <script src="js/public.js"></script>
+		 <style>
+			 .body-fixed{
+				 width: 100%;
+				 position: fixed;
+				 /* bottom:0;
+				 top:0; */
+			 }
+			.motai{
+				width: 100%;
+                height: 100%;
+				top:0;
+				bottom:0;
+                background: #555555;
+				opacity: .7;
+                position: fixed;
+                z-index: 10;
+				display: none;
+			}
+			
+			.loading-box{
+				 position: absolute;
+				 width:60%;
+				 padding:30px;
+				 top:50%;
+				 margin-top:-201px;
+				 left:50%;
+				 margin-left:-30%;
+				 z-index: 11;
+				 text-align: center;
+				 border-radius:10px;
+				 background: rgb(255, 255, 255);
+				 display: none;
+			 }
+			@keyframes mymove
+			{
+				0% {transform:rotate(0deg);}
+				50% {transform:rotate(120deg);}
+				100% {transform:rotate(240deg);}
+			}
+			.load-img{
+				animation:mymove 4s infinite;
+			}
+			.loading-box-text{
+				width:100px;
+				height:30px;
+				position: absolute;
+				top:50%;
+				margin-top:-15px;
+				line-height:30px;
+				left:50%;
+				margin-left:-50px;
+			}
+			/* 提示模态框 */
+			#inquiry_model{
+				display: none;
+				z-index: 12;
+				width:80%;
+				position: fixed;
+				top:50%;
+				margin-top:-73px;
+				left:50%;
+				margin-left:-40%;
+			}
+			#inquiry_model>.inquiry_model_text{
+				border-radius:8px 8px 0 0;
+				padding:15px;
+				background: #fff;
+			}
+			.yes_btn{
+				color:rgb(105, 105, 212);
+				height:50px;
+				line-height:50px;
+				border-top:1px solid #ccc;
+				border-radius:0 0 8px 8px;
+				background: #fff;
+				text-align: center;
+			}
+			.inquiry_model_content{
+				text-align: center;
+			}
+		 </style>
+	</head>
+	<body>
+		
+				<!--头部-->
+			<div id="back_nav">
+				<a href="javascript:history.back(-1);">
+					<img src="images/back.png" alt="" class="back_btn">
+				</a>
+				<span class="title" style="margin-left: 0;">T+1策略确认</span>
+			</div>
+				<!--center-->
+			<div class="box">
+				<ul>
+					<li><span class="left">股票名称</span><span class="right" id="gp_name"></span></li>
+					<li><span class="left">股票代码</span><span class="right" id="gp_code"></span></li>
+					<li><span class="left">买入类型</span><span class="right">市价买入</span></li>
+					<li><span class="left">点买金额</span><span class="right" id="jiaoyijine"></span></li>
+					<li><span class="left">点买数量</span><span class="right" id="goumaishu"></span></li>
+				</ul>
+			</div>
+			<div class="box">
+				<ul>
+					<li><span class="left">触发止盈</span><span class="right" style="color:#de4238" id="zhiying"></span></li>
+					<li><span class="left">触发止损</span><span class="right" style="color:rgb(21, 165, 122);" id="zhisun"></span></li>
+					<li><span class="left">递延条件</span><span class="right" id="dytj"></span></li>
+					<li><span class="left">盈利分成</span><span class="right" id="ylfc"></span></li>
+				</ul>	
+				
+			</div>
+			<div class="box">
+				
+				<ul>
+					<li><span class="left">履约保证金</span><span class="right" id="lybzj"></span></li>
+					<li><span class="left">交易综合费</span><span class="right" id="jyzhf"></span></li>
+					<li><span class="left">费用合计</span><span class="right" id="fyhj" style="color:#de4238"></span></li>
+					<li><span class="left">可用余额</span><span class="right" id="kyye" style="color:#de4238"></span></li>
+				</ul>	
+				
+			</div>
+			<div class="agreement" style="float:left;padding-left:0.3rem;margin-bottom:1.3rem;margin-top: 0.35rem;">
+				<input type="checkbox" class="checkbox" checked="checked">
+				<span class="text">我已阅读策略高手
+					<a href="guize_2.html">《用户须知及风险提示》</a>
+					<br />
+				</span>
+			</div>
+
+			<div class="button" id="button_submit">
+				提交
+			</div>
+			<!-- 提交loading框 -->
+			<div class="loading-box">
+				<div style="position: relative;">
+					<img src="images/loading-out.png" class="load-img" style="width:100px;" alt="">
+					<div class="loading-box-text">90</div>
+				</div>
+				<div>
+					正在匹配投资人进行本次策略买入申报
+				</div>
+			</div>
+			<!-- 模态框黑影 -->
+		<div class="motai">
+		</div>
+		
+		<!-- 提示模态框 -->
+		<div id="inquiry_model" style="display: none">
+			<div class="inquiry_model_text">
+				<h3 style="text-align: center;">提示</h3>
+				<br>
+				<div class="inquiry_model_content">
+					接收投资人买入申报结果超时，请联系客服
+					<br><br>
+				</div>
+			</div>
+			
+			<div class="yes_btn">
+				确定
+			</div>
+		</div>
+	</body>
+	<script>
+		$(function(){
+			
+			var cid = sessionStorage.getItem('cid')
+			var UserID ;
+			var tData = JSON.parse(sessionStorage.getItem('tData'))
+			var levers ;
+			var status;
+			console.log(tData)
+			$.ajax({
+				type: "POST",
+				url: "http://192.168.1.20:8006/api/home/strategy/index.json",
+				data: {"device": 1},
+				async: true,
+				dataType: "json",
+				success: function (data) {
+					console.log(data)
+					$('#ylfc').text(data.datas.strRisk.profitShare.value*100+'%')
+				},
+				error:function (error){
+					console.log(error)
+				}
+			})
+			$.ajax({
+				type:'POST',
+				url:'http://120.55.164.87:8090/app/userinfo',
+				data:{cid:cid},
+				async:true,
+				dataType:"json",
+				success:function (data){
+					console.log(data)
+					sessionStorage.setItem('my_id',data.datas.ID)
+					UserID = data.datas.ID
+					$('#kyye').text(data.datas.余额.toFixed(2))
+				},
+				error:function (error){
+					console.log(error)
+				}
+			})
+			//数据渲染
+			
+			$('#gp_name').text(tData.gp_name)
+			$('#gp_code').text(tData.gp_code.toUpperCase())
+			$('#jiaoyijine').text(tData.jiaoyijine.toFixed(2))
+			$('#goumaishu').text(parseInt(tData.goumaishu)+'股')
+			$('#zhiying').text('+'+tData.zhiying.toFixed(2))
+			$('#zhisun').text('-'+tData.zhisun.toFixed(2))
+			$('#dytj').text('盈亏≥'+tData.dytj.toFixed(2))
+			$('#lybzj').text(tData.lybzj.toFixed(2))
+			$('#jyzhf').text(tData.jyzhf.toFixed(2))
+			$('#fyhj').text((tData.lybzj*1+tData.jyzhf*1).toFixed(2))
+			
+			
+			$('#button_submit').click(function(){
+				console.log($(".checkbox").is(":checked"))
+				if(!$(".checkbox").is(":checked")){
+					$('.motai').css('display','block')
+					// $(document.body).addClass('body-fixed')
+					$('#inquiry_model').css('display','block')
+					$('.inquiry_model_content').text('请阅读并同意用户须知及风险提示')
+					stop()
+					return
+				}
+				$.ajax({
+					type:'POST',
+					url:'http://139.196.178.5:8006/api/union/strategy/outCreate.json',
+					data:{
+						"UserID":UserID,
+						"cid":cid,
+						"money":tData.jiaoyijine,
+						"buyPriceOrder":tData.dangqianjia,
+						"orderType":2,
+						"lever":tData.ganggan,
+						"quitLoss":tData.zhisun,
+						"quitGain":tData.zhiying,
+						"principal":tData.lybzj,
+						"serviceCharge":tData.jyzhf.toFixed(2),
+						"stockCode":tData.gp_code.toUpperCase(),
+						"volumeOrder":parseInt(tData.goumaishu),
+					},
+					dataType:'json',
+					async:true,
+					success:function (data){
+						console.log(data)
+						if(!data.rs){
+							$('.inquiry_model_content').text(data.msg)
+							$('.loading-box').css('display','none')
+							$('.motai').css('display','block');
+							// $(document.body).addClass('body-fixed')
+							$('#inquiry_model').css('display','block')
+							stop()
+						}else{
+							sessionStorage.setItem('STID',data.datas.STID)
+							Reciprocal()
+						}
+					},
+					error:function (error){
+						console.log(error)
+					}
+				})
+				
+				
+			})
+			$('.yes_btn').click(function(){
+				$('.motai').css('display','none');
+				$('#inquiry_model').css('display','none')
+				move()
+				// $(document.body).removeClass('body-fixed')
+			})
+
+			function Reciprocal(){
+				$('.motai').css('display','block');
+				$('.loading-box').css('display','block')
+				$(document.body).addClass('body-fixed')
+				//倒计时
+				var t = Math.floor(Math.random()*30)+60;
+				console.log(t)
+				
+				$('.loading-box-text').text(i)
+				var i = 90;
+				var time = setInterval(function(){
+					if(t<=0){
+						clearInterval(time);
+						$('.loading-box').css('display','none')
+						$('.motai').css('display','block')
+						// $(document.body).addClass('body-fixed')
+						$('#inquiry_model').css('display','block')
+						stop()
+						// stop()
+					}
+					i--;
+					if(i<=90-t){
+						clearInterval(time);
+						$('.motai').css('display','none')
+						// $(document.body).removeClass('body-fixed')
+						$('#inquiry_model').css('display','none')
+						move()
+						window.location.href="gupiao_t3.html"
+						// clearInterval(time);
+					}else{
+						StrategyStatus()
+					}
+					$('.loading-box-text').text(i)
+				},1000)
+			}
+			function StrategyStatus(){
+				$.ajax({
+					type:'POST',
+					url:'http://139.196.178.5:8006/api//union/strategy/StrategyStatus.json',
+					data:{
+						"UserID":UserID,
+						"cid":cid,
+						"sid":sessionStorage.getItem('STID')
+					},
+					dataType:'json',
+					async:true,
+					success:function(data){
+						if(data.rs){
+							console.log(data)
+							status = true
+						}else{
+							status = false
+						}
+					},
+					error:function(error){
+						console.log(error)
+					}
+				})
+			}
+			// 禁止页面滑动
+			function stop(){
+				var mo=function(e){e.preventDefault();};
+				document.body.style.overflow='hidden';
+				document.addEventListener("touchmove",mo,false);//禁止页面滑动
+			}
+			// 允许页面滑动
+			function move(){
+				var mo=function(e){e.preventDefault();};
+				document.body.style.overflow='';//出现滚动条
+				document.removeEventListener("touchmove",mo,false);
+			}
+		})
+	</script>
+</html>

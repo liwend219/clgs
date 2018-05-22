@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"/>
+    <title>提现</title>
+    <link rel="icon" href="images/logo01.png" type="image/x-icon">
+    <link rel="stylesheet" href="css/init.css">
+    <link rel="stylesheet" href="css/raisecash.css">
+    <script src="js/jquery-3.2.1.js"></script>
+    <script src="js/public.js"></script>
+    <script src="js/raisecash.js"></script>
+    <!--<script>
+        var cid = sessionStorage.getItem("cid");
+        if (cid == "" || cid == null) {
+            alert("请先登录");
+            window.location.href = "logoIn.html";
+        }
+    </script>-->
+</head>
+<body>
+<!--头部-->
+<div id="back_nav">
+    <a href="javascript:history.back(-1);">
+        <img src="images/back_w.png" alt="" class="back_btn">
+    </a>
+    <span class="title">提现</span>
+</div>
+<!--中部-->
+<div class="box">
+
+
+    <div class="user_follow">
+        <img src="" alt="" class="icon">
+        <div class="info">
+            <p class="info_name">@bank</p>
+            <span class="info_phone">尾号<span id="hsw">@11</span></span>
+            <img src="images/arrow.png" alt="" class="icon_arrow">
+        </div>
+    </div>
+
+    <div class="input_money">
+        <p class="font_ipt">提取金额<span class="font_f">(单笔限额100-50000每日不限次数)</span></p>
+        <p class="input_m"><span>￥</span><input type="number" id="money_b"/></p>
+        <p class="font_f">可提现金额<span id="money">@money</span>元</p>
+    </div>
+
+
+</div>
+<div class="sub_box">
+    <input type="button" id="sb" value="T+1到账，确认提现">
+</div>
+<!--提示信息-->
+<span id="tip" style="display: none"></span>
+
+</body>
+</html>

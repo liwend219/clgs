@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>我的自选</title>
+    <script src="https://cdn.bootcss.com/vue/2.5.17-beta.0/vue.min.js"></script>
+    <script src="js/Sortable.min.js"></script>
+    <!-- 引入样式 -->
+    <link rel="stylesheet" href="https://unpkg.com/vant/lib/vant-css/index.css">
+    <!-- 引入组件 -->
+    <script src="https://unpkg.com/vant/lib/vant.min.js"></script>
+    <script src="https://cdn.bootcss.com/axios/0.18.0/axios.min.js"></script>
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+        }
+        body{
+            background-color: #fff;
+        }
+        
+        .mint-header {
+            background-color: #fff;
+            color:black;
+            border-bottom: 1px solid #CECED2;
+            height: 50px;
+        }
+        .list-title {
+            display: -webkit-flex; 
+            display: flex;
+            justify-content:space-around;
+            margin-top:50px;
+            font-size: 14px;
+        }
+        .list-title span{
+            width: 33.3%;
+            text-align: center;
+        }
+        .list-content{
+            display: -webkit-flex; 
+            display: flex;
+            justify-content:space-around;
+            align-items:center;
+            background-color: #fff;
+            height: 40px;
+            border-bottom:1px solid #ececec;
+            padding:5px 0;
+            font-size: 14px;
+        }
+        .list-content-item {
+            width: 33.3%;
+            text-align: center;
+        }
+        .colorRed{
+            color:red;
+        }
+        .colorGre{
+            color:rgb(21, 165, 122);
+        }
+        .van-icon-arrow,.van-nav-bar__text{
+        	color: #393939 !important;
+        }
+        .van-button--bottom-action{
+        	background: #e1433d !important;
+        }
+        .nav_box{
+            position: fixed;
+            bottom:0;
+            width: 100%;
+            height:50px;
+            /* border-top:0.01rem solid #ececec; */
+            display: -webkit-flex; /* Safari */
+            display: flex;
+            justify-content:space-between;
+            align-items:center;
+            background-color: #F7F7F8;
+        }
+        .foot-menu{
+            display: -webkit-flex; /* Safari */
+            display: flex;
+            justify-content:space-between;
+            align-items:center;
+            text-align: center;
+            border-top: 0.01rem solid #ececec;
+            position: fixed;
+            bottom:50px;
+            width:100%;
+        }
+        .foot-menu-btn{
+            background-color: #666666;
+            color:#fff;
+            height:50px;
+            width:50%;
+            line-height:50px;
+        }
+        .nav_img{
+            width:25px;
+            height:25px;
+        }
+        .nav_item{
+            margin:0 auto;
+            font-size:12px;
+        }
+        
+        .nav_name{
+            color:#929292;
+        }
+    </style>
+	</head>
+<body>
+    <div id="app">
+        <div v-show="!showLoading">
+            <van-nav-bar v-show="!isShow" fixed title="自选"
+            
+            right-text="编辑"
+            @click-right="edit">
+            </van-nav-bar>
+            <van-nav-bar v-show="isShow" fixed title="自选"
+            left-arrow
+            :right-text="menuText"
+            @click-right="allSelect">
+            </van-nav-bar>
+            <div class="list-title" v-show="!isShow">
+                <span>股票</span>
+                <span>现价</span>
+                <span>涨跌幅</span>
+            </div>
+            <div class="list-title" v-show="isShow">
+                <span>股票</span>
+                <span>置顶</span>
+                <span>按住拖动</span>
+            </div>
+            <br>
+            <ul id="items" class="iapp">
+                    
+                <li v-for="(item,key) in datas" :key="key" @click="toDetails(item.code,item.name)">
+                    <div class="list-content">
+
+                        <div class="list-content-item">
+                            <div v-show="!isShow">
+                                <div v-text="item.name">
+                                </div>
+                                <div v-text="item.code">
+                                </div>
+                            </div>
+                            <van-checkbox class="item-1" v-show="isShow" v-model="b[key]" :name="item.name"  @change="select(key,event)">
+                                <div v-text="item.name">
+
+                                </div>
+                                <div v-text="item.code">
+                                </div>
+                            </van-checkbox>
+                        </div>
+
+                        <div class="list-content-item">
+                            <div v-show="!isShow" v-text="item.price">
+                            </div>
+                            <div style="width:18px;height:18px;margin:0 auto" @click="setTop(item)" v-show="isShow">
+                                <img style="width:100%;" src="./images/top.png" alt="">
+                            </div>
+                        </div>
+                        <div class="list-content-item" :class="item.updown.slice(0,1)=='-'?'colorGre':'colorRed'">
+                            <div v-show="!isShow" >
+                                {{item.updown | setfh}}
+                            </div>
+                            <div style="width:18px;height:18px;margin:0 auto" v-show="isShow">
+                                <img style="width:100%;" src="./images/list.png" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            
+            </ul>
+            <br>
+            <div v-show="!isShow" style="height:30px;display: -webkit-flex;display: flex;justify-content:center; align-items:center;margin-bottom:7.5rem" @click="addShares">
+                <div  style="height:30px;">
+                    <img src="./images/add.png" style="height:100%;" alt="">
+                </div>
+                <span>添加股票</span>
+            </div>
+            <div style="height:50px;"v-show="isShow">
+
+            </div>
+            <van-button v-show="isShow" bottom-action @click="deleteData" style="position: fixed; bottom:0;">
+                <img style="width:18px;height:18px;vertical-align: middle;margin-top:-2.5px" src="./images/delete.png" alt="">
+                <span style="font-size: 16px;">　删除<span v-if="deleteArr.length>0?true:false">({{deleteArr.length}})</span></span>
+            </van-button>
+        </div>
+        <div  v-show="showLoading" style="position: absolute;width:50px;height:50px;top:40%;left:50%;margin-top:-25px;margin-left:-25px">
+        <van-loading style="margin:0 auto" color="black"/>
+        </div>
+        <div class="foot-menu" v-show="!isShow">
+            <div class="foot-menu-btn" style="border-right:0.01rem solid #ececec" @click="toDingcelue">盯策略</div>
+            <div class="foot-menu-btn">结算单</div>
+        </div>
+        <div id="footer_nav">
+            <ul class="nav_box">
+                <li class="nav_item">
+                    <a href="index.html">
+                        <img src="images/icon_home.png" alt="" class="nav_img"><br>
+                        <span class="nav_name">首页</span>
+                    </a>
+                </li>
+                <li class="nav_item">
+                    <a href="adviser.html">
+                        <img src="images/icon_adviser.png" alt="" class="nav_img"><br>
+                        <span class="nav_name">交易</span>
+                    </a>
+                </li>
+                <li class="nav_item">
+                    <a href="gupiao_index.html">
+                        <img src="images/股票_icon_selected.png" alt="" class="nav_img"><br>
+                        <span class="nav_name">股票</span>
+                    </a>
+                </li>
+                <li class="nav_item">
+                    <a href="master.html">
+                        <img src="images/icon_killer.png" alt="" class="nav_img"><br>
+                        <span class="nav_name">高手</span>
+                    </a>
+                </li>
+                <li class="nav_item">
+                    <a href="personal.html">
+                        <img src="images/icon_personal.png" alt="" class="nav_img"><br>
+                        <span class="nav_name">我的</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    
+    
+    <script>
+    	
+        var vm = new Vue({
+            el:'#app',
+            data(){
+                return{
+                    isShow:false,
+                    cid:'',
+                    datas:'',
+                    b:[],
+                    menuText:'完成',
+                    showLoading:false,
+                    deleteArr:[],
+                    status:false,
+                }
+            },
+            mounted () {
+            	var self=this
+				var t=setTimeout(function(){
+                self.cid = sessionStorage.getItem("cid");
+				self.getdata()
+				window.clearTimeout(t)
+				},50)
+                $.ajax({
+                    type:'POST',
+                    url:'http://120.55.164.87:8090/app/userinfo',
+                    data:{cid:sessionStorage.getItem('cid')},
+                    async:true,
+                    dataType:"json",
+                    success:function (data){
+                        console.log(data)
+                        sessionStorage.setItem('my_id',data.datas.ID)
+                    },
+                    error:function (error){
+                        console.log(error)
+                    }
+                })
+            },
+            computed:{
+                setColor:function(val){
+                    if(val>0){
+                        return 'red'
+                    }else{
+                        return '#8be448'
+                    }
+                }
+            },
+            methods:{
+                onClickLeft (){
+                    
+                },
+                toDingcelue(){
+                    window.location.href = 'gupiao_t3.html'
+                },
+                setTop(item) {
+                    // for(let i =0;i<this.b.length;i++){
+                    //     console.log(i)
+                    //     if(this.b[i]){
+
+                    //     }else{
+                    //         if(i>=this.b.length-1){
+                                
+                    //         }
+                    //     }
+                    // }
+                    this.setSort(item.code,item.idx,this.datas[0].code,this.datas[0].idx)
+                },
+                toDetails (code,name){
+                    if(!this.isShow){
+                        sessionStorage.setItem('$_code', code);
+                        sessionStorage.setItem('$_name', name);
+                        window.location.href='./gupiao_t7.html';
+                    }
+                },
+                addShares (){
+                    window.location.href='zixuan——search.html'; 
+                },
+                getdata () {
+                    this.b =[]
+                    this.showLoading = true;
+                    var self=this
+                    axios.get('http://120.55.164.87:8090/app/SelectedStockList?cid='+this.cid).then(data => {
+                        this.datas=[]
+                        this.$nextTick(() => {
+                            self.datas = data.data
+                        })
+                        self.showLoading = false;
+                        vm.$forceUpdate()
+                        for(let i=0;i<this.datas.length;i++){
+                            this.b.push(false)
+                        }
+                    }).catch(err => {
+                        this.showLoading = false;
+                        console.log(err)
+                    })
+                },
+                // 调整排序
+                setSort (code1,idx1,code2,idx2) {
+                    var self = this
+                    this.showLoading = true;
+                    var contents=[
+                        {"code":code2,"idx":idx1},
+                        {"code":code1,"idx":idx2}
+                    ]
+                    axios.get('http://120.55.164.87:8090/app/SelectedStockSort',{
+                        params:{
+                            cid:this.cid,
+                        //    cid:'QHvJbs1svGIkafSIeFlyo9bwwXH3',
+                            content:JSON.stringify(contents)
+                        }
+                    }).then(data => {
+                        this.showLoading = false;
+                        if(data.data.rs){
+                            this.getdata()
+                        }
+                    }).catch(err => {
+                        this.showLoading = false;
+//                      console.log(err)
+                    })
+                },
+                edit (){
+                    this.status = false
+                    gg(1)
+                    this.isShow = true
+                    $('#footer_nav').css('display','none')
+                },
+                allSelect (){
+                    this.status = true
+                    this.b =[]
+                    for(let i=0;i<this.datas.length;i++){
+                        this.b.push(false)
+                    }
+                    this.deleteArr=[]
+                    this.isShow = false
+                    $('#footer_nav').css('display','block')
+                },
+                select (key,event) {
+                    if(this.b[key]){
+                        gg(2);
+                        $('.list-content').eq(key).css('background-color','rgb(232, 232, 232)')
+                        this.deleteArr.push(this.datas[key].code)
+                    }else{
+                        for(let i =0;i<this.deleteArr.length;i++){
+                            if(this.datas[key].code == this.deleteArr[i]){
+                                this.deleteArr.splice(i,1)
+                            }
+                        }
+                        $('.list-content').eq(key).css('background-color','#fff')
+                        // gg(0);
+                        for(let j =0;j<this.b.length;j++){
+                            if(this.b[j]){
+                                gg(3)
+                            }
+                        }
+                        gg(4)
+                    }
+                },
+                deleteData () {
+                    if(this.deleteArr.length==0){
+                        vm.$toast('没有选择任何项');
+                        return
+                    }
+                    axios.get('http://120.55.164.87:8090/app/SelectedStockDel',{
+                        params:{
+                            cid:this.cid,
+                            code:this.deleteArr.toString()
+                        }
+                    }).then(data => {
+                        this.getdata()
+                    }).catch(err => {
+//                      console.log(err)
+                    })
+                }
+            },
+            filters:{
+                setfh:function(value){
+                    if(value.slice(0,1) !="-"){
+                        return '+'+value
+                    }else{
+                        return value
+                    }
+                }
+            }
+        })
+    </script>
+    <script>
+
+        
+        var el = document.getElementById('items');
+        var sortable = new Sortable(el, {
+            dragClass: "sortable-drag",
+            //为true则不可拖动
+            disabled:true,
+            // 列表单元被选中的回调函数
+            onChoose (event) {
+                if(vm.b[event.oldIndex]){
+                    vm.$toast('请在取消勾选后拖动列表');
+                    return
+                }
+            },
+            // 列表单元拖动开始的回调函数
+            onStart (event) {
+                // alert(1)
+                if(vm.b[event.oldIndex]){
+                    vm.$toast('请在取消勾选后拖动列表');
+                    return
+                }
+                $('.list-content').eq(event.oldIndex).css('box-shadow','0 0 3px #000')
+            },
+            // 列表单元拖放结束后的回调函数
+            onEnd (event) {
+                vm.setSort(vm.datas[event.oldIndex].code,event.oldIndex,vm.datas[event.newIndex].code,event.newIndex)
+                $('.list-content').css('box-shadow','0 0 0 #000')
+            },
+            // 列表单元添加到本列表容器的回调函数
+            onAdd (event) {
+            },
+            // 列表单元在列表容器中的排序发生变化后的回调函数
+            onUpdate (event) {
+            },
+            // 列表元素移到另一个列表容器的回调函数
+            onRemove (event) {
+            },
+        })
+        function gg(i){
+            //点击编辑
+            if(i == 1){
+                sortable.options.disabled = false
+            }else if(i == 2){
+                //选中
+                sortable.options.disabled = true
+            }else if (i == 3){
+                //有选中
+                sortable.options.disabled = true
+            }else if(i == 4){
+                //没有选中
+                if(vm.status){
+                    //回到初始编辑页
+                    sortable.options.disabled = true
+                }else{
+                    // 完成页
+                    sortable.options.disabled = false
+                }
+                
+            }
+            // if(!vm.isShow){
+            //     sortable.options.disabled = true
+            // }
+            // for(let j=0;j<vm.b.length;j++){
+            //     //有选中状态不可拖动
+            //     if(vm.b[j]){
+            //         sortable.options.disabled = true
+            //         return
+            //     }
+            // }
+            // console.log(i)
+            // if(i==0 && !this.status){
+            //     sortable.options.disabled = true
+            // }else{
+            //     sortable.options.disabled = false
+            // }
+            
+        }
+        $(".van-icon-arrow").click(function(){
+        	window.location.href = "index.html"
+        })
+//      ios调用
+ function loadURL(url) {
+                    var iFrame;
+                    iFrame = document.createElement("iframe");
+                    iFrame.setAttribute("src", url);
+                    iFrame.setAttribute("style", "display:none;");
+                    iFrame.setAttribute("height", "0px");
+                    iFrame.setAttribute("width", "0px");
+                    iFrame.setAttribute("frameborder", "0");
+                    document.body.appendChild(iFrame);
+                    // 发起请求后这个iFrame就没用了，所以把它从dom上移除掉
+                    iFrame.parentNode.removeChild(iFrame);
+                    iFrame = null;
+                }
+ function getcid(data){
+			 	
+			 	alert(data)
+			 }
+    </script>
+</body>
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"/>
+    <title>编辑资料</title>
+    <link rel="icon" href="images/logo01.png" type="image/x-icon">
+    <link rel="stylesheet" href="css/init.css">
+    <link rel="stylesheet" href="css/data.css">
+    <script src="js/jquery-3.2.1.js"></script>
+    <script src="js/public.js"></script>
+    <script src="js/data.js"></script>
+    <script>
+        var cid = sessionStorage.getItem("cid");
+        if (cid == "" || cid == null) {
+            alert("请先登录");
+            window.location.href = "logoIn.html";
+        }
+    </script>
+</head>
+<body class="body">
+<!--头部-->
+<div id="back_nav">
+    <a href="mydata.html" class="btn_tip">
+        <img src="images/back_w.png" alt="" class="back_btn">
+    </a>
+    <span class="title">编辑资料</span>
+</div>
+<!--中部-->
+<div class="lists">
+    <ul>
+        <li class="first">
+            <span class="font_left"><span class="pic_head">头像</span><span class="items_right"><img
+                    src="@img" alt="" class="image"/></span></span>
+            <i></i>
+        </li>
+        <li class="second">
+		                 <span class="font_left"><span>昵称</span>
+		                 <span class="right nickname">股市大力水手</span>
+		                 </span>
+            <i></i>
+        </li>
+        <li class="third">
+		                <span class="font_left"><span>性别</span>
+		                <select name="select" id="select" class="right sex">
+							<option value="男">男</option>
+							<option value="女">女</option>
+							
+					    </select>
+		               </span>
+        </li>
+        <li class="fourth">
+		                <span class="font_left">
+		                	<span>实名认证</span>
+		                	<span class="shiming">
+		                		<span class="right zhuangtai">新用户</span>
+			                	<span class="real_state"></span>
+		                	</span>
+			                
+		                </span>
+            <i></i>
+        </li>
+    </ul>
+    <ul>
+        <li class="fifth">
+		               <span class="font_left">
+		               	<span>个人简介</span>
+		               <span class="right usertext">请填写</span>
+		               </span>
+            <i></i>
+        </li>
+    </ul>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"/>
+    <title>风险揭示书</title>
+    <link rel="icon" href="images/logo01.png" type="image/x-icon">
+    <link rel="stylesheet" href="css/help.css">
+    <script src="js/jquery-3.2.1.js"></script>
+</head>
+<body>
+<!--头部-->
+<div id="back_nav" class="fixd">
+    <a href="javascript:history.back(-1);">
+        <img src="images/back.png" alt="" class="back_btn">
+    </a>
+    <span class="title">风险揭示书</span>
+</div>
+<!--中部-->
+<div class="top"></div>
+<div class="gz_box">
+    <p class="p_con margin">1、最大可能损失：与普通金融工具相比，策略高手投顾建议交易具有一定的杠杆性，波动性强，会放大收益或损失，属于高风险投资品种。由于各种风险因素的存在，所预期的规避风险、保值、获利等交易目标不一定能够实现，计划的资产有可能大幅贬值，甚至可能发生全部亏损。</p>
+		<p class="p_con margin">2、市场风险：由于货币政策、财政政策、产业政策等国家政策及法律法规的变化，或者政治、金融及宏观经济形势变化，导致市场利率变化和证券价格波动影响交易合约价值变化，从而导致本基金的交易发生损失，本基金所预期的规避风险、保值、获利等交易目标不一定能够实现。</p>
+		<p class="p_con margin">3、流动性风险：一方面，由于市场交易不够活跃，无法及时满足本基金希望达成交易的要求，从而可能影响本基金实现特定的财务目标或预期的风险管理目标。另一方面，交易中本基金应支付现金的规模大于本基金现金头寸而导致本基金违约或发生流动性危机。</p>
+		<p class="p_con margin">4、操作风险：在实际交易过程中，因不完善或有问题的内部流程、人员及系统或外部事件等可能造成的交易损失。</p>
+		<p class="p_con margin">5、法律风险：因法律法规、监管要求或市场规则变化，使交易不能被有效执行导致损失的风险；在本基金出现交易项下约定的违约事件或终止事件时，本基金将面临被交易另一方提前终止交易或本基金提交的履约保障品被交易另一方依交易项下约定进行处置的风险，可能会给本基金造成经济损失。</p>
+		<p class="p_con margin">6、信用风险：因交易另一方未履行交易项下约定的各项义务而造成本基金的损失。</p>
+		<p class="p_con margin">7、技术风险：在交易过程中，可能因为技术系统的故障或者差错而影响对冲交易的正常进行或者导致投资者的利益受到影响。该种技术风险可能来自证券公司、证券登记结算机构等。</p>
+		<p class="p_con margin">8、合同变更风险：在合同签署后，交易有可能因法律、法规、规章、中国证监会的规定、证券登记结算机构业务规则、证券交易所交易规则以及其他原因进行修订或者变更。投资者存在不同意变更合同的条款又没在规定的时间内退出，视同同意合同变更的风险。</p>
+        <p class="p_con margin">9、提前终止风险：本交易存续期间，若出现合同约定的终止事件（由于不可抗力或政府行为或法律、法规、监管规则的变化导致该业务不再具有合法性或导致任何一方丧失履行能力），则本交易可能面临提前终止风险。</p>
+                                    <h4 class="red" style="text-align: center;">以上提示可能发生的风险由投资者自行承担。</h4>
+                                     <h4 class="red" style="text-align: center;">投资有风险，入场需谨慎。</h4>
+</div>
+</body>
+<script>
+    $(function () {
+        var w = $(window).width();
+        if (w > 750) {
+            w = 750;
+        }
+        $("html").css("font-size", w / 7.5 + "px");
+        $(window).resize(function () {
+            var w = $(window).width();
+            if (w > 750) {
+                w = 750;
+            }
+            $("html").css("font-size", w / 7.5 + "px");
+        });
+
+        $("#footer_nav .nav_box .nav_item .nav_img").click(function () {
+            var img_src = $(this).attr("src");
+            console.log(img_src);
+            $(this).attr()
+        })
+
+    });
+</script>
+</html>

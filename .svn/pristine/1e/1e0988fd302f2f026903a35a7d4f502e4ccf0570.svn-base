@@ -1,0 +1,153 @@
+body {
+    background: #e6e6e7;
+}
+
+#container {
+    margin-bottom: 1rem;
+}
+
+/* 头部导航 */
+#container #back_nav {
+    background: url("../images/nav_bar.png") no-repeat center;
+    background-size: cover;
+    width: 100%;
+    height: 0.88rem;
+    text-align: center;
+    overflow: hidden;
+    line-height: 0.88rem;
+}
+
+#container #back_nav .back_btn {
+    float: left;
+    width: 0.2rem;
+    height: 0.36rem;
+    margin: 0.26rem 0 0 0.28rem;
+}
+
+#container #back_nav .title {
+    margin-left: -0.48rem;
+    font-size: 0.34rem;
+    color: #ffffff;
+    letter-spacing: 0.03rem;
+}
+
+/*发布内容*/
+#release_box {
+    background: #e6e6e7;
+}
+
+#release_box ul {
+    background: #ffffff;
+    margin-top: 0.33rem;
+}
+
+#release_box ul li {
+    padding: 0.15rem 0;
+    overflow: hidden;
+    border-bottom: 0.01rem solid #ededed;
+}
+
+#release_box ul li h3 {
+    float: left;
+    font-size: 0.26rem;
+    color: #393939;
+    width: 50%;
+    padding-left: 0.3rem;
+    font-weight: normal;
+}
+
+#release_box ul li span {
+    float: left;
+    width: 50%;
+    font-size: 0.26rem;
+    color: #393939;
+}
+
+#release_box ul li input {
+    float: left;
+    width: 50%;
+    height: 0.35rem;
+    font-size: 0.26rem;
+    border: none;
+    outline: none;
+    padding-right: 0.5rem;
+    color: #393939;
+}
+
+#release_box .release_content .project_box .shares_box {
+    float: left;
+    width: 50%;
+}
+
+#release_box .release_content .project_box .shares_box .project_code {
+    padding-right: 0;
+    width: 1.1rem;
+    padding-top: 0.05rem;
+}
+
+#release_box .purchase_box .term_box select {
+    float: left;
+    width: 40%;
+    font-size: 0.26rem;
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
+
+#release_box .purchase_box .term_box select option {
+    font-size: 0.26rem;
+}
+
+/*发布策略*/
+#strategy {
+    background: #ffffff;
+    margin-top: 0.33rem;
+}
+
+#strategy .strategy_title {
+    padding: 0.15rem 0 0.15rem 0.3rem;
+    font-size: 0.26rem;
+    color: #393939;
+    font-weight: normal;
+}
+
+#strategy .strategy_text {
+    padding: 0.15rem 0.3rem;
+    font-size: 0.26rem;
+    width: 100%;
+    max-height: 3rem;
+    resize: none;
+    outline: none;
+    border: none;
+}
+
+/*发布按钮*/
+#container .release_btn {
+    width: 100%;
+    height: 0.88rem;
+    font-size: 0.32rem;
+    color: #ffffff;
+    text-align: center;
+    line-height: 0.88rem;
+    background-color: #d63f2b;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    position: fixed;
+    bottom: 0;
+}
+
+/*提示信息*/
+#tip {
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 0.24rem;
+    padding: 0.1rem 0.2rem;
+    background: rgba(0, 0, 0, 0.5);
+    color: #ffffff;
+    border-radius: 0.1rem;
+    text-align: center;
+    z-index: 99;
+}

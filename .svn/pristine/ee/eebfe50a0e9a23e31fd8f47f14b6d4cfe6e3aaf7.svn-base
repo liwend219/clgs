@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>策略直播</title>
+		<link rel="icon" href="images/logo01.png" type="image/x-icon">
+		<link rel="stylesheet" href="css/help.css">
+		 <script src="js/jquery-3.2.1.js"></script>
+		 <script>
+    $(function () {
+        var w = $(window).width();
+        if (w > 750) {
+            w = 750;
+        }
+        $("html").css("font-size", w / 7.5 + "px");
+        $(window).resize(function () {
+            var w = $(window).width();
+            if (w > 750) {
+                w = 750;
+            }
+            $("html").css("font-size", w / 7.5 + "px");
+        });
+
+        $("#footer_nav .nav_box .nav_item .nav_img").click(function () {
+            var img_src = $(this).attr("src");
+            console.log(img_src);
+            $(this).attr()
+        })
+
+    });
+</script>
+	</head>
+	<body>
+		<!--头部-->
+<div id="back_nav" class="fixd">
+    <a href="javascript:history.back(-1);">
+        <img src="images/back.png" alt="" class="back_btn">
+    </a>
+    <span class="title">策略直播</span>
+</div>
+<!--中部-->
+	<div style="width:100%;height: 0.88rem;"></div>
+<div class="con">
+	<iframe border="0" src="http://e.vhall.com/webinar/inituser/799663830?embed=video" width="100%"></iframe>
+</div>
+<div class="font">
+	<img src="images/ce.png"/>
+	<div id="right">
+		<p class="p_c">策略直播室</p>
+		<p class="p_c_1">独家 股市 策略解密 2.9万次观看</p>
+		<span id="icon_z">
+			直播中
+		</span>
+	</div>
+</div>
+		<div class="font_jianjie">
+			<p class="p_c">简介 <span>周一至周日 &nbsp;9:00-18:00</span></p>
+			<p class="content">策略直播全新上线，云集众多股市，期货大咖。从早晨到晚上不间断直播，为广大投资朋友传递知识，传递股市第一手信息。在收获知识的同时再收获投资收益。直播视频包含股市解析、大盘分析、未来预测、最新资讯、大咖面对面讲解等内容。</p>
+		</div>
+	</body>
+</html>

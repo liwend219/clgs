@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"/>
+    <title>发布</title>
+    <link rel="icon" href="images/logo01.png" type="image/x-icon">
+    <link rel="stylesheet" href="css/init.css">
+    <link rel="stylesheet" href="css/release.css">
+    <script src="js/jquery-3.2.1.js"></script>
+    <script src="js/public.js"></script>
+    <script src="js/verification.js"></script>
+    <script src="js/api.js"></script>
+    <script src="js/release.js"></script>
+    <script>
+        var cid = sessionStorage.getItem("cid");
+        if (cid == "" || cid == null) {
+            alert("请先登录");
+            window.location.href = "logoIn.html";
+        }
+    </script>
+</head>
+<body>
+<div id="container">
+    <div id="back_nav">
+        <a href="javascript:history.back(-1);">
+            <img src="images/back.png" alt="" class="back_btn">
+        </a>
+        <span class="title">我要发布</span>
+    </div>
+    <form id="release_box">
+        <ul class="release_content">
+            <li class="initiator_box">
+                <h3 class="initiator_text">发起人</h3>
+                <span class="initiator_name"></span>
+            </li>
+            <li class="project_box">
+                <h3 class="project_text">拼单项目</h3>
+                <div class="shares_box">
+                    <input type="text" class="project_code" maxlength="6" onkeyup="value = value.replace(/[^\d]/g, '')"
+                           placeholder="股票代码">
+                    <span class="project_name"></span>
+                </div>
+            </li>
+            <li class="term_box">
+                <h3 class="term_text">拼单截止</h3>
+                <span class="term_time"></span>
+            </li>
+            <li class="fight_box">
+                <h3 class="fight_text">拼单金额(万)</h3>
+                <input type="text" class="fight_money" placeholder="请输入拼单金额"
+                       onkeyup="value = value.replace(/[^\d]/g, '')">
+            </li>
+            <li class="reward_box">
+                <h3 class="reward_text">拼单奖励</h3>
+                <span class="reward_discount">服务费立减0.3%起</span>
+            </li>
+        </ul>
+
+        <ul class="purchase_box">
+            <li class="executive_box">
+                <h3 class="executive_text">执行方式</h3>
+                <span class="executive_price">T+5</span>
+            </li>
+            <li class="implement_box">
+                <h3 class="implement_text">执行价格</h3>
+                <span class="implement_price">100%</span>
+            </li>
+            <li class="term_box">
+                <h3 class="term">投顾期限</h3>
+                <select name="" class="term_lists">
+                    <option value="0">1月</option>
+                    <option value="1">2月</option>
+                    <option value="2">3月</option>
+                </select>
+            </li>
+            <li class="subscription_box">
+                <h3 class="subscription_text">认购金额(万)</h3>
+                <input type="text" class="subscription_money" placeholder="10的整数倍,最低10万"
+                       onkeyup="value = value.replace(/[^\d]/g, '')">
+            </li>
+        </ul>
+    </form>
+
+    <div id="strategy">
+        <h3 class="strategy_title">发布策略</h3>
+        <textarea rows="4" placeholder="写出您的策略，以便更多人拼单..." class="strategy_text"></textarea>
+    </div>
+
+    <button class="release_btn">发布</button>
+</div>
+
+<!--提示信息-->
+<span id="tip" style="display: none"></span>
+</body>
+</html>

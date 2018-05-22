@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>修改订单</title>
+		<link rel="icon" href="images/logo01.png" type="image/x-icon">
+    	<link rel="stylesheet" href="css/init.css">
+    	<link rel="stylesheet" href="css/public.css">
+    	   	 <link rel="stylesheet" href="css/wallet.css">
+		<script src="js/jquery-3.2.1.js"></script>
+    	<script src="js/public.js"></script>
+    	<script src="js/verification.js"></script>
+    	<style type="text/css">
+    		ul{
+    			width: 100%;
+    			margin-top: 0.2rem;
+    		}
+    		ul li{
+    			font-size: 0.32rem;
+    			color: #393939;
+    		}
+    		ul li input{
+    			display: inline-block;
+    			width: 70%;
+    			float: right;
+    			color: #393939;
+    			font-size: 0.3rem;
+    			border: none;
+    			outline: none;
+    		}
+    		     input::-webkit-outer-spin-button,
+    input::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+    }
+    input[type="number"]{
+        -moz-appearance: textfield;
+    }
+     /*提示信息*/
+#tip {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 0.24rem;
+    padding: 0.1rem 0.2rem;
+    background: rgba(0, 0, 0, 0.5);
+    color: #ffffff;
+    border-radius: 0.1rem;
+    text-align: center;
+    z-index: 99;
+}
+    	</style>
+	</head>
+	<body>
+				<!--头部-->
+<div id="back_nav" style="background: #fff;color: #393939;">
+    <a href="Triangle_4.html">
+        <img src="images/back.png" alt="" class="back_btn">
+    </a>
+    <span class="title" style="color: #393939;">订单详情</span>
+    <span class="detailed" style="color: #393939;">保存</span>
+</div>
+<!--中部-->
+		<ul>
+			<li>联系人<input type="text" id="username" value="" placeholder="请输入联系人" onKeypress="javascript:if(event.keyCode == 32)event.returnValue = false;"/></li>
+			<li>手机号码	<input type="number" id="phone" value="" placeholder="请输入手机号" onKeypress="javascript:if(event.keyCode == 32)event.returnValue = false;"/></li>
+			<li>详细地址<input type="text" id="address" value="" placeholder="请输入收货地址" onKeypress="javascript:if(event.keyCode == 32)event.returnValue = false;"/></li>
+		</ul>
+		<!--提示信息-->
+<span id="tip" style="display: none"></span>
+	</body>
+	<script>
+		 //提示信息框隐藏
+    function tipMsg() {
+        setTimeout(function () {
+            $("#tip").fadeOut(1000);
+        }, 1000);
+    }
+		$(".detailed").click(function(){
+			var user_id = sessionStorage.getItem("user_id")
+			var cid = sessionStorage.getItem("cid")
+			var OrderID = sessionStorage.getItem("$__id")
+			var OrderCode = sessionStorage.getItem("$__code")
+			var name = $("#username").val()
+			var Phone = $("#phone").val()
+			var Address = $("#address").val()
+			if(name == "" && Phone == "" && Address == ""){
+				$("#tip").text("您没有完善信息").css("display", "block");
+                tipMsg();
+			}
+			else if($("#username").val()==""){
+        		$("#tip").text("请输入联系人").css("display", "block");
+                tipMsg();
+        	}else if($("#phone").val()==""){
+        		$("#tip").text("请输入手机号").css("display", "block");
+                tipMsg();
+        	}else if($("#address").val()==""){
+        		$("#tip").text("请输入详细地址").css("display", "block");
+                tipMsg();
+        	}else if(!checkMobile($("#phone").val())){
+        		 $("#tip").text("手机号码不正确").css("display", "block");
+		            tipMsg();
+		            return;
+        	}
+			else{
+				$.ajax({
+				type:"post",
+				url:"http://106.15.59.178:8001/api/User/AddressEdit",
+				data:{
+					"UserID":user_id,
+	            	"CID":cid,
+	            	"OrderID":OrderID,
+	            	"OrderCode":OrderCode,
+	            	"Name":name,
+	            	"Phone":Phone,
+	            	"Address":Address				
+				},
+				success:function(data){
+					console.log(data)
+					if(data.rs == true){
+						window.location.href= "Triangle_3.html"
+					}else{
+						alert(data.msg)
+					}
+				},error:function(){
+					alert("网络错误")
+				}
+				});
+			}
+			
+		})
+	</script>
+</html>

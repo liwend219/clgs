@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en" style="background:none;">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"/>
+    <title>高手</title>
+    <link rel="icon" href="images/logo01.png" type="image/x-icon">
+    <link rel="stylesheet" href="css/init.css">
+    <link rel="stylesheet" href="css/public.css">
+    <link rel="stylesheet" href="css/master.css">
+    <script src="js/jquery-3.2.1.js"></script>
+    <script src="js/public.js"></script>
+    <script src="js/api.js"></script>
+    <script src="js/master_2.js"></script>
+</head>
+
+<body style="background:none;">
+<div class="content">
+    <div id="container">
+
+        <div class="ranking">
+            <div class="items">
+                <span class="item active" style="color: #FFFFFF;">最近1个月</span>
+                <span class="item" style="color: #FFFFFF;">最近3个月</span>
+                <span class="item" style="color: #FFFFFF;">最近6个月</span>
+            </div>
+        </div>
+
+        <div id="tab_content">
+            <div class="info_box">
+                <ul class="info_item">
+
+                </ul>
+            </div>
+        </div>
+
+
+    </div>
+
+    <!-- 排行榜模板 -->
+    <script type="text/template" id="ranking">
+        <li class="item">
+            <!--<i class="rank_icon"></i>
+            <i class="rank_laber"></i>-->
+            <img src="@rank_change" alt="" class="rank_change" style="@changeStyle">
+            <i class="rank_id">@rank_id</i>
+            <div class="left">
+            	<span class="rank_num_1"></span>
+                <span class="rank_num">@rank_num</span>
+                <img src="@user_icon" alt="" onerror="this.src='images/icon.png'" class="user_icon">
+                <h3 class="user_name" style="color: #FFFFFF;">@user_name</h3>
+                <span class="real_name">@real_name</span>
+                <i class="fans" style="color: #FFFFFF;">@fans粉丝</i>
+            </div>
+            <div class="mid">
+                <span class="profit" style="color: #FFFFFF;">@profit</span>
+                <span class="profit_text" style="color: #FFFFFF;">收益率</span>
+            </div>
+            <div class="right" style="border: #FFFFFF;">
+                <span class="follow" style="color: #FFFFFF;">@follow</span>
+            </div>
+        </li>
+    </script>
+</div>
+
+<!--提示信息-->
+<span id="tip" style="display: none"></span>
+
+<!-- 未实名不允许查看高手榜 -->
+<div class="state_tip" style="display: none">
+    <div>
+        <img src="images/391344674193524627.png" alt=""/>
+        <p>需要实名认证后才能查看该栏目</p>
+        <button class="button_goma">点击实名认证</button>
+    </div>
+</div>
+</body>
+
+</html>

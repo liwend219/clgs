@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<meta charset="UTF-8">
+		<title>t+1确认</title>
+		<link rel="icon" href="images/logo01.png" type="image/x-icon">
+    	<link rel="stylesheet" href="css/init.css">
+    	<link rel="stylesheet" type="text/css" href="css/gupiao.css"/>
+    	 <script src="js/jquery-3.2.1.js"></script>
+    	 <script src="js/public.js"></script>
+	</head>
+	<body>
+		
+				<!--头部-->
+<div id="back_nav">
+    <a href="javascript:history.back(-1);">
+        <img src="images/back.png" alt="" class="back_btn">
+    </a>
+    <span class="title" style="margin-left: 0;">T+1策略确认</span>
+</div>
+             <!--center-->
+        <div class="box">
+        	
+        	<ul>
+        		<li><span class="left">股票名称</span><span class="right">list1</span></li>
+        		<li><span class="left">股票代码</span><span class="right">list1</span></li>
+        		<li><span class="left">买入类型</span><span class="right">list1</span></li>
+        	    <li><span class="left">点买金额</span><span class="right">list1</span></li>
+        		<li><span class="left">点买数量</span><span class="right">list1</span></li>
+        		
+        	</ul>	
+        	
+        </div>
+        <div class="box">
+        	
+        	<ul>
+        		<li><span class="left">触发止盈</span><span class="right">list1</span></li>
+        		<li><span class="left">触发止损</span><span class="right">list1</span></li>
+        		<li><span class="left">递延条件</span><span class="right">list1</span></li>
+        		<li><span class="left">盈利分成</span><span class="right">list1</span></li>
+        	</ul>	
+        	
+        </div>
+        <div class="box">
+        	
+        	<ul>
+    			<li><span class="left">履约保证金</span><span class="right">list1</span></li>
+        		<li><span class="left">交易综合费</span><span class="right">list1</span></li>
+        		<li><span class="left">费用合计</span><span class="right">list1</span></li>
+        		<li><span class="left">可用余额</span><span class="right">list1</span></li>
+        	</ul>	
+        	
+        </div>
+						<div class="agreement">
+                            <input type="checkbox" class="checkbox" checked="checked">
+                            <span class="text">我已阅读策略高手
+                                <a href="javascript:void(0);">《投资顾问协议》</a>
+                               <br />
+                            </span>
+                             
+                        </div>
+
+<div class="button">
+	提交
+</div>
+
+	</body>
+	<script>
+		$(function(){
+			$.ajax({
+        type: "POST",
+        url: "http://192.168.1.20:8006/api/home/strategy/index.json",
+        data: {"device": 1},
+        async: true,
+        dataType: "json",
+        success: function (data) {
+        	console.log(data)
+        }
+      })
+		})
+	</script>
+</html>

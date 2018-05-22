@@ -1,0 +1,321 @@
+body {
+    background: #e6e6e7;
+}
+
+#container {
+    width: 7.5rem;
+    margin-bottom: 1rem;
+}
+
+/*头部*/
+#header {
+    width: 7.5rem;
+    height: 3.6rem;
+    position: relative;
+}
+
+#header .banner_bg {
+    width: 7.5rem;
+    height: 3.6rem;
+}
+
+#header .search_meg {
+    padding: 0 0.3rem;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 99;
+}
+
+#header .search_meg .search_box {
+    margin: 0.14rem 0;
+    padding-right: 0.8rem;
+}
+
+.mui-slider-item img{
+	width: 100%;
+}
+#header .search_meg .search_box .icon_search {
+    background: url("../images/icon_search.png") no-repeat center;
+    background-size: cover;
+    width: 0.26rem;
+    height: 0.26rem;
+    position: absolute;
+    top: 0.34rem;
+    left: 0.57rem;
+}
+
+#header .search_meg .search_box .search {
+    width: 100%;
+    padding: 0.14rem 0 0.14rem 0.65rem;
+    background:#FFFFFF;
+    opacity: .5;
+    outline: none;
+    border: none;
+    border-radius: 0.5rem;
+    color: #575658;
+    font-size: 0.28rem;
+    letter-spacing: 0.01rem;
+}
+
+#header .search_meg .meg {
+    position: absolute;
+    background: url("../images/icon_meg_b.png") no-repeat center;
+    background-size: cover;
+    width: 0.5rem;
+    height: 0.47rem;
+    top: 0.3rem;
+    right: 0.3rem;
+}
+
+#header .search_meg .sub {
+    width: 0.36rem;
+    height: 0.36rem;
+    background-color: #d63f2b;
+    display: inline-block;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 0.36rem;
+    position: absolute;
+    right: 0.2rem;
+    top: 0.12rem;
+    font-size: 0.26rem;
+    color: #ffffff;
+}
+/*头条*/
+.toutiao{
+	
+	width: 100%;
+	height: 0.7rem;
+	background: #fff;
+	margin-top: 0.3rem;
+	padding: 0.1rem 0.3rem;
+	border-bottom: 0.01rem solid #CCCCCC;
+	
+}
+.toutiao p{
+	margin: 0;
+
+}
+.toutiao img{
+	width: 1rem;
+	height: 0.4rem;
+	position: relative;
+	top: 0.05rem;
+}
+.toutiao span{
+	margin-left: 0.5rem;
+	font-size: 0.26rem;
+	position: relative;
+	top: -0.05rem;
+	color: #393939;
+}
+/*股票指数*/
+#shares_index {
+    overflow: hidden;
+    background: #FFFFFF;
+    width: 100%;
+    /*background: linear-gradient(#d8d8d8, #ffffff);
+    background: -webkit-linear-gradient(#d8d8d8, #ffffff);*/
+}
+
+#shares_index div {
+    float: left;
+    text-align: center;
+    border-left: 0.01rem solid #efefef;
+    padding: 0.2rem 0;
+    width: 33.3%;
+    overflow: hidden;
+}
+
+#shares_index div:nth-child(1) {
+    border-left: none;
+}
+
+#shares_index div span:nth-child(1) {
+    font-size: 0.24rem;
+    color: #393939;
+    font-weight: 600;
+}
+
+#shares_index div span:nth-child(2) {
+    font-size: 0.42rem;
+    color: #393939;
+    font-weight: 600;
+    margin-top: 0.14rem;
+    display: block;
+    font-family: "微软雅黑";
+}
+
+#shares_index div span i{
+	 display: inline-block;
+	 width: 1rem;
+	 height: 0.35rem;
+    font-size: 0.18rem;
+    color: #FFFFFF;
+    margin-left: 0.14rem;
+    padding-top: 0.01rem;
+    background: #d63f2b;
+    line-height: 0.35rem;
+    border-radius: 0.15rem;
+    color: #ffffff;
+    position: relative;
+    top: -0.05rem;
+    
+}
+/*中间内容*/
+.con_center{
+	width: 100%;
+	height: 2rem;
+	background: #FFFFFF;
+	background-image: url(../images/3.png);
+	background-repeat: no-repeat;
+	background-size: contain;
+}
+.con_center ul li {
+	width: 25%;
+	float: left;
+	text-align: center;
+	font-size: 0.28rem;
+	color: #393939;
+}
+.con_center ul li img{
+	margin-top: 0.22rem;
+	width: 1.2rem;
+	height: 1.2rem;
+}
+/*信息选项*/
+#items {
+    padding: 0 0.2rem;
+    border-bottom: 0.01rem solid #e7e7e6;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0.56rem;
+    margin-top: 0.3rem;
+    background: #ffffff;
+}
+
+#items .items_icon {
+    width: 0.08rem;
+    height: 0.56rem;
+    background-color: #242428;
+    float: left;
+    margin: 0.14rem 0 0.14rem 0.1rem;
+}
+
+#items .item {
+    padding: 0.14rem 0.12rem;
+    float: left;
+    margin-left: 0.12rem;
+    font-size: 0.32rem;
+    vertical-align: middle;
+    cursor: pointer;
+}
+
+.active {
+    border-bottom: 0.03rem solid #393939;
+    font-weight: 600;
+}
+
+/*内容区 最新动态*/
+.content_box .dynamics_box .dynamic {
+    margin: 0 0.3rem;
+    padding: 0.2rem 0;
+    border-bottom: 0.01rem solid #eeeeee;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.content_box .dynamics_box .dynamic .dynamic_icon {
+    position: relative;
+    width: 0.52rem;
+    height: 0.52rem;
+    vertical-align: middle;
+    border-radius: 50%;
+}
+
+.content_box .dynamics_box .dynamic .dynamic_name {
+    font-size: 0.26rem;
+    color: #393939;
+    font-weight: 600;
+    margin-left: 0.1rem;
+    vertical-align: middle;
+    font-family: "微软雅黑";
+}
+
+.content_box .dynamics_box .dynamic i {
+    color: #9c9c9c;
+    font-size: 0.24rem;
+    font-style: normal;
+}
+
+.content_box .dynamics_box .dynamic .dynamic_get {
+    margin-left: 0.2rem;
+    vertical-align: middle;
+    font-family: "微软雅黑";
+}
+
+.content_box .dynamics_box .dynamic .dynamic_time {
+    float: right;
+    margin-top: 0.11rem;
+    font-family: "微软雅黑";
+}
+
+.content_box .dynamics_box .dynamic .dynamic_title {
+    float: left;
+    font-size: 0.32rem;
+    color: #393939;
+    margin-top: 0.15rem;
+    font-family: "微软雅黑";
+}
+
+.content_box .dynamics_box .dynamic .dynamic_money {
+    float: right;
+    font-size: 0.32rem;
+    color: #d63f2b;
+    margin-top: 0.15rem;
+    font-family: "微软雅黑";
+}
+
+/*内容区 行业资讯*/
+.content_box {
+    background: #ffffff;
+}
+
+.new {
+    padding: 0.3rem 0.3rem;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    border-bottom: 0.01rem solid #e7e7e6;
+}
+
+.new_pic {
+    width: 1.8rem;
+    height: 1.4rem;
+    float: left;
+    margin-right: 0.22rem;
+}
+
+.new .new_title {
+    font-size: 0.3rem;
+    color: #403f39;
+}
+
+.new .footnote {
+    position: absolute;
+    bottom: 0.3rem;
+    right: 0.2rem;
+}
+
+.new .footnote > span {
+    padding: 0 0.1rem;
+    font-size: 0.24rem;
+    color: #9f9f9c;
+}
+
+
+
+
+

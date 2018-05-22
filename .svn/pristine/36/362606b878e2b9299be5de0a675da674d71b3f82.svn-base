@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"/>
+    <title>拼单详情</title>
+    <link rel="icon" href="images/logo01.png" type="image/x-icon">
+    <link rel="stylesheet" href="css/init.css">
+    <link rel="stylesheet" href="css/fight_details.css">
+    <script src="js/jquery-3.2.1.js"></script>
+    <script src="js/public.js"></script>
+    <script src="js/api.js"></script>
+    <script src="js/fight_details.js"></script>
+    <script>
+        var cid = sessionStorage.getItem("cid");
+        if (cid == "" || cid == null) {
+            alert("请先登录");
+            window.location.href = "logoIn.html";
+        }
+    </script>
+</head>
+<body>
+<div id="container">
+
+</div>
+
+<!--拼单详情模板-->
+<script type="text/template" id="fight_details">
+    <div id="back_nav">
+        <a href="javascript:history.back(-1);">
+            <img src="images/back.png" alt="" class="back_btn">
+        </a>
+        <p class="title">【@code_title@shares_title】拼团项目详情</p>
+    </div>
+
+    <div id="profit_box">
+        <span class="profit_text">本单总服务费</span>
+        <span class="profit_money">@profit_money
+            <i class="profit_company">元</i>
+        </span>
+    </div>
+
+    <div id="product_details">
+        <div class="product_box">
+            <div class="product_term">
+                <p class="product_text">投顾期限(月)</p>
+                <span class="product_day">@product_day</span>
+            </div>
+            <div class="fight_sum">
+                <p class="fight_text">拼单总额(万)</p>
+                <span class="fight_money">@total_money</span>
+            </div>
+            <div class="surplus_box">
+                <p class="surplus_text">剩余金额(万)</p>
+                <span class="surplus_money">@surplus_money</span>
+            </div>
+        </div>
+
+        <div id="count_down">
+            <span class="day">00</span>天
+            <span class="hour">00</span>小时
+            <span class="minute">00</span>分
+            <span class="second">00</span>秒后结束拼单
+            <span class="quick_spell">快拼单</span>
+        </div>
+
+        <div id="release_box">
+            <ul class="release_content">
+                <li class="initiator_box">
+                    <h3 class="initiator_text">发起人</h3>
+                    <span class="initiator_name">@initiator_name</span>
+                </li>
+                <li class="project_box">
+                    <h3 class="project_text">拼单项目</h3>
+                    <span class="project_name">@code @shares</span>
+                </li>
+                <li class="term_box">
+                    <h3 class="term_text">截止时间</h3>
+                    <span class="term_time">@term_time</span>
+                </li>
+                <li class="reward_box">
+                    <h3 class="reward_text">拼单奖励</h3>
+                    <span class="reward_discount">服务费立减0.3%起</span>
+                </li>
+            </ul>
+
+            <ul>
+                <li class="implement_box">
+                    <h3 class="implement_text">执行方式</h3>
+                    <span class="category">@category</span>
+                </li>
+                <li class="price_box">
+                    <h3 class="price_text">执行价格</h3>
+                    <span class="price">@price</span>
+                </li>
+                <li class="indefinite_box">
+                    <h3 class="indefinite_text"></h3>
+                    <span class="indefinite"></span>
+                </li>
+                <li class="fight_box">
+                    <h3 class="fight_text">拼单人数</h3>
+                    <span class="num">@num</span>
+                </li>
+            </ul>
+        </div>
+
+        <div id="strategy">
+            <h3 class="strategy_title">拼单策略</h3>
+            <p class="strategy_text">@strategy_text</p>
+        </div>
+
+        <button class="fight_btn" style="@display">参与拼单</button>
+        <button class="close_btn" style="@show">平仓</button>
+    </div>
+</script>
+
+<!--提示信息-->
+<span id="tip" style="display: none"></span>
+
+<!--参与拼单模态框-->
+<div id="joinFight_model" style="display: none">
+    <div class="model_content">
+        <h3 class="title">参与拼单</h3>
+        <i class="completed" style="display: none"></i>
+        <i class="total_money" style="display: none"></i>
+        <i class="code" style="display: none"></i>
+        <i class="term" style="display: none"></i>
+        <ul>
+            <li class="strategy_box">
+                <h2 class="strategy_text">策略发起人</h2>
+                <span class="strategy_name"></span>
+            </li>
+            <li class="collageProject_box">
+                <h2 class="collageProject_text">拼单项目</h2>
+                <span class="collageProject_name"></span>
+            </li>
+            <li class="subscription_box">
+                <h2 class="subscription_text">认购金额(万)</h2>
+                <input type="text" placeholder="10的整数倍,最低10万" class="subscription_price"
+                       onkeyup="value = value.replace(/[^\d]/g, '')">
+            </li>
+            <li class="cost_box">
+                <h2 class="cost_text">投顾费用</h2>
+                <span class="cost"></span>
+            </li>
+        </ul>
+        <div class="model_option">
+            <span class="cancel">取消</span>
+            <span class="sure">确定</span>
+        </div>
+    </div>
+</div>
+
+<!--平仓模态框-->
+<div id="closePosition_model" style="display: none">
+    <div class="model_content">
+        <h3 class="title">平仓</h3>
+        <ul>
+            <li class="code_box">
+                <h2 class="code_text">股票代码</h2>
+                <span class="code_name"></span>
+            </li>
+            <li class="closePosition_box">
+                <h2 class="closePosition_text">平仓资产(万)</h2>
+                <input type="text" class="closePosition_assets" onkeyup="value = value.replace(/[^\d]/g, '')"
+                       onfocus=this.blur()>
+            </li>
+        </ul>
+        <div class="model_option">
+            <span class="cancel">我再想想</span>
+            <span class="sure">确定</span>
+        </div>
+    </div>
+</div>
+</body>
+</html>

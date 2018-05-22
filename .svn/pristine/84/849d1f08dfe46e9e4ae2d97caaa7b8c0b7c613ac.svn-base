@@ -1,0 +1,27 @@
+/*底部菜单*/
+#footer_nav {
+    overflow: hidden;
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    background-color: #F7F7F8;
+}
+
+#footer_nav .nav_box .nav_item {
+    float: left;
+    width: 20%;
+    text-align: center;
+    padding-top: 0.13rem;
+    border-top: 0.01rem solid #b2b2b2;
+}
+
+#footer_nav .nav_box .nav_item .nav_img {
+    width: 0.5rem;
+    height: 0.5rem;
+    display: block;
+}
+
+#footer_nav .nav_box .nav_item .nav_name {
+    color: #929292;
+    font-size: 0.2rem;
+}

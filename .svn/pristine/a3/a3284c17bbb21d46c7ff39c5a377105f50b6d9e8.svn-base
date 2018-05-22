@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>资讯详情</title>
+    <link rel="icon" href="images/logo01.png" type="image/x-icon">
+    <link rel="stylesheet" href="css/init.css">
+    <link rel="stylesheet" href="css/information_details.css">
+    <script src="js/jquery-3.2.1.js"></script>
+    <script src="js/public.js"></script>
+    <script>
+        var cid = sessionStorage.getItem("cid");
+        if (cid == "" || cid == null) {
+            alert("请先登录");
+            window.location.href = "logoIn.html";
+        }
+    </script>
+</head>
+<body>
+<div id="container">
+    <h3 class="content_title">一个债券分析师的A股视角：A股美股化！调整就是买入机会</h3>
+
+    <div class="author_box">
+        <img src="images/icon_middle.png" alt="" class="author_icon">
+        <span class="author_name">股市大力水手</span>
+        <i class="real_state">已实名</i>
+        <span class="follow">
+            <span>+</span>
+            <span>关注</span>
+        </span>
+    </div>
+    <p class="article">用结构性牛市定义今年的A股市场已经成为市场共识，其特征为以白马蓝筹等有明确业绩支撑的个股不断创出新高，而中小创表现始终低迷。
+
+        用结构性牛市定义今年的A股市场已经成为市场共识，其特征为以白马蓝筹等有明确业绩支撑的个股不断创出新高，而中小创表现始终低迷。
+
+        用结构性牛市定义今年的A股市场已经成为市场共识，其特征为以白马蓝筹等有明确业绩支撑的个股不断创出新高，而中小创表现始终低迷。
+
+        用结构性牛市定义今年的A股市场已经成为市场共识，其特征为以白马蓝筹等有明确业绩支撑的个股不断创出新高，而中小创表现始终低迷。
+
+        用结构性牛市定义今年的A股市场已经成为市场共识，其特征为以白马蓝筹等有明确业绩支撑的个股不断创出新高，而中小创表现始终低迷。
+
+        用结构性牛市定义今年的A股市场已经成为市场共识，其特征为以白马蓝筹等有明确业绩支撑的个股不断创出新高，而中小创表现始终低迷。
+
+        用结构性牛市定义今年的A股市场已经成为市场共识，其特征为以白马蓝筹等有明确业绩支撑的个股不断创出新高，而中小创表现始终低迷。
+
+        用结构性牛市定义今年的A股市场已经成为市场共识，其特征为以白马蓝筹等有明确业绩支撑的个股不断创出新高，而中小创表现始终低迷。
+
+        用结构性牛市定义今年的A股市场已经成为市场共识，其特征为以白马蓝筹等有明确业绩支撑的个股不断创出新高，而中小创表现始终低迷。
+
+        用结构性牛市定义今年的A股市场已经成为市场共识，其特征为以白马蓝筹等有明确业绩支撑的个股不断创出新高，而中小创表现始终低迷。
+    </p>
+</div>
+
+<div id="back_nav">
+    <a href="javascript:void(0);">
+        <img src="images/back.png" alt="" class="back_btn">
+    </a>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>我的</title>
+    <link rel="icon" href="images/logo01.png" type="image/x-icon">
+    <link rel="stylesheet" href="css/init.css">
+    <link rel="stylesheet" href="css/public.css"/>
+    <link rel="stylesheet" href="css/personal.css">
+    <script src="js/jquery-3.2.1.js"></script>
+    <script src="js/public.js"></script>
+    <script src="js/personal.js"></script>
+    <script>
+        var cid = sessionStorage.getItem("cid");
+        if (cid == "" || cid == null) {
+            alert("请先登录");
+            window.location.href = "logoIn.html";
+        }
+    </script>
+</head>
+<body>
+<div id="container">
+    <div id="back_nav">
+        <span class="title">我的</span>
+        <span class="close">设置</span>
+    </div>
+
+    <div class="user_info">
+        <div class="div_icon">
+            <img src="images/icon_big.png" alt="" class="icon">
+        </div>
+
+        <div class="info">
+            <h3 class="info_name">昵称</h3>
+            <span class="info_phone">180****7055</span>
+            <i class="real_state">已实名</i>
+            <img src="images/arrow.png" alt="" class="icon_arrow">
+        </div>
+    </div>
+
+    <div class="items">
+        <div class="wallet_box">
+            <img src="images/20171206092327.png" alt="" class="icon_wallet">
+            <span class="wallet_text">钱包</span>
+        </div>
+        <div class="follow_box">
+            <img src="images/20171206092322.png" alt="" class="icon_heart">
+            <span class="follow_text">关注</span>
+        </div>
+        <div class="meg_box">
+            <img src="images/20171206092251.png" alt="" class="icon_meg">
+            <span class="meg_text">消息</span>
+        </div>
+    </div>
+    <div class="tip">
+        <div id="left">
+            <p class="title">实名认证</p>
+            <p>为了保证您的交易安全，体验更好的服务</p>
+        </div>
+        <img src="images/20171206094347.png"/>
+        <div class="clear"></div>
+    </div>
+    <div class="lists">
+        <ul>
+            <li id="xunjia">
+                <img src="images/icon_adviser.png" alt="">
+                <span>询价记录</span>
+                <i></i>
+            </li>
+            <!--<li id="pindan">
+                <img src="images/icon_fight.png" alt="">
+                <span>拼单记录</span>
+                <i></i>
+            </li>-->
+        </ul>
+
+        <ul>
+            <li id="help">
+                <img src="images/icon_help.png" alt="">
+                <span>帮助中心</span>
+                <i></i>
+            </li>
+            <!--<li class="service">
+                <img src="images/icon_customer.png" alt="">
+                <span>联系客服</span>
+                <i></i>
+            </li>-->
+        </ul>
+    </div>
+
+    <div id="footer_nav">
+        <ul class="nav_box">
+            <li class="nav_item">
+                <a href="index.html">
+                    <img src="images/icon_home.png" alt="" class="nav_img">
+                    <span class="nav_name">首页</span>
+                </a>
+            </li>
+            <li class="nav_item">
+                <a href="adviser.html">
+                    <img src="images/icon_adviser.png" alt="" class="nav_img">
+                    <span class="nav_name">交易</span>
+                </a>
+            </li>
+            <li class="nav_item">
+                <a href="gupiao_index.html">
+                    <img src="images/股票_icon.png" alt="" class="nav_img">
+                    <span class="nav_name">股票</span>
+                </a>
+            </li>
+            <li class="nav_item">
+                <a href="master.html">
+                    <img src="images/icon_killer.png" alt="" class="nav_img">
+                    <span class="nav_name">高手</span>
+                </a>
+            </li>
+            <li class="nav_item">
+                <a href="personal.html">
+                    <img src="images/icon_my_selected@2x.png" alt="" class="nav_img">
+                    <span class="nav_name">我的</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
+</body>
+</html>

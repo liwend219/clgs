@@ -1,0 +1,53 @@
+body {
+    background: #e6e6e7;
+}
+
+#back_nav {
+    background-color: #393939;
+    width: 100%;
+    height: 0.88rem;
+    text-align: center;
+    overflow: hidden;
+    line-height: 0.88rem;
+}
+
+#back_nav .back_btn {
+    float: left;
+    width: 0.2rem;
+    height: 0.36rem;
+    margin: 0.26rem 0 0 0.28rem;
+}
+
+#back_nav .title {
+    margin-left: 0.88rem;
+    font-size: 0.34rem;
+    color: #FFFFFF;
+    letter-spacing: 0.03rem;
+}
+
+#back_nav .detailed, .detailedtwo {
+    float: right;
+    margin-right: 0.28rem;
+    font-size: 0.3rem;
+    color: #FFFFFF;
+    margin: 0 0.3rem;
+}
+
+#nickname {
+    margin-top: 0.3rem;
+    width: 100%;
+    height: 0.78rem;
+    outline: none;
+    font-size: 0.33rem;
+    border: none;
+    padding: 0.2rem 0.3rem;
+    color: #393939;
+}
+
+textarea {
+    resize: none;
+    width: 100%;
+    height: 3rem;
+    font-size: 0.32rem;
+    line-height: 0.4rem;
+}

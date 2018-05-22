@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>订单详情</title>
+		<link rel="icon" href="images/logo01.png" type="image/x-icon">
+    	<link rel="stylesheet" href="css/init.css">
+    	 <link rel="stylesheet" href="css/wallet.css">
+    	<link rel="stylesheet" href="css/public.css">
+    	<script src="js/jquery-3.2.1.js"></script>
+    	<script src="js/public.js"></script>
+    	<style>
+    		ul{
+    			width: 100%;
+    			margin-top: 0.2rem;
+    		}
+    		ul li{
+    			font-size: 0.32rem;
+    			color: #393939;
+    		}
+    		ul li span{
+    			display: inline-block;
+    			width: 70%;
+    			float: right;
+    			color: #393939;
+    			font-size: 0.3rem;
+    		}
+    	</style>
+	</head>
+	<body>
+		<!--头部-->
+<div id="back_nav" style="background: #fff;color: #393939;">
+    <a href="Triangle_3.html">
+        <img src="images/back.png" alt="" class="back_btn">
+    </a>
+    <span class="title" style="color: #393939;">订单详情</span>
+    <span class="detailed" style="color: #393939;">修改订单</span>
+</div>
+<!--中部-->
+		<ul>
+			<li>订单单号<span class="code"></span></li>
+			<li>商品信息<span class="name" ></span></li>
+			<li>交易状态<span class="state" ></span></li>
+			<li>付款金额<span class="aamoney" ></span></li>
+			<li>付款信息<span class="yue" style="color: #dd4237;">钱包余额</span></li>
+			<li>创建时间<span class="time" ></span></li>
+			<li>发货状态<span class="IsDeliver" ></span></li>
+		</ul>
+		<ul>
+			<li>联系人<span class="username" ></span></li>
+			<li>手机号码	<span class="phone" ></span></li>
+			<li>详细地址<span class="address" ></span></li>
+		</ul>
+	</body>
+	<script type="text/javascript">
+		var code = sessionStorage.getItem("$__code")
+		$(".code").text(code)
+		
+		var name = sessionStorage.getItem("$__name")
+		$(".name").text(name)
+		
+		var state = sessionStorage.getItem("$__state")
+		if(state == 1){
+			$(".state").text("已付款")
+		}else if(state == 0){
+			$(".state").text("未付款")
+		}
+		
+		var IsDeliver = sessionStorage.getItem("$__IsDeliver")
+		if(IsDeliver == 1){
+			$(".IsDeliver").text("已发货")
+			$(".detailed").css("display","none")
+			$(".title").css("margin","0")
+			$("#back_nav").css("text-align","center")
+		}else if(IsDeliver == 0){
+			$(".IsDeliver").text("未发货")
+		}
+		
+		var money = sessionStorage.getItem("$__money")
+		$(".aamoney").text(money+"元")
+		
+		var time = sessionStorage.getItem("$__time")
+		$(".time").text(time)
+		
+		var username = sessionStorage.getItem("$__username")
+		$(".username").text(username)
+		
+		var phone = sessionStorage.getItem("$__phone")
+		$(".phone").text(phone)
+		
+		var address = sessionStorage.getItem("$__address")
+		$(".address").text(address)
+		
+		
+//		点击修改订单前去修改订单
+         $(".detailed").click(function(){
+         	window.location.href = "Triangle_5.html"
+         })
+	</script>
+</html>

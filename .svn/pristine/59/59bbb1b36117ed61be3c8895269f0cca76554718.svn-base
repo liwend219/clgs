@@ -1,0 +1,875 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>申请策略组</title>
+		<link rel="icon" href="images/logo01.png" type="image/x-icon">
+		<link rel="stylesheet" type="text/css" href="css/init.css" />
+		<link rel="stylesheet" href="css/gupiao_t7.css">
+		<script src="js/jquery-3.2.1.js"></script>
+		<script src="js/public.js"></script>
+		<style>
+			.ul-1 {
+				float: left;
+				width: 50%;
+				display: -webkit-flex;
+				/* Safari */
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+				flex-wrap: wrap;
+			}
+			
+			.ul-2 {
+				float: right;
+				width: 50%;
+				display: -webkit-flex;
+				/* Safari */
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+				flex-wrap: wrap;
+			}
+			
+			.ul-1>li,
+			.ul-2>li,
+			.ul-1>li>span,
+			.ul-2>li>span {
+				font-size: 0.25rem
+			}
+			
+			.ul-1>li,
+			.ul-2>li {
+				padding: 2px 0;
+			}
+			
+			.mai {
+				display: -webkit-flex;
+				/* Safari */
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+				flex-wrap: wrap;
+				/* margin-bottom:1.2rem; */
+			}
+			
+			.mai-div {
+				display: -webkit-flex;
+				/* Safari */
+				display: flex;
+				justify-content: space-around;
+				align-items: center;
+				flex-wrap: wrap;
+				width: 50%;
+				padding: 10px 0;
+				padding-right: 10px;
+				background: #fff;
+			}
+			
+			.mai-div>div {
+				width: 33%;
+				padding: 2px 0;
+				font-size: 0.25rem;
+				text-align: center;
+			}
+			
+			.canshu {
+				/* margin-bottom:1.2rem; */
+				font-size: 0.28rem;
+				padding: 12px;
+				background-color: #fff;
+				/* height:80px; */
+			}
+			
+			.canshu-2 {
+				display: -webkit-flex;
+				/* Safari */
+				display: flex;
+				justify-content: space-around;
+				align-items: center;
+			}
+			
+			.canshu-3 {
+				display: -webkit-flex;
+				/* Safari */
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+			}
+			
+			.canshu-item {
+				border-bottom: 1px solid #efefef
+			}
+			
+			#zhiying,
+			#zhisun {
+				float: right;
+				padding-right: 12px;
+			}
+			
+			#pankous {
+				display: -webkit-flex;
+				/* Safari */
+				display: flex;
+				justify-content: space-around;
+				align-items: center;
+				flex-wrap: wrap;
+			}
+			
+			#pankous>div {
+				/* background: cadetblue; */
+				font-size: 0.25rem;
+				text-align: center;
+				width: 33%;
+				display: inline-block;
+				padding: 5px;
+			}
+			
+			#todaydata ul li p {
+				font-size: 0.3rem;
+			}
+			/* 提示模态框 */
+			
+			.body-fixed {
+				width: 100%;
+				position: fixed;
+				/* bottom:0; */
+				/* top:35%; */
+			}
+			
+			.motai {
+				width: 100%;
+				/* height: 100%; */
+				/* position: relative; */
+				top: 0;
+				bottom: 0;
+				background: #555555;
+				opacity: .7;
+				position: fixed;
+				z-index: 10;
+				display: none;
+			}
+			
+			#inquiry_model {
+				display: none;
+				z-index: 12;
+				width: 80%;
+				position: fixed;
+				top: 50%;
+				margin-top: -73px;
+				left: 50%;
+				margin-left: -40%;
+			}
+			
+			#inquiry_model>.inquiry_model_text {
+				border-radius: 8px 8px 0 0;
+				padding: 15px;
+				background: #fff;
+			}
+			
+			.yes_btn {
+				color: rgb(105, 105, 212);
+				height: 50px;
+				line-height: 50px;
+				border-top: 1px solid #ccc;
+				border-radius: 0 0 8px 8px;
+				background: #fff;
+				text-align: center;
+			}
+			
+			.inquiry_model_content {
+				text-align: center;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div id="back_nav">
+			<a href="javascript:history.back(-1);">
+				<img src="images/back.png" alt="" class="back_btn">
+			</a>
+			<ul class="box">
+				<li class="active">T+1</li>
+				<li class="icp" id="font_td">T+D</li>
+				<div class="clear"></div>
+			</ul>
+			<a id="right" href="guize_jygz.html">规则</a>
+		</div>
+		<!--中部-->
+		<div class="shares">
+			<div class="left">
+				<span id="gpName" class="h3"></span>
+				<br />
+				<span id="gpCode" class="sp1"></span>
+			</div>
+			<div class="right">
+				<span id="Currentprice" class="h2"></span>
+				<br />
+				<span class="sp2"></span>
+				<span class="sp2"></span>
+			</div>
+		</div>
+		<div id="todaydata">
+			<ul>
+				<li>
+					<p>今开</p>
+					<p id="jinkai"></p>
+				</li>
+				<li>
+					<p>昨收</p>
+					<p id="zuoshou"></p>
+				</li>
+				<li>
+					<p>总手</p>
+					<p id="chengjiaoliang"></p>
+				</li>
+				<li>
+					<p>总量</p>
+					<p id="chengjiaoe"></p>
+				</li>
+			</ul>
+		</div>
+		<!--k线-->
+		<div class="k_box">
+			<ul class="first">
+				<li class="fenshi">分时</li>
+				<li class="rk">日k</li>
+				<li class="zhouk">周k</li>
+				<li class="yuek">月k</li>
+				<li class="pankou">盘口</li>
+			</ul>
+			<div class="k_graph">
+				<!--图片-->
+				<img id="k_img" src="" style="width: 100%;" />
+				<!--盘口-->
+				<div id="pankous" style="padding:10px 0 5px;display: none;">
+
+				</div>
+				<!-- <div id="Diskdata" style="display: none;">
+			    	
+			    </div> -->
+				<!-- <script type="text/template" class="Diskdata">
+				  	<ul>
+			    		<li>今开&nbsp;&nbsp;@jin</li>
+			    		<li>昨收&nbsp;&nbsp;@zuo</li>
+			    		<li>振幅&nbsp;&nbsp;@zhen</li>
+			    	</ul>
+			    	<ul>
+			    		<li>涨停&nbsp;&nbsp;@zhang</li>
+			    		<li>跌停&nbsp;&nbsp;@die</li>
+			    		<li>总手&nbsp;&nbsp;@zong</li>
+			    	</ul>
+			    	<ul>
+			    		<li>最高&nbsp;&nbsp;@gao</li>
+			    		<li>最低&nbsp;&nbsp;@di</li>
+			    		<li>总量&nbsp;&nbsp;@liang</li>
+			    	</ul>
+				</script> -->
+			</div>
+			<div class="mai" style="margin-bottom:0.2rem">
+				<div class="mai-div div-left">
+				</div>
+				<div class="mai-div div-right">
+				</div>
+			</div>
+            <!--t+-->
+			<div class="t1">
+				<div class="canshu" style="margin-bottom:0.2rem">
+					<div class="canshu-item" style="padding-bottom:12px;">
+						市价买入　　　资金预计占用<span id="dianmaijine"></span>元
+					</div>
+					<div class="canshu-2 canshu-item">
+						<div style="width:50%;border-right:1px solid #efefef;padding:12px 0;"><span>止盈</span><span id="zhiying" style="color:red"></span></div>
+						<div style="width:50%;padding:10px 0;"><span style="padding-left:12px;">止损</span><span id="zhisun" style="color:rgb(21, 165, 122)"></span></div>
+					</div>
+					<div class="canshu-3" style="padding-top:12px;">
+						<div style="width:30%;">数量</div>
+						<div style="width:70%;text-align: right"><input autoComplete='off' onchange="setData()" id="shuliang" style="width:90%;background: #F5F5F4;padding:5px;" type="number" /></div>
+					</div>
+				</div>
+				<div class="canshu">
+					<div class="canshu-item" id="lybzj" style="padding-bottom:12px">
+
+					</div>
+					<div style="padding-top:10px;" id="jyzhf">
+
+					</div>
+				</div>
+
+			</div>
+			<!--t+d-->
+				<div class="td" style="display: block;">
+				<div class="canshu" style="margin-bottom:0.2rem">
+					<div class="canshu-item" style="padding-bottom:12px;">
+						市价买入　　　资金预计占用<span id="dianmaijine2"></span>元
+					</div>
+					<div class="canshu-2 canshu-item">
+						<div style="width:50%;border-right:1px solid #efefef;padding:12px 0;"><span>止盈</span><span id="zhiying2" style="color:red"></span></div>
+						<div style="width:50%;padding:10px 0;"><span style="padding-left:12px;">止损</span><span id="zhisun2" style="color:rgb(21, 165, 122)"></span></div>
+					</div>
+					<div class="canshu-3" style="padding-top:12px;">
+						<div style="width:30%;">数量</div>
+						<div style="width:70%;text-align: right"><input autoComplete='off' onchange="setData()" id="shuliang2" style="width:90%;background: #F5F5F4;padding:5px;" type="number" /></div>
+					</div>
+				</div>
+				<div class="canshu">
+					<div class="canshu-item" id="lybzj2" style="padding-bottom:12px">
+
+					</div>
+					<div style="padding-top:10px;" id="jyzhf2">
+
+					</div>
+				</div>
+
+			</div>
+
+			<div style="height:1.2rem">
+
+			</div>
+		</div>
+
+		<div class="button" id="faqiCl">
+			发起策略
+		</div>
+		<!-- 提示信息 -->
+		<span id="tip" style="display: none">
+			当前为非交易时间
+		</span>
+		<!-- 模态框黑影 -->
+		<div class="motai">
+		</div>
+
+		<!-- 提示模态框 -->
+		<div id="inquiry_model" style="display: none">
+			<div class="inquiry_model_text">
+				<h3 style="text-align: center;">提示</h3>
+				<br>
+				<div class="inquiry_model_content">
+					接收投资人买入申报结果超时，请联系客服
+					<br><br>
+				</div>
+			</div>
+
+			<div class="yes_btn">
+				确定
+			</div>
+		</div>
+	</body>
+	<script>
+		$(function(){
+			$("#font_td").click(function(){
+				$("#right").attr("href","guize_jygzTD.html")
+			})
+		})
+	</script>
+	<script>
+		$(function() {
+			//获取屏幕高度
+		
+			var h = window.screen.height
+			console.log(h)
+			$('.motai').css('height', h + 'px')
+			console.log($('.motai').height())
+			//取消模态框
+			$('.yes_btn').click(function() {
+				$('.motai').css('display', 'none');
+				$('#inquiry_model').css('display', 'none')
+				move()
+				// $(document.body).removeClass('body-fixed')
+			})
+			$('#k_img').attr('src', 'http://image.sinajs.cn/newchart/min/n/' + sessionStorage.getItem('$_code').toLowerCase() + '.gif')
+			$('#shuliang').bind('input propertychange', function() {
+				if(parseFloat($(this).val()) < parseFloat(sessionStorage.getItem('tShuliang')) || parseFloat($(this).val()) % 100 != 0) {
+					$('#dianmaijine').text(0)
+					$('#zhiying').text(0)
+					$('#zhisun').text(0)
+					$('#lybzj').text('履约保证金　　0')
+					$('#jyzhf').text('交易综合费　　0')
+				} else {
+					jsgs2($(this).val())
+				}
+			});
+			$(".box li").click(function() {
+				$(this).siblings('li').removeClass('active');
+				$(this).addClass('active');
+			})
+			$(".fenshi").css("border-bottom", "0.01rem solid #333333")
+			$(".k_box .first li").click(function() {
+				$(this).siblings('li').css("border-bottom", "0.01rem solid #FFFFFF");
+				$(this).css("border-bottom", "0.01rem solid #333333");
+				console.log($(this)[0].innerText)
+				if($(this)[0].innerText == '分时') {
+					$('#k_img').attr('src', 'http://image.sinajs.cn/newchart/min/n/' + sessionStorage.getItem('$_code').toLowerCase() + '.gif')
+					$('#k_img').css('display', 'block')
+					$('#pankous').css('display', 'none')
+				} else if($(this)[0].innerText == '日k') {
+					$('#k_img').attr('src', 'http://image.sinajs.cn/newchart/daily/n/' + sessionStorage.getItem('$_code').toLowerCase() + '.gif')
+					$('#k_img').css('display', 'block')
+					$('#pankous').css('display', 'none')
+				} else if($(this)[0].innerText == '周k') {
+					$('#k_img').attr('src', 'http://image.sinajs.cn/newchart/weekly/n/' + sessionStorage.getItem('$_code').toLowerCase() + '.gif')
+					$('#k_img').css('display', 'block')
+					$('#pankous').css('display', 'none')
+				} else if($(this)[0].innerText == '月k') {
+					$('#k_img').attr('src', 'http://image.sinajs.cn/newchart/monthly/n/' + sessionStorage.getItem('$_code').toLowerCase() + '.gif')
+					$('#k_img').css('display', 'block')
+					$('#pankous').css('display', 'none')
+				} else if($(this)[0].innerText == '盘口') {
+					$('#k_img').css('display', 'none')
+					$('#pankous').css('display', 'block')
+				}
+			});
+			var code = sessionStorage.getItem('$_code');
+			init()
+			var time = setInterval(function() {
+				init()
+			}, 3000)
+			var time_1 = setTimeout(function() {
+				jsgs(JSON.parse(sessionStorage.getItem('tRate')), JSON.parse(sessionStorage.getItem('tRate_1')))
+			}, 200)
+			$('#faqiCl').click(function() {
+				if(sessionStorage.getItem('state') != '已认证') {
+					$('.motai').css('display', 'block')
+					$('.inquiry_model_content').text('未进行实名认证不可买卖')
+					// $(document.body).addClass('body-fixed')
+					$('#inquiry_model').css('display', 'block')
+					stop()
+					return
+				} else if($('#shuliang').val().slice(0, 1) == '0') {
+					$('.motai').css('display', 'block')
+					$('.inquiry_model_content').text('点买数量输入格式有误')
+					// $(document.body).addClass('body-fixed')
+					$('#inquiry_model').css('display', 'block')
+					stop()
+					return
+				} else if(parseFloat(parseFloat($('#shuliang').val())) < parseFloat(sessionStorage.getItem('tShuliang')) || parseFloat(parseFloat($('#shuliang').val())) % 100 != 0) {
+					$('.motai').css('display', 'block')
+					if($('#Currentprice').text() == '0') {
+						$('.inquiry_model_content').text('当前股票已停牌')
+					} else {
+						$('.inquiry_model_content').text('点买数量输入有误')
+					}
+					// $(document.body).addClass('body-fixed')
+					$('#inquiry_model').css('display', 'block')
+					stop()
+					return
+				}
+				$.ajax({
+					type: 'post',
+					url: 'http://192.168.1.20:8006/api/home/strategy/index.json',
+					dataType: "json",
+					data: {
+						"device": 1
+					},
+					async: true,
+					success: function(data) {
+						var str = data.datas.strRisk.tradingTimeLimit.value
+						if(!CompareDate(str.slice(0, 5), str.slice(6, 11), str.slice(12, 17), str.slice(18))) {
+							tipMsg();
+						} else {
+							window.location.href = "gupiao_t1.html"
+						}
+					},
+					error: function(err) {
+						$('.motai').css('display', 'block')
+						// $(document.body).addClass('body-fixed')
+						$('#inquiry_model').css('display', 'block')
+						$('.inquiry_model_content').text('网络错误')
+						stop()
+					}
+				})
+			})
+		})
+		//初始化
+		function init() {
+			$.ajax({
+				type: 'post',
+				url: 'http://192.168.1.20:8005/Shares/GetShares',
+				data: {
+					"code": code
+				},
+				dataType: "json",
+				success: function(data) {
+					//					今开
+					var jinkai = Math.round(data[0].今日开盘价 * 100) / 100;
+					//					昨收
+					var zuoshou = Math.round(data[0].昨日收盘价 * 100) / 100;
+					//                 	振幅
+					var zhenfu = (data[0].今日最高价 - data[0].今日最低价) / data[0].昨日收盘价;
+					var zhenfu1 = (zhenfu * 100).toFixed(2) + "%";
+					//					涨停
+					var zhang = data[0].昨日收盘价 * 1.1
+					var zhang1 = Math.round(zhang * 100) / 100
+					//                  跌停
+					var die = data[0].昨日收盘价 * 0.9
+					var die1 = Math.round(die * 100) / 100
+					//                  总手
+					var zongshou = data[0].成交的股票数 / 100
+					var zongshou1;
+					var zongshou2;
+					if(zongshou > 10000) {
+						zongshou1 = zongshou / 10000
+						zongshou2 = Math.round(zongshou1 * 100) / 100 + '万'
+					} else if(zongshou < 10000) {
+						zongshou2 = zongshou
+					}
+
+					//                  最高
+					var zuigao = Math.round(data[0].今日最高价 * 100) / 100;
+					//                  最低
+					var zuidi = Math.round(data[0].今日最低价 * 100) / 100;
+					// 					总量
+					var zongliang = data[0].成交金额;
+					var zongliang1;
+					var zongliang2;
+					if(zongliang > 100000000) {
+						zongliang1 = zongliang / 100000000;
+						zongliang2 = Math.round(zongliang1 * 100) / 100 + "亿";
+					} else if(zongliang > 10000) {
+						zongliang1 = zongliang / 10000;
+						zongliang2 = Math.round(zongliang1 * 100) / 100 + "万";
+					} else if(zongliang < 10000) {
+						zongliang2 = zongliang
+					}
+					$('#pankous').children().filter("div").remove();
+					$('#pankous').append('<div style="padding-left:20px;text-align:left">今开 ' + jinkai + '</div><div style="text-align:left;padding-left:20px;">涨停 ' + zhang1 + '</div><div style="padding-left:20px;text-align:left">最高 ' + zuigao + '</div>')
+					$('#pankous').append('<div style="padding-left:20px;text-align:left">昨收 ' + zuoshou + '</div><div style="text-align:left;padding-left:20px;">跌停 ' + die1 + '</div><div style="padding-left:20px;text-align:left">最低 ' + zuidi + '</div>')
+					$('#pankous').append('<div style="padding-left:20px;text-align:left">振幅 ' + zhenfu1 + '</div><div style="text-align:left;padding-left:20px;">总手 ' + zongshou2 + '</div><div style="padding-left:20px;text-align:left">总量 ' + zongliang2 + '</div>')
+					render(data)
+					getRate(data)
+				},
+				error: function(err) {
+					$('.motai').css('display', 'block')
+					// $(document.body).addClass('body-fixed')
+					$('#inquiry_model').css('display', 'block')
+					$('.inquiry_model_content').text('网络错误')
+					stop()
+				}
+			})
+		}
+		// 禁止页面滑动
+		function stop() {
+			var mo = function(e) {
+				e.preventDefault();
+			};
+			document.body.style.overflow = 'hidden';
+			document.addEventListener("touchmove", mo, false); //禁止页面滑动
+		}
+		// 允许页面滑动
+		function move() {
+			var mo = function(e) {
+				e.preventDefault();
+			};
+			document.body.style.overflow = ''; //出现滚动条
+			document.removeEventListener("touchmove", mo, false);
+		}
+
+		//数据渲染
+		function render(data) {
+			var xj = Math.round(data[0].当前价格 * 100) / 100
+			var zs = data[0].昨日收盘价
+			$('#gpName').text(data[0].股票名称)
+			$('#gpCode').text(data[0].股票代码.toUpperCase())
+			$('#Currentprice').text(xj)
+			var cc = data[0].当前价格 - data[0].昨日收盘价;
+			var cc1 = Math.round(cc * 100) / 100;
+			if(data[0].当前价格 == 0) {
+				$('.sp2').eq(0).text(cc1.toFixed(2))
+				$('.sp2').eq(0).css('color', '#393939')
+			} else if(data[0].当前价格 - data[0].昨日收盘价 > 0) {
+				$('.sp2').eq(0).text('+' + cc1.toFixed(2))
+				$('.sp2').eq(0).css('color', '#de4238')
+			} else if(data[0].当前价格 - data[0].昨日收盘价 < 0) {
+				$('.sp2').eq(0).text(cc1.toFixed(2))
+				$('.sp2').eq(0).css('color', 'rgb(21, 165, 122)')
+			} else {
+				$('.sp2').eq(0).text(cc1.toFixed(2))
+				$('.sp2').eq(0).css('color', '#393939')
+			}
+			var dd = (data[0].当前价格 - data[0].昨日收盘价) / data[0].昨日收盘价;
+			var dd1 = (dd * 100).toFixed(2)
+			if(data[0].当前价格 == 0) {
+				$('#gpName').text(data[0].股票名称 + '(已停牌)')
+				$('.sp2').eq(1).text(dd1 + '%')
+				$('.sp2').eq(1).css('color', '#393939')
+				$('#Currentprice').css('color', '#393939')
+			} else if(data[0].当前价格 - data[0].昨日收盘价 > 0) {
+				$('.sp2').eq(1).text('+' + dd1 + '%')
+				$('.sp2').eq(1).css('color', '#de4238')
+				$('#Currentprice').css('color', '#de4238')
+			} else if(data[0].当前价格 - data[0].昨日收盘价 < 0) {
+				$('.sp2').eq(1).text(dd1 + '%')
+				$('.sp2').eq(1).css('color', 'rgb(21, 165, 122)')
+				$('#Currentprice').css('color', 'rgb(21, 165, 122)')
+			} else {
+				$('#gpName').text(data[0].股票名称)
+				$('.sp2').eq(1).text(dd1 + '%')
+				$('.sp2').eq(1).css('color', '#393939')
+				$('#Currentprice').css('color', '#393939')
+			}
+			$('.div-left').children().filter("div").remove();
+			$('.div-right').children().filter("div").remove();
+			$('.div-left').css('padding-left', '15px')
+			$('.div-right').css('padding-right', '15px')
+			//买一买二...
+			$('.div-left').append('<div style="text-align:left">卖1</div><div style="text-align:left" class="maiJiage">' + Math.round(data[0].卖一报价 * 100) / 100 + '</div><div style="text-align:left">' + Math.round(data[0].卖一 * 100) / 100 + '</div>')
+			$('.div-left').append('<div style="text-align:left">卖2</div><div style="text-align:left" class="maiJiage">' + Math.round(data[0].卖二报价 * 100) / 100 + '</div><div style="text-align:left">' + Math.round(data[0].卖二 * 100) / 100 + '</div>')
+			$('.div-left').append('<div style="text-align:left">卖3</div><div style="text-align:left" class="maiJiage">' + Math.round(data[0].卖三报价 * 100) / 100 + '</div><div style="text-align:left">' + Math.round(data[0].卖三 * 100) / 100 + '</div>')
+			$('.div-left').append('<div style="text-align:left">卖4</div><div style="text-align:left" class="maiJiage">' + Math.round(data[0].卖四报价 * 100) / 100 + '</div><div style="text-align:left">' + Math.round(data[0].卖四 * 100) / 100 + '</div>')
+			$('.div-left').append('<div style="text-align:left">卖5</div><div style="text-align:left" class="maiJiage">' + Math.round(data[0].卖五报价 * 100) / 100 + '</div><div style="text-align:left">' + Math.round(data[0].卖五 * 100) / 100 + '</div>')
+
+			$('.div-right').append('<div style="padding-left:28px;text-align:left">买1</div><div style="padding-left:20px;text-align:left" class="maiJiage">' + Math.round(data[0].买一报价 * 100) / 100 + '</div><div style="padding-left:20px;text-align:left">' + Math.round(data[0].买一 * 100) / 100 + '</div>')
+			$('.div-right').append('<div style="padding-left:28px;text-align:left">买2</div><div style="padding-left:20px;text-align:left" class="maiJiage">' + Math.round(data[0].买二报价 * 100) / 100 + '</div><div style="padding-left:20px;text-align:left">' + Math.round(data[0].买二 * 100) / 100 + '</div>')
+			$('.div-right').append('<div style="padding-left:28px;text-align:left">买3</div><div style="padding-left:20px;text-align:left" class="maiJiage">' + Math.round(data[0].买三报价 * 100) / 100 + '</div><div style="padding-left:20px;text-align:left">' + Math.round(data[0].买三 * 100) / 100 + '</div>')
+			$('.div-right').append('<div style="padding-left:28px;text-align:left">买4</div><div style="padding-left:20px;text-align:left" class="maiJiage">' + Math.round(data[0].买四报价 * 100) / 100 + '</div><div style="padding-left:20px;text-align:left">' + Math.round(data[0].买四 * 100) / 100 + '</div>')
+			$('.div-right').append('<div style="padding-left:28px;text-align:left">买5</div><div style="padding-left:20px;text-align:left" class="maiJiage">' + Math.round(data[0].买五报价 * 100) / 100 + '</div><div style="padding-left:20px;text-align:left">' + Math.round(data[0].买五 * 100) / 100 + '</div>')
+			var i = 0;
+			for(i; i < $('.maiJiage').length; i++) {
+				if(data[0].当前价格 == 0) {
+					$('.maiJiage').eq(i).css('color', '')
+				} else if(data[0].当前价格 > data[0].昨日收盘价) {
+					$('.maiJiage').css('color', 'red')
+				} else {
+					$('.maiJiage').eq(i).css('color', 'rgb(21, 165, 122)')
+				}
+
+			}
+
+			// 今开
+			$('#jinkai').text(Math.round(data[0].今日开盘价 * 100) / 100)
+			//成交量
+			$('#zuoshou').text(Math.round(data[0].昨日收盘价 * 100) / 100)
+			var zongshou = data[0].成交的股票数 / 100
+			if(zongshou > 10000) {
+				var zongshou1 = zongshou / 10000
+				var zongshou2 = Math.round(zongshou1 * 100) / 100 + '万'
+			} else if(zongshou < 10000) {
+				var zongshou2 = zongshou
+			}
+			$('#chengjiaoliang').text(zongshou2)
+			//成交额
+			var zongliang = data[0].成交金额;
+			var zongliang1;
+			var zongliang2
+			if(zongliang > 100000000) {
+				zongliang1 = zongliang / 100000000;
+				zongliang2 = (Math.round(zongliang1 * 100) / 100).toFixed(2) + "亿";
+			} else if(zongliang > 10000) {
+				zongliang1 = zongliang / 10000;
+				zongliang2 = (Math.round(zongliang1 * 100) / 100).toFixed(2) + "万";
+			} else if(zongliang < 10000) {
+				zongliang2 = zongliang
+			}
+			$('#chengjiaoe').text(zongliang2)
+		}
+		//判断是否交易时间
+		function CompareDate(t1, t2, t3, t4) {
+			var date = new Date();
+			var h = date.getHours()
+			var m = date.getMinutes()
+			var a = t1.split(":");
+			var b = t2.split(":");
+			var c = t3.split(":");
+			var d = t4.split(":");
+			if((date.setHours(h, m) > date.setHours(a[0], a[1]) && date.setHours(h, m) < date.setHours(b[0], b[1])) || (date.setHours(h, m) > date.setHours(c[0], c[1]) && date.setHours(h, m) < date.setHours(d[0], d[1]))) {
+				return true
+			} else {
+				return false
+			}
+		}
+		//input change 
+		function setData() {
+
+		}
+		//提示信息框隐藏
+		function tipMsg() {
+			$("#tip").css('display', 'block')
+			setTimeout(function() {
+				$("#tip").fadeOut(1000);
+			}, 1000);
+		}
+
+		//根据input改变数据
+		function jsgs2(sl) {
+			// console.log(data1)
+			//当前价格
+			var data1 = JSON.parse(sessionStorage.getItem('tRate'))
+			var data2 = JSON.parse(sessionStorage.getItem('tRate_1'))
+			//当前价格
+			var dangqianjia = Math.round(data1[0].当前价格 * 100) / 100
+			console.log("当前价" + dangqianjia)
+			// 购买数量
+			var goumaishu = sl
+			// $('#shuliang').attr("value",goumaishu)
+			console.log("购买数量" + goumaishu)
+			// 交易金额
+			var jiaoyijine = Math.ceil(dangqianjia * goumaishu * data2.tradingCountRatio.value / 100) * 100
+			if(!jiaoyijine) {
+				$('#dianmaijine').text('0')
+			} else {
+				$('#dianmaijine').text(jiaoyijine)
+			}
+			console.log("交易金额" + jiaoyijine)
+			//止盈
+			var zhiying = jiaoyijine * data2.quitGainRatioList.value
+			if(!zhiying) {
+				$('#zhiying').html('+0<span style="color:#393939">元</span>')
+			} else {
+				$('#zhiying').html('+' + zhiying + '<span style="color:#393939">元</span>')
+			}
+
+			console.log("止盈" + zhiying)
+			//止损
+			var zhisun = jiaoyijine / data2.levers.levers[0].value * data2.levers.levers[0].quitLossLineRatio.value
+			console.log('789')
+			console.log(zhisun)
+			if(!zhisun) {
+				$('#zhisun').html('-0<span style="color:#393939">元</span>')
+			} else {
+				$('#zhisun').html('-' + zhisun + '<span style="color:#393939">元</span>')
+			}
+			console.log("止损" + zhisun)
+			//履约保证金
+			var lybzj = Math.ceil(jiaoyijine / data2.levers.levers[0].value)
+			if(!lybzj) {
+				$('#lybzj').text('履约保证金　　0元')
+			} else {
+				$('#lybzj').text('履约保证金　　' + lybzj + '元')
+			}
+			console.log("履约保证金" + lybzj)
+			//交易综合费
+			var jyzhf = (jiaoyijine / 10000 * data2.serviceCharge.value)
+			if(!jyzhf) {
+				$('#jyzhf').text('交易综合费　　0元')
+			} else {
+				$('#jyzhf').text('交易综合费　　' + jyzhf.toFixed(2) + '元')
+			}
+			console.log("交易综合费" + jyzhf)
+			//递延条件
+			var dytj = (jiaoyijine * data2.deferThreshHoldRatio.value) - (jiaoyijine / data2.levers.levers[0].value)
+			console.log("递延条件" + dytj)
+			//杠杆
+			var ganggan = data2.levers.levers[0].value
+			console.log("杠杆" + ganggan)
+			var tData = {
+				"dangqianjia": dangqianjia,
+				"gp_name": data1[0].股票名称,
+				"gp_code": data1[0].股票代码,
+				"jiaoyijine": jiaoyijine,
+				"goumaishu": goumaishu,
+				"zhiying": zhiying,
+				"zhisun": zhisun,
+				"dytj": dytj,
+				"lybzj": lybzj,
+				"jyzhf": jyzhf,
+				"ganggan": ganggan,
+			}
+			sessionStorage.setItem('tData', JSON.stringify(tData));
+		}
+		// 计算公式        ===========初始化数据
+		function jsgs(data1, data2) {
+			//当前价格
+			var dangqianjia = Math.round(data1[0].当前价格 * 100) / 100
+			console.log("当前价" + dangqianjia)
+			// 购买数量
+			var goumaishu = Math.ceil(10000 / dangqianjia / 100) * 100
+			sessionStorage.setItem('tShuliang', goumaishu)
+			$('#shuliang').attr("value", goumaishu)
+			console.log('购买数量' + goumaishu)
+			// 交易金额
+			var jiaoyijine = Math.ceil(dangqianjia * goumaishu * data2.tradingCountRatio.value / 100) * 100
+			if(!jiaoyijine) {
+				$('#dianmaijine').text('0')
+			} else {
+				$('#dianmaijine').text(jiaoyijine)
+			}
+			console.log("交易金额" + jiaoyijine)
+			//止盈
+			var zhiying = jiaoyijine * data2.quitGainRatioList.value
+			if(!zhiying) {
+				$('#zhiying').html('+0<span style="color:#393939">元</span>')
+			} else {
+				$('#zhiying').html('+' + zhiying + '<span style="color:#393939">元</span>')
+			}
+			console.log("止盈" + zhiying)
+			//止损
+			var zhisun = jiaoyijine / data2.levers.levers[0].value * data2.levers.levers[0].quitLossLineRatio.value
+			if(!zhisun) {
+				$('#zhisun').html('-0<span style="color:#393939">元</span>')
+			} else {
+				$('#zhisun').html('-' + zhisun + '<span style="color:#393939">元</span>')
+			}
+			console.log("止损" + zhisun)
+			//履约保证金
+			var lybzj = Math.ceil(jiaoyijine / data2.levers.levers[0].value)
+			if(!lybzj) {
+				$('#lybzj').text('履约保证金　　0元')
+			} else {
+				$('#lybzj').text('履约保证金　　' + lybzj + '元')
+			}
+			// $('#lybzj').text('履约保证金　　'+lybzj+'元')
+			console.log("履约保证金" + lybzj)
+			//交易综合费
+			var jyzhf = (jiaoyijine / 10000 * data2.serviceCharge.value)
+			if(!jyzhf) {
+				$('#jyzhf').text('交易综合费　　0元')
+			} else {
+				$('#jyzhf').text('交易综合费　　' + jyzhf.toFixed(2) + '元')
+			}
+			// $('#jyzhf').text('交易综合费　　'+jyzhf.toFixed(2)+'元')
+			console.log("交易综合费" + jyzhf)
+			//递延条件
+			var dytj = (jiaoyijine * data2.deferThreshHoldRatio.value) - (jiaoyijine / data2.levers.levers[0].value)
+			console.log("递延条件" + dytj)
+			//杠杆
+			var ganggan = data2.levers.levers[0].value
+			console.log("杠杆" + ganggan)
+			var tData = {
+				"dangqianjia": dangqianjia,
+				"gp_name": data1[0].股票名称,
+				"gp_code": data1[0].股票代码,
+				"jiaoyijine": jiaoyijine,
+				"goumaishu": goumaishu,
+				"zhiying": zhiying,
+				"zhisun": zhisun,
+				"dytj": dytj,
+				"lybzj": lybzj,
+				"jyzhf": jyzhf,
+				"ganggan": ganggan,
+			}
+			sessionStorage.setItem('tData', JSON.stringify(tData));
+		}
+		//获取各种利率公式
+		function getRate(data1) {
+			$.ajax({
+				type: 'post',
+				url: 'http://192.168.1.20:8006/api/home/strategy/index.json',
+				dataType: "json",
+				data: {
+					"device": 1
+				},
+				async: true,
+				success: function(data) {
+					sessionStorage.setItem("tRate", JSON.stringify(data1))
+					sessionStorage.setItem('tRate_1', JSON.stringify(data.datas.strRisk))
+				},
+				error: function(err) {
+					$('.motai').css('display', 'block')
+					// $(document.body).addClass('body-fixed')
+					$('#inquiry_model').css('display', 'block')
+					$('.inquiry_model_content').text('网络错误')
+					stop()
+				}
+			})
+		}
+		//		t+d
+		function td() {
+
+		}
+	</script>
+<script type="text/javascript">
+		var code = sessionStorage.getItem("$_code");
+</script>
+</html>

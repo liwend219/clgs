@@ -1,0 +1,82 @@
+body {
+    background: #e6e6e7;
+}
+
+#back_nav {
+    background-color: #F7F7F8;
+    width: 100%;
+    height: 0.88rem;
+    text-align: center;
+    overflow: hidden;
+    line-height: 0.88rem;
+}
+
+#back_nav .back_btn {
+    float: left;
+    width: 0.2rem;
+    height: 0.36rem;
+    margin: 0.26rem 0 0 0.28rem;
+}
+
+#back_nav .title {
+    margin-left: -0.48rem;
+    font-size: 0.34rem;
+    color: #393939;
+    letter-spacing: 0.03rem;
+}
+
+.lists ul {
+    background: #ffffff;
+    margin-top: 0.3rem;
+}
+
+.lists ul li {
+    padding: 0.2rem 0;
+    margin: 0 0.3rem;
+    overflow: hidden;
+    border-bottom: 0.01rem solid #ededed;
+    cursor: pointer;
+}
+
+.lists ul li:last-child {
+    border-bottom: none;
+}
+
+.lists ul li span, a {
+    font-size: 0.32rem;
+    color: #393939;
+    vertical-align: middle;
+}
+
+.lists input {
+    float: right;
+    width: 0.43rem;
+    height: 0.43rem;
+    margin-right: 0.1rem;
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

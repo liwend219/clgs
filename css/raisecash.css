@@ -1,0 +1,166 @@
+body {
+    background: #e6e6e7;
+}
+
+#back_nav {
+    background-color: #df3732;
+    width: 100%;
+    height: 0.88rem;
+    text-align: center;
+    overflow: hidden;
+    line-height: 0.88rem;
+}
+
+#back_nav .back_btn {
+    float: left;
+    width: 0.2rem;
+    height: 0.36rem;
+    margin: 0.26rem 0 0 0.28rem;
+}
+
+#back_nav .title {
+    margin-left: -0.48rem;
+    font-size: 0.34rem;
+    color: #FFFFFF;
+    letter-spacing: 0.03rem;
+}
+
+.user_follow {
+    border-top: 0.02rem solid #e6e6e7;
+    background: #F7F7F8;
+    padding: 0.2rem 0.3rem;
+    overflow: hidden;
+    cursor: pointer;
+    margin-top: 0.3rem;
+}
+
+.user_follow .icon {
+    width: 1.2rem;
+    height: 1.2rem;
+    float: left;
+    border-radius: 50%;
+}
+
+.user_follow .info {
+    padding-left: 0.3rem;
+    overflow: hidden;
+    margin-top: 0.15rem;
+}
+
+.user_follow .info .info_name {
+    font-size: 0.35rem;
+    color: #393939;
+    font-weight: 600;
+
+}
+
+.user_follow .info .info_phone, #hsw {
+    font-size: 0.26rem;
+    color: #9e9e9f;
+
+}
+
+.user_follow .info .real_state {
+    font-size: 0.2rem;
+    color: #ffffff;
+    background: #4e91f7;
+    font-style: normal;
+    padding: 0.02rem 0.1rem;
+    border-radius: 0.15rem;
+    margin-left: 0.2rem;
+}
+
+.icon_arrow {
+    width: 0.16rem;
+    height: 0.27rem;
+    float: right;
+    margin-top: -0.21rem;
+}
+
+.input_money {
+    width: 100%;
+    padding: 0 0.3rem;
+    background: #F7F7F8;
+    margin-top: 0.4rem;
+}
+
+.input_m {
+    font-size: 1rem;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    color: #393939;
+    border-bottom: 0.01rem solid #EDEDED;
+}
+
+.input_m span {
+    font-size: 1rem;
+    font-weight: 500;
+    color: #393939;
+    margin-left: -0.2rem;
+}
+
+#money_b {
+    width: 100%;
+    height: 1rem;
+    border: none;
+    background: #F7F7F8;
+    font-size: 0.68rem;
+    color: #393939;
+    outline: none;
+}
+
+.font_ipt {
+    color: #393939;
+    line-height: 0.52rem;
+}
+
+.font_f {
+    color: #aeaeae;
+    line-height: 0.52rem;
+}
+
+.sub_box {
+    width: 80%;
+    height: 0.9rem;
+    margin: 0 auto;
+    margin-top: 0.7rem;
+}
+
+#sb {
+    width: 100%;
+    height: 0.9rem;
+    background-color: #D63F2B;
+    margin: 0 auto;
+    outline: none;
+    border: none;
+    border-radius: 0.5rem;
+    font-size: 0.32rem;
+    color: #FFFFFF;
+    cursor: pointer;
+    font-family: "微软雅黑";
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none !important;
+}
+
+input[type="number"] {
+    -moz-appearance: textfield;
+}
+
+/*提示信息*/
+#tip {
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 0.24rem;
+    padding: 0.1rem 0.2rem;
+    background: rgba(0, 0, 0, 0.5);
+    color: #ffffff;
+    border-radius: 0.1rem;
+    text-align: center;
+    z-index: 99;
+}

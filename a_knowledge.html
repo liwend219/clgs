@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"/>
+    <title>用户须知</title>
+    <link rel="icon" href="images/logo01.png" type="image/x-icon">
+    <link rel="stylesheet" href="css/help.css">
+    <script src="js/jquery-3.2.1.js"></script>
+
+</head>
+<body>
+<!--头部-->
+<div id="back_nav" class="fixd">
+    <a href="javascript:history.back(-1);">
+        <img src="images/back.png" alt="" class="back_btn">
+    </a>
+    <span class="title">用户须知</span>
+</div>
+<!--中部-->
+<div class="top"></div>
+<div class="gz_box">
+    <p class="p_con margin">一、客户参与策略高手投顾建议须遵守中国证监会的相关规定，严禁内幕交易、异常交易；</p>
+    <p class="p_con margin">二、在参与策略高手投顾建议前，客户须对策略高手工具进行系统、全面地学习与掌握；了解投顾建议的特点，知晓该工具的风险；</p>
+    <p class="p_con margin">三、用策略高手投顾建议参与股票二级市场和直接参与会有一些不同，请在参与前详细了解策略高手投顾建议关于特殊情况下的规定；</p>
+    <p class="p_con margin">四、参与策略高手投顾建议前，请仔细阅读<u class="p_con red"><a href="fengxianjieshi.html" class="p_con red">《风险揭示书》、</a><a href="a_rule.html" class="p_con red">《投顾操作规则》</a></u>，理解其中各项说明；</p>
+    <p class="p_con margin">五、参与策略高手投顾建议前，请确认自己有相应名义本金规模的风险承受能力，不要参与超出自身承受能力范围的交易；</p>
+    <p class="p_con margin">六、客户参与策略高手投顾建议的资金须为合法所得，不接受来路不明的资金参与交易。</p>
+</div>
+</body>
+<script>
+    $(function () {
+        var w = $(window).width();
+        if (w > 750) {
+            w = 750;
+        }
+        $("html").css("font-size", w / 7.5 + "px");
+        $(window).resize(function () {
+            var w = $(window).width();
+            if (w > 750) {
+                w = 750;
+            }
+            $("html").css("font-size", w / 7.5 + "px");
+        });
+
+        $("#footer_nav .nav_box .nav_item .nav_img").click(function () {
+            var img_src = $(this).attr("src");
+            console.log(img_src);
+            $(this).attr()
+        })
+
+    });
+</script>
+</html>

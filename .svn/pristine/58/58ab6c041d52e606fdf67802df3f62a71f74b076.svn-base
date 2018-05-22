@@ -1,0 +1,551 @@
+<!-- <!DOCTYPE html> -->
+<!DOCTYPE html PUBLIC "-//WAPFORUM//DTD XHTML Mobile 1.0//EN" "http://www.wapforum.org/DTD/xhtml-mobile10.dtd">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" />
+    <script src="js/vue.min.js"></script>
+    <link rel="icon" href="images/logo01.png" type="image/x-icon">
+    <link rel="stylesheet" href="css/init.css">
+    <link rel="stylesheet" type="text/css" href="css/gupiao_t3.css"/>
+    <script src="js/jquery-3.2.1.js"></script>
+    <script src="js/public.js"></script>
+
+    <title>盯策略</title>
+    <style>
+        .redStyle{
+            color:#d94030;
+        }
+        .greStyle{
+            color:#01b28e
+        }
+        button{
+            outline:none;
+            border:none;
+        }
+        .body-fle{
+            position: fixed;
+        }
+        
+    </style>
+</head>
+<body>
+    <!-- 111 -->
+    <div>
+        <div id="back_nav">
+            <a href="javascript:history.back(-1);">
+                <img src="images/back.png" alt="" class="back_btn">
+            </a>
+            <span class="title" style="margin-left: 0;">盯策略</span>
+        </div>
+        <div class="tab-bar" style="border:none">
+            <button style="outline: none" class="bar-left bar-btn-click">
+                T+1
+            </button>
+            <button style="outline: none" class="bar-right">
+                T+D
+            </button>
+        </div>
+        <!-- t+1 -->
+        <div class="nav-prompt t-1" style="display: none">
+            <div class="prompt-header">
+                提示
+                <div class="transform-box">
+                    
+                </div>
+            </div>
+            <div class="prompt-text" >
+                <span id="t-1-money"></span> <br>
+                请保持余额充足，若截止当日14:50余额不足，视为终止合约，将点卖策略。
+            </div>
+        </div>
+        <!-- t+d  -->
+        <div class="nav-prompt t-d">
+            <div class="prompt-header">
+                提示
+                <div class="transform-box">
+                    
+                </div>
+            </div>
+            <div class="prompt-text">
+                当前市值 + 可用余额 = 0元<br>
+                触发止损：当前市值 + 可用余额 ≤ 30900元<br>
+                可以递延：当前市值 + 可用余额 ≥ 31500元
+            </div>
+        </div>
+        <br>
+        <div id="app">
+            <div class="nav-detail" style="margin-bottom:18px;" v-for="(item,key) in datas" :key="key">
+                <div class="detail-item">
+                    <span style="font-size:16px" class="gp_name_code" >
+                        {{item.stockCode}} {{item.stockName}}
+                    </span>
+                    <span style="color:#393939;opacity: .5;">
+                        已持仓{{item.holdDays}}天
+                    </span>
+                    <span style="float:right;" :class="yingli[key]>=0 ? 'redStyle' : 'greStyle'">
+                        {{yingli[key] | setcolor}}
+                    </span>
+                </div>
+                <div class="detail-item-1">
+                    <div>
+                        <span class="item-1">委托价：{{item.buyPriceOrder}}</span>
+                        <span class="item-1">止盈：+{{item.quitGain}}</span>
+                        <span class="item-1" style="text-align: left">当前价：{{parseFloat(dangqianjia[key].当前价格).toFixed(2)}}</span>
+                        
+                        <span class="item-1" style="text-align: left">成交价：{{item.buyPriceDeal}}</span>
+                        <span class="item-1" style="text-align: left">止损：{{item.quitLoss | setZhisun}}</span>
+                        <span class="item-1" style="text-align: left">数量：{{item.volumeHold}}</span>
+                    </div>
+                    <div>
+                        <span class="item-2">策略编号</span>
+                        <span class="item-2">CL{{item.sid}}</span>
+                        <span class="item-2">递延条件</span>
+                        <span class="item-2" style="color:#0e80fe">盈亏 ≥ {{parseFloat(dytj[key]).toFixed(2)}}</span>
+                        <span class="item-2">成交时间</span>
+                        <span class="item-2">{{item.dealTime|setTime}}</span>
+                    </div>
+                </div>
+                <div class="detail-item-2">
+                    <button id="setZyzs"  @click="setZyzs(item,key)" class="item-btn"  :style="item.status==4?'background-color: #d94030':'background-color: #9C9C9C'">
+                        设置止盈止损
+                    </button>
+                    <button class="item-btn right-btn" @click="setJiaoyi(item,key)" :style="isJytimes&&item.holdDays>1&&item.status==4?'background-color: #d94030':'background-color: #9C9C9C'">
+                        {{item.status | setText}}
+                    </button>
+                </div>
+            </div>
+            <!-- 模态框 -->
+            <div id="inquiry_model" style="display: none">
+                <div class="model_content">
+                    <h3 class="title">设置止盈止损</h3>
+                    <ul>
+                        <li class="code_box">
+                            <div class="ipu">
+                                <span>止盈金额</span><input id="setYing" v-model="zhiyingJine" type="number">
+                            </div>
+                            <div class="ipu">
+                                <span>止损金额</span><input id="setSun" v-model="zhisunJine" type="number">
+                            </div>
+                        </li>
+                        <li class="implement_box">
+                        </li>
+                    </ul>
+                    <div class="model_option">
+                        <span class="cancel" @click="cancel">取消</span>
+                        <span class="sure" @click="sure">确定</span>
+                    </div>
+                </div>
+            </div>
+            <!-- 提示信息 -->
+            <span id="tip" v-model="toast" style="display: none"></span>
+        </div>
+        
+    </div>
+    <script>
+        var vm = new Vue({
+            el:'#app',
+            data(){
+                return {
+                    datas:'',
+                    dangqianjia:[],
+                    yingli:[],
+                    codes:[],
+                    dytj:[],
+                    tItem:'',
+                    tIndex:'',
+                    zhiyingJine:'',
+                    zhisunJine:'',
+                    tdata:'',
+                    isJytimes:true,
+                    rightBtnText:'平仓',
+                    toast:'',
+                    dyFei:0,
+                }
+            },
+            mounted(){
+                this.init()
+                
+            },
+            methods:{
+                init () {
+                    var UserID = sessionStorage.getItem('my_id')
+                    var cid = sessionStorage.getItem('cid')
+                    var STID =sessionStorage.getItem('STID')
+                    var code;
+                    $.ajax({
+                        type:'POST',
+                        url:'http://139.196.178.5:8006/api/union/strategy/StrategyList.json',
+                        data:{
+                            "UserID":UserID,
+                            "cid":cid,
+                        },
+                        async:true,
+                        dataType:"json",
+                        success:function(data){
+                            if(data.rs){
+                                vm.datas = data.datas
+                                vm.isJytime()
+                                var i =0;
+                                vm.codes = []
+                                for(i;i<vm.datas.length;i++){
+                                    vm.codes.push(vm.datas[i].stockCode)
+                                }
+                                vm.getNowJiage()
+                            }  
+                        },
+                        error:function(error){
+                            console.log(error)
+                        }
+                    })
+                    var time = setInterval(function (){
+                        vm.getNowJiage()
+                        vm.isJytime()
+                    },3000)
+                    
+                },
+                isJytime(){
+                    $.ajax({
+                        type:'post',
+                        url:'http://192.168.1.20:8006/api/home/strategy/index.json',
+                        dataType: "json",
+                        data: {"device": 1},
+                        async: true,
+                        success: function (data){
+                            if(data.rs){
+                                vm.tdata = data.datas.strRisk
+                                var str = data.datas.strRisk.tradingTimeLimit.value
+                                this.dyFei = 0;
+                                var i = 0;
+                                for(i;i<vm.datas.length;i++){
+                                    if(vm.datas[i].status == 4&&vm.datas[i].holdDays>1){
+                                        this.dyFei = this.dyFei+vm.datas[i].money/10000*vm.tdata.deferCharge.value*1
+                                    }
+                                }
+                                if(this.dyFei == 0){
+                                    $('.t-1').css('display','none')
+                                }else{
+                                    
+                                    $('#t-1-money').text('递延费：'+this.dyFei.toFixed(2)+'元')
+                                }
+                                
+                                if(!vm.CompareDate(str.slice(0,5),str.slice(6,11),str.slice(12,17),str.slice(18))){
+                                    vm.isJytimes = false
+                                    $('.t-1').css('display','none')
+                                }else{
+                                    vm.isJytimes = true
+                                    // $('.t-1').css('display','block')
+                                }
+                            }else{
+                                alert("网络错误")
+                            }
+                        
+                        },
+                        error:function(err){
+                            console.log("网络错误")
+                        }
+                    })
+                },
+                getNowJiage (){
+                    $.ajax({
+                        type:'post',
+                        url:'http://192.168.1.20:8005/Shares/GetShares',
+                        data:{"code":vm.codes.join(',')},
+                        dataType: "json",
+                        success: function (data){
+                            // console.log(data)
+                            vm.dangqianjia = data
+                            var i = 0;
+                            // console.log(vm.datas)
+                            vm.yingli = []
+                            for(i;i<vm.dangqianjia.length;i++){
+                                vm.yingli.push(((vm.dangqianjia[i].当前价格 - vm.datas[i].buyPriceDeal) * vm.datas[i].volumeHold).toFixed(2))
+                            }
+                            vm.getRate()
+                        },
+                        error:function(err){
+                            alert("网络错误")
+                        }
+                    })
+                },
+                getRate (){
+                    var i = 0;
+                    vm.dytj = []
+                    for(i;i<vm.dangqianjia.length;i++){
+                        //交易金额
+                        var jiaoyijine =Math.ceil(vm.dangqianjia[i].当前价格*vm.datas[i].volumeHold*vm.tdata.tradingCountRatio.value/100)*100
+                        //递延条件
+                        vm.dytj.push((jiaoyijine*vm.tdata.deferThreshHoldRatio.value)-(jiaoyijine/vm.tdata.levers.levers[0].value))
+                    }
+                },
+                setZyzs (val,index) {
+                    if(val.status != 4){
+                        return
+                    }
+                    console.log(val)
+                    vm.zhiyingJine = val.quitGain;
+                    if(val.quitLoss>0){
+                        vm.zhisunJine = -val.quitLoss;
+                    }else{
+                        vm.zhisunJine = val.quitLoss;
+                    }
+                    
+                    vm.tIndex = index
+                    vm.tItem = val;
+                    
+                    if(val.status == 4){
+                        $('#inquiry_model').css('display','block')
+                        vm.stop()
+                        // var top = $(document).scrollTop();
+                        // $(document.body).addClass('body-fle')
+                    }
+                },
+                setJiaoyi (val,key){
+                    if(val.holdDays <= 1 || val.status != 4){
+                        return 
+                    }else {
+                        vm.tItem = val;
+                        console.log(vm.tItem.sid)
+                        $.ajax({
+                            type:'POST',
+                            url:'http://139.196.178.5:8006/api/union/strategy/outCloseStrategy.json',
+                            dataType: "json",
+                            async: true,
+                            data:{
+                                "UserID": sessionStorage.getItem('my_id'),
+                                "cid": sessionStorage.getItem('cid'),
+                                "id":vm.tItem.sid,//策略号ID
+                                "isAlwaysClose": 1
+                            },
+                            success:function (data){
+                                vm.init()
+                                if(data.rs){
+                                    $('#tip').text(data.msg)
+                                    $('#tip').css('display','block')
+                                    window.clearTimeout(time1)
+                                    var time1=window.setTimeout(function(){
+                                        $('#tip').css('display','none')
+                                    },2500);
+                                }else{
+                                    $('#tip').text(data.msg)
+                                    $('#tip').css('display','block')
+                                    window.clearTimeout(time1)
+                                    var time1=window.setTimeout(function(){
+                                        $('#tip').css('display','none')
+                                    },2500);
+                                }
+                                console.log(data)
+                            },
+                            error:function (error){
+                                console.log(error)
+                            }
+                        })
+                    }
+                    
+                },
+                //判断是否交易时间
+                CompareDate(t1,t2,t3,t4){
+                    var date = new Date();
+                    var h = date.getHours()
+                    var m = date.getMinutes()
+                    var a = t1.split(":");    
+                    var b = t2.split(":");
+                    var c = t3.split(":");    
+                    var d = t4.split(":");
+                    if((date.setHours(h,m) > date.setHours(a[0],a[1])&&date.setHours(h,m) < date.setHours(b[0],b[1]))||(date.setHours(h,m) > date.setHours(c[0],c[1])&&date.setHours(h,m) < date.setHours(d[0],d[1]))){
+                        return true
+                    }else{
+                        return false
+                    }
+                },
+                //设置止盈止损
+                sure (){
+                    //交易金额
+                    var jiaoyijine =Math.ceil(vm.datas[vm.tIndex].buyPriceDeal*vm.datas[vm.tIndex].volumeHold*vm.tdata.tradingCountRatio.value/100)*100
+                    // 止盈线
+                    var tzhiying = jiaoyijine*vm.tdata.quitGainRatioList.value
+                    console.log(tzhiying)
+                    // 止损线
+                    var tzhisun = jiaoyijine/vm.tdata.levers.levers[0].value*vm.tdata.levers.levers[0].quitLossLineRatio.value
+                    
+                    
+                    if(vm.zhiyingJine == '' || vm.zhisunJine==''){
+                        if(vm.zhiyingJine == ''){
+                            vm.zhiyingJine = tzhiying;
+                        }else if(vm.zhisunJine==''){
+                            vm.zhisunJine = -tzhisun;
+                        }
+                        $('#tip').text('数据格式错误')
+                        $('#tip').css('display','block')
+                        window.clearTimeout(time1)
+                        var time1=window.setTimeout(function(){
+                            $('#tip').css('display','none')
+                        },2500);
+                        return
+                    }else if(vm.zhiyingJine > tzhiying || vm.zhiyingJine < 0 ){
+                        vm.zhiyingJine = tzhiying;
+                        $('#tip').text('止盈金额区间为0 ~ '+tzhiying+'之间的整数')
+                        $('#tip').css('display','block')
+                        window.clearTimeout(time1)
+                        var time1=window.setTimeout(function(){
+                            $('#tip').css('display','none')
+                        },2500);
+                        return 
+                    }else if(vm.zhisunJine > 0 || vm.zhisunJine < -tzhisun){
+                        vm.zhisunJine = -tzhisun;
+                        $('#tip').text('止损金额区间为-'+tzhisun+'到0之间的整数')
+                        $('#tip').css('display','block')
+                        window.clearTimeout(time1)
+                        var time1=window.setTimeout(function(){
+                            $('#tip').css('display','none')
+                        },2500);
+                        return 
+                    }else if(vm.zhiyingJine % 1 != 0 || vm.zhisunJine % 1 != 0){
+                            vm.zhiyingJine = tzhiying;
+                            vm.zhisunJine = -tzhisun;
+                        $('#tip').text('数据格式错误')
+                        $('#tip').css('display','block')
+                        window.clearTimeout(time1)
+                        var time1=window.setTimeout(function(){
+                            $('#tip').css('display','none')
+                        },2500);
+                        return
+                    }else{
+                        $.ajax({
+                            type:'POST',
+                            url:'http://139.196.178.5:8006/api/union/strategy/outSetQuitGainLoss.json',
+                            data:{
+                                "UserID":sessionStorage.getItem('my_id'),
+                                "cid":sessionStorage.getItem('cid'),
+                                "id":vm.tItem.sid,
+                                "quitGain":vm.zhiyingJine,
+                                "quitLoss":vm.zhisunJine,
+                            },
+                            async:true,
+                            dataType:"json",
+                            success:function (data){
+                                console.log(data)
+                                if(data.rs){
+                                    $('#tip').text(data.msg)
+                                    $('#tip').css('display','block')
+                                    window.clearTimeout(time1)
+                                    var time1=window.setTimeout(function(){
+                                        $('#tip').css('display','none')
+                                    },2500);
+                                    vm.zhiyingJine='',
+                                    vm.zhisunJine='',
+                                    $('#inquiry_model').css('display','none')
+                                    vm.init()
+                                }else{
+                                    $('#tip').text(data.msg)
+                                    $('#tip').css('display','block')
+                                    window.clearTimeout(time1)
+                                    var time1=window.setTimeout(function(){
+                                        $('#tip').css('display','none')
+                                    },2500);
+                                    vm.zhiyingJine='',
+                                    vm.zhisunJine='',
+                                    $('#inquiry_model').css('display','none')
+                                }
+                            },
+                            error:function (error){
+                                console.log(error)
+                            }
+                        })
+                    }
+                    vm.move()
+                },
+                cancel (){
+                    this.zhiyingJine = '';
+                    this.zhisunJine = '';
+                    $('#inquiry_model').css('display','none')
+                    vm.move()
+                    // $(document.body).removeClass('body-fle')
+                },
+                // 禁止页面滑动
+                stop(){
+                    var mo=function(e){e.preventDefault();};
+                    document.body.style.overflow='hidden';
+                    document.addEventListener("touchmove",mo,false);//禁止页面滑动
+                },
+                // 允许页面滑动
+                move(){
+                    var mo=function(e){e.preventDefault();};
+                    document.body.style.overflow='';//出现滚动条
+                    document.removeEventListener("touchmove",mo,false);
+                }
+            },
+            filters:{
+                setTime:function(val){
+                    var date = new Date(parseInt(val.slice(6,-2)))
+                    Y = date.getFullYear() + '-';
+                    M = (date.getMonth()+1 < 10 ? '0'+(date.getMonth()+1) : date.getMonth()+1) + '-';
+                    D = (date.getDate() <10 ? '0'+(date.getDate()) : date.getDate())+ ' ';
+                    h = (date.getHours() <10 ? '0'+(date.getHours()) : date.getHours())+ ':';
+                    m = (date.getMinutes() <10 ? '0'+(date.getMinutes()) : date.getMinutes())+ ':';
+                    s = (date.getSeconds() <10 ? '0'+(date.getSeconds()) : date.getSeconds());
+                    return Y+M+D+h+m+s;
+                },
+                setcolor:function (val){
+                    if(val > 0){
+                        return '+'+val
+                    }else{
+                        return val
+                    }
+                },
+                setText:function (val){
+                    var str = vm.tdata.tradingTimeLimit.value
+                    if(!vm.CompareDate(str.slice(0,5),str.slice(6,11),str.slice(12,17),str.slice(18))){
+                        return '非交易时段'
+                    }
+                    if(val == 4) {
+                        return '平仓'
+                    }else if(val == 5){
+                        return '委托卖出'
+                    }else if(val == 8){
+                        return '等待清算'
+                    }else{
+                        return '平仓'
+                    }
+                },
+                setZhisun:function (val){
+                    if(val>0){
+                        return '-'+val
+                    }else {
+                        return val
+                    }
+                },
+            }
+        })
+        $(function(){
+            $('.bar-left').click(function(){
+                $('.bar-left').addClass('bar-btn-click')
+                $('.bar-right').removeClass('bar-btn-click')
+                // $('.t-1').css('display','block')
+                vm.isJytime()
+                $('.t-d').css('display','none')
+            })
+            $('.bar-right').click(function(){
+                $('.bar-right').addClass('bar-btn-click')
+                $('.bar-left').removeClass('bar-btn-click')
+                $('.t-d').css('display','block')
+                $('.t-1').css('display','none')
+            })
+            function prevent (e) {
+            　　e.preventDefault();
+            }
+            
+        })
+    </script>
+    <script>
+        $('.yes_btn').click(function(){
+            $('.motai').css('display','none');
+            $('#inquiry_model').css('display','none')
+            move()
+        })
+    </script>
+</body>
+</html>

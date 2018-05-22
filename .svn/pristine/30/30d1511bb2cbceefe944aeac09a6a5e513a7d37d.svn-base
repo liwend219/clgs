@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    
+
+    <link rel="icon" href="images/logo01.png" type="image/x-icon">
+    <link rel="stylesheet" href="css/gupiao_guize.css">
+    <script src="js/jquery-3.2.1.js"></script>
+    <script src="js/public.js"></script>
+    <script src="js/vue.min.js"></script>
+    
+    <!-- 引入样式 -->
+    <link rel="stylesheet" href="css/element.css">
+    <!-- 引入组件库 -->
+    <script src="js/element.js"></script>
+
+    
+    
+    <title>客户须知及风险提示</title>
+    <style>
+        .el-collapse-item__header{
+            padding:0 10px;
+        }
+        .el-collapse-item__content{
+            padding:10px;
+            background: #f3f3f3;
+        }
+        .el-collapse-item__content{
+            padding:0.15rem;
+        }
+        a{
+            color:#6fb3e0;
+            font-size: 0.18rem;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <div id="back_nav">
+            <a href="javascript:history.back(-1);">
+                <img src="images/back.png" alt="" class="back_btn">
+            </a>
+            <span class="title" style="margin-left: 0;color: #393939">客户须知及风险提示</span>
+        </div>
+
+        <el-collapse @change="handleChange">
+            <el-collapse-item title="风险揭示书" name="1">
+                <div>
+                    　　一、最大亏损：与普通金融工具相比，个股期权交易具有一定的杠杆性，波动性强，会放大收益或损失，属于高风险投资。由于各种风险因素的存在，所预期的规避风险、保值、获利等交易目标不一定能够实现，计划的资产有可能大幅度贬值，甚至可能发生全部亏损。<br>
+                    　　二、市场风险：由于货币政策、财政政策、产业政策等国家政策及法律法规的变化，或者政治、金融及宏观经济形势变化，导致市场利率变化和证券价格波动影响交易合约价值变化，从而导致交易本金发生损失，本金所预期的规避风险、保值、获利等交易目标不一定能够实现。<br>
+                    　　三、流动性风险：由于市场交易可能存在不够活跃的情况，无法及时满足本金希望达成交易的要求，从而可能影响本金实现特定的财务目标或预期的风险管理目标。<br>
+                    　　四、操作风险：在实际交易过程中，因不完善等系统或外部事件可能造成的交易损失。<br>
+                    　　五、法律风险：因法律法规、监管要求或市场规则变化，使交易不能被有效执行导致损失的风险；在本金出现交易项下约定的违约事件或终止事件时，本金将面临被交易另一方提前终止交易或本金提交的履约保证金被交易另一方依交易项下约定进行处置的风险，可能会给本金造成经济损失。<br>
+                    　　六、信用风险：因交易另一方未履行交易项下约定的各项义务而造成本金的损失。<br>
+                    　　七、技术风险：在交易过程中，可能因为技术系统的故障或者差错而影响交易的正常进行或者导致投资者的利益受到影响。该技术风险可能来自证券公司、机构等。<br>
+                    　　八、合同变更风险：在合同签署后，交易有可能因法律、法规、规章、中国证监会的规定、证券登记结算机构业务规则、证券交易所交易规则以及其他原因进行修订或者变更。投资者存在不同意变更合同的条款又没在规定的时间内退出，视同同意合同变更的风险。<br>
+                    　　九、提前终止风险：本交易合约期间，若出现合同约定的终止事件（由于不可抗力或政府行为或法律、法规、监管规则的变化导致该业务不再具有合法性或导致任何一方丧失履行能力），则本合约可能面临提前终止风险。<br>
+                    　　以上提示可能发生的风险由投资者自行承担，投资有风险，入场需谨慎。
+                   
+                </div>
+            </el-collapse-item>
+            <el-collapse-item title="风险承诺书" name="2">
+                <div>
+                    　　风险的承担我已事先通过电话及其它方式知道参与股票点买、场外个股期权交易可能在短时间内面临全额损失的风险，并且知悉有合格交易商的适当性要求，如违反要求从而造成因可能出现的各种意外风险。我理解、我同意和签署此有关责任豁免、权利放弃和风险承担的协议，方可参加股票点买、场外个股期权交易。<br>
+                    　　关于豁免责任，放弃权利和赔偿的协议:<br>
+                    　　1、在开通交易之前，我已配合平台开展交易的适当性管理工作，完整、如实地提供交易所需要的信息，在此我同意，如果因为本人原因或者其他原因造成的一切后果，我放弃追究和要求赔偿的权利，同时免除其他相关人员的法律责任。<br>
+                    　　2、在参与交易过程中面临包括但不限于政策制度风险、价格波动风险、技术风险，理解参与交易可能对身体和精神方面都有严格的要求，如因此造成所有救援和医疗的费用将由我自己承担。我清楚获知参与交易无法全面预见交易过程中所有的风险和不利，我理解以上所列的风险并不完全含括了所有可能的风险，并且同意免责和放弃权利的协议并不仅限于以上所列的风险中。<br>
+                    　　3、我理解我能够通过以下措施来减少我的风险：更加注意环境，注意我的身体和精神状况，在自己精神和身体能力之内适度参与交易。我清楚获知我已经被鼓励发展一种好问和怀疑的心态，去询问平台以要求解释任何我觉得不适的决定。我同意我将不会参加任何高标的和高杠杆的交易，除非我已经仔细考虑过，相信它是安全的，和接受所有的相关风险。<br>
+                    　　我同意，一旦签署，此责任豁免协议将生效。此协议同样有效于我的继承人、近亲、执行人、管理人、个人代表和转让人。<br>
+                    　　由我以下签署，我保证：我已经阅读和理解以上声明和其条文；我理解参加期权交易相关的风险；我承担由于选择了参与交易而随之来的全部责任；我在此特意和有意的声明，我已经仔细阅读并理解以上承诺书文字的含义及其所涵盖的法律效力。我在具有完全民事行为能力的状态下，自愿签署本承诺书。特此承诺。
+                </div>
+            </el-collapse-item>
+            <el-collapse-item title="客户须知" name="3">
+                <div>
+                    　　一、客户参与平台交易须遵守中国证监会的相关规定，严禁内幕交易、异常交易。<br>
+                    　　二、客户参与平台交易前，须对股票、期权工具进行系统、全面地学习与掌握；了解股票、期权工具的特点，知晓该工具的风险。<br>
+                    　　三、客户使用场外个股期权参与股票二级市场和直接参与会有一些不同，请在参与前详细了解场外个股期权关于特殊情况下的规定。<br>
+                    　　四、客户参与平台交易前，请仔细阅读《风险揭示书》，理解其中各项说明。<br>
+                    　　五、客户参与平台交易前，请确认自己有相应风险承受能力，不建议参与超出自身承受能力范围的交易。<br>
+                    　　六、客户参与平台交易的资金须为合法所得，不接受不明的资金参与交易。<br>
+                </div>
+            </el-collapse-item>
+            <el-collapse-item title="相关协议" name="4">
+                <div> <a href="./xieyi_qqb.html">《平台服务协议》</a></div>
+                <div> <a href="./xieyi_jy.html">《T+1 A股交易合作协议》</a></div>
+                <div> <a href="./xieyi_fy.html">《T+1 A股交易合作涉及费用及资费标准》</a></div>
+                <div> <a href="./xieyi_jy.html">《T+D A股交易合作协议》</a></div>
+                <div> <a href="./xieyi_fy.html">《T+D A股交易合作涉及费用及资费标准》</a></div>
+                <div> <a href="./xieyi_wt.html">《期权交易委托合作协议》</a></div>
+            </el-collapse-item>
+        </el-collapse><br>
+        <!-- <div style="text-align:left;color:rgb(155, 155, 155);padding:0.15rem">
+            注意：<br>
+            1.平台不保证任何成交价格和成交时间，一切均以券商实际成交数据为准。<br>
+            2.最终解释权归本APP所有。
+        </div> -->
+    </div>
+    <script>
+        var vm = new Vue({
+            el:"#app",
+            data(){
+                return{
+                    activeNames:[1,2,3]
+                }
+            },
+            mounted(){
+                var arr=[];
+                for(let i=0;i<$('.el-collapse-item__header').length;i++){
+                    if($('.el-collapse-item__header').eq(i).html().length>82){
+                        arr.push(i)
+                    }
+                }
+                console.log(arr)
+            },
+            methods:{
+                handleChange(idnex) {
+                    
+                },
+            }
+        })
+    </script>
+</body>
+</html>

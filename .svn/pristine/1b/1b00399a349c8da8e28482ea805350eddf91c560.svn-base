@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport"
+          content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"/>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>首页</title>
+    <link rel="icon" href="images/logo01.png" type="image/x-icon">
+    <link rel="stylesheet" href="css/init.css">
+    <link rel="stylesheet" href="css/public.css">
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" type="text/css" href="css/mui.min.css"/>
+	<script src="js/mui.min.js"></script>
+    <script src="js/jquery-3.2.1.js"></script>
+    <script src="js/public.js"></script>
+    <script src="js/index.js"></script>
+    <script>
+    	mui.init();
+    	  	var gallery = mui('.mui-slider');
+gallery.slider({
+  interval:0//自动轮播周期，若为0则不自动播放，默认为0；
+});
+        var cid = sessionStorage.getItem("cid");
+        if (cid == "" || cid == null) {
+            alert("请先登录");
+            window.location.href = "logoIn.html";
+        }
+    </script>
+</head>
+<body>
+<div id="container">
+    <div id="header">
+        <!--<a href="master.html">
+            <img src="images/banner.png" alt="" class="banner_bg">
+        </a>-->
+        <div class="mui-content">
+            <div class="mui-slider">
+			  <div class="mui-slider-group">
+			  	<div class="mui-slider-item"><a href="Triangle.html"><img src="images/2.png" class="banner_bg"/></a></div>
+			    <div class="mui-slider-item"><a href="#"><img src="images/1.png" class="banner_bg"/></a></div>
+			    <div class="mui-slider-item"><a href="#"><img src="images/4.png" class="banner_bg"/></a></div>
+			    <!--<div class="mui-slider-item"><a href="#"><img src="images/5.png" class="banner_bg"/></a></div>-->
+			  </div>
+			  <div class="mui-slider-indicator">
+			  	<div class="mui-indicator mui-active"></div>
+			  	<div class="mui-indicator"></div>
+			  	<div class="mui-indicator"></div>
+			  	<!--<div class="mui-indicator"></div>-->
+			  </div>
+			</div>
+        </div>
+        <div class="search_meg">
+            <form class="search_box">
+                <i class="icon_search"></i>
+                <input type="text" placeholder="搜索" class="search" >
+            </form>
+            <a href="message.html">
+                <i class="meg"></i>
+                <span class="sub" style="display: none;"></span>
+            </a>
+        </div>
+
+    </div>
+    
+
+ <div id="shares_index">
+        <div class="composite_index">
+            <span class="composite_text">上证综指
+                <i class="composite_percentage1">-0.28%</i>
+            </span>
+            <span class="composite_num1">3438.33</span>
+        </div>
+        <div class="composite_index">
+            <span class="composite_text">深圳成指
+                <i class="composite_percentage2">-0.41%</i>
+            </span>
+            <span class="composite_num2">11646.76</span>
+        </div>
+        <div class="composite_index">
+            <span class="composite_text">创业板指
+                <i class="composite_percentage3">-0.02%</i>
+            </span>
+            <span class="composite_num3">1906.76</span>
+        </div>
+    </div>
+
+<!--中间内容-->
+<div class="toutiao">
+	<p><img src="images/toutiao.png"/><span id="">AAC 独角兽 一台可以赚钱的电脑...</span></p>
+</div>
+<div class="con_center">
+	<ul>
+		<li>
+			<a href="#"><img src="images/icon_zx@2x.png"/></a>
+		</li>
+		<li>
+			<a href="help.html"><img src="images/icon_gz@2x.png"/></a>
+		</li>
+		<li>
+			<a href="b_m3.html"><img src="images/icon_sp@2x.png"/></a>
+		</li>
+		<li>
+			<a href="#"><img src="images/icon_tg@2x.png"/></a>
+		</li>
+	</ul>
+	<ul>
+		<li>我的自选</li>
+		<li>交易规则</li>
+		<li>策略直播</li>
+		<li>众投彩</li>
+	</ul>
+</div>
+    <div id="items">
+        <span class="item active v1">最新动态</span>
+        <span class="item v2">实时资讯</span>
+    </div>
+
+    <div class="content_box">
+        <ul class="dynamics_box">
+
+        </ul>
+
+        <script type="text/template" id="dynamics_box">
+            <li class="dynamic">
+                <div>
+                <span class="img_tx"><img src="@img" alt="" class="dynamic_icon"
+                                          onerror="this.src='images/icon.png'"></span>
+                    <span class="dynamic_name">@1</span>
+                    <i class="dynamic_time">@2</i>
+                </div>
+                <div>
+                    <p class="dynamic_title">@3</p>
+                    <span class="dynamic_money">@4</span>
+                </div>
+                <i class="mm" style="display: none;">@_gp</i>
+                <i class="yy" style="display: none;">@_dm</i>
+                <i class="id" style="display: none;">@_id</i>
+            </li>
+        </script>
+        <ul class="news_box" style="display: none">
+
+        </ul>
+        <script type="text/template" id="news_box">
+            <li class="new">
+                <span class="img_tx"><img src="@pic" alt="" class="new_pic"></span>
+                <span class="new_title">@1</span>
+                <div class="footnote">
+                    <span class="new_time">@2</span>
+                    <span class="new_source">@3</span>
+                </div>
+                <input type="hidden" class="Journalismid" value="@Journalismid"/>
+            </li>
+        </script>
+    </div>
+</div>
+
+<div id="footer_nav">
+    <ul class="nav_box">
+        <li class="nav_item">
+            <a href="index.html">
+                <img src="images/icon_home_active.png" alt="" class="nav_img">
+                <span class="nav_name">首页</span>
+            </a>
+        </li>
+        <li class="nav_item">
+            <a href="adviser.html">
+                <img src="images/icon_adviser.png" alt="" class="nav_img">
+                <span class="nav_name">交易</span>
+            </a>
+        </li>
+        <li class="nav_item">
+            <a href="gupiao_index.html">
+                <img src="images/股票_icon.png" alt="" class="nav_img">
+                <span class="nav_name">股票</span>
+            </a>
+        </li>
+        <li class="nav_item">
+            <a href="master.html">
+                <img src="images/icon_killer.png" alt="" class="nav_img">
+                <span class="nav_name">高手</span>
+            </a>
+        </li>
+        <li class="nav_item">
+            <a href="personal.html">
+                <img src="images/icon_personal.png" alt="" class="nav_img">
+                <span class="nav_name">我的</span>
+            </a>
+        </li>
+    </ul>
+</div>
+</body>
+</html>

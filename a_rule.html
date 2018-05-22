@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"/>
+    <title>交易规则</title>
+    <link rel="icon" href="images/logo01.png" type="image/x-icon">
+    <link rel="stylesheet" href="css/help.css">
+    <script src="js/jquery-3.2.1.js"></script>
+</head>
+<body>
+<!--头部-->
+<div id="back_nav" class="fixd">
+    <a href="javascript:history.back(-1);">
+        <img src="images/back.png" alt="" class="back_btn">
+    </a>
+    <span class="title">交易规则</span>
+</div>
+<div class="zhanwei" style="width: 100%; height: 0.88rem;">
+	
+</div>
+
+     <img src="images/tggz2018.4.24_01.jpg" style="width: 100%;"/>
+       <img src="images/tggz2018.4.24_02.jpg" style="width: 100%;"/>
+<script>
+    $(function () {
+        var w = $(window).width();
+        if (w > 750) {
+            w = 750;
+        }
+        $("html").css("font-size", w / 7.5 + "px");
+        $(window).resize(function () {
+            var w = $(window).width();
+            if (w > 750) {
+                w = 750;
+            }
+            $("html").css("font-size", w / 7.5 + "px");
+        });
+
+        $("#footer_nav .nav_box .nav_item .nav_img").click(function () {
+            var img_src = $(this).attr("src");
+            console.log(img_src);
+            $(this).attr()
+        })
+
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,93 @@
+#back_nav {
+    background-color: #FFFFFF;
+    width: 100%;
+    height: 0.88rem;
+    text-align: center;
+    overflow: hidden;
+    line-height: 0.88rem;
+    border-bottom: 1px solid #CCCCCC;
+}
+
+#back_nav .back_btn {
+    float: left;
+    width: 0.2rem;
+    height: 0.36rem;
+    margin: 0.26rem 0 0 0.28rem;
+}
+
+#back_nav .title {
+    margin-left: 0.88rem;
+    font-size: 0.34rem;
+    color: #3933939;
+    letter-spacing: 0.03rem;
+}
+
+#back_nav .detailed {
+    float: right;
+    font-size: 0.3rem;
+    color: #393939;
+    margin: 0 0.3rem;
+}
+#con .title{
+	width: 100%;
+	height: 0.8rem;
+}
+#con .title .font_t{
+	display: inline-block;
+	width: 33.3%;
+	height: 0.8rem;
+	font-size: 0.32rem;
+	line-height: 0.8rem;
+	float: left;
+	text-align: center;
+}
+.box1{
+	width: 100%;
+	height: 10rem;
+	text-align: center;
+	padding-top: 4rem;
+}
+.box1 h2{
+	font-size: 0.8rem;
+	color: #df3732;
+}
+.box1 p{
+	font-size: 0.32rem;
+	color: #df3732;
+}
+.has-header{
+	top:2rem !important;
+}
+
+.moban{
+	width: 100%;
+	display: flex;
+	align-items: center;
+}
+.moban li{
+	width: 33.3%;
+	float: left;
+	text-align: center;
+ font-family: "微软雅黑";
+}
+.moban .font-left{
+	text-align: left;
+	padding-left: 10px;
+}
+.item-content{
+	padding: 6px 10px !important; 
+}
+.moban li .tit{
+	font-size: 0.32rem;
+}
+.moban li .code{
+	font-size: 0.24rem;
+}
+.price{
+	font-size: 0.32rem;
+	font-weight: 600;
+}
+.updown{
+	font-size: 0.32rem;
+	font-weight: 600;
+}

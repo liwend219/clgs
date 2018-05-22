@@ -1,0 +1,426 @@
+#container {
+    width: 7.5rem;
+}
+
+/* 头部导航 */
+#back_nav {
+    background: #424242;
+    width: 100%;
+    height: 0.88rem;
+    text-align: center;
+    overflow: hidden;
+    line-height: 0.88rem;
+}
+
+#back_nav .back_btn {
+    float: left;
+    width: 0.2rem;
+    height: 0.36rem;
+    margin: 0.26rem 0 0 0.28rem;
+}
+
+#back_nav .title {
+    margin-left: -0.48rem;
+    font-size: 0.34rem;
+    color: #ffffff;
+    letter-spacing: 0.03rem;
+}
+
+/*用户简介*/
+.user_info {
+    background: #424242;
+    padding: 0.22rem 0.3rem;
+    overflow: hidden;
+    position: relative;
+    text-align: center;
+}
+
+.user_info .left {
+    float: left;
+    overflow: hidden;
+}
+
+.user_info .left .user_icon {
+    width: 0.88rem;
+    height: 0.88rem;
+    float: left;
+    border-radius: 50%;
+}
+
+.user_info .left .user_name {
+    float: left;
+    font-size: 0.32rem;
+    color: #ffffff;
+    margin-left: 0.25rem;
+    font-weight: normal;
+}
+
+.user_info .left .real_name {
+    font-size: 0.20rem;
+    color: #ffffff;
+    margin-left: 0.14rem;
+    padding: 0.02rem 0.1rem;
+    background: #ff5a5a;
+    display: inline-block;
+    border-radius: 0.1rem;
+    position: absolute;
+    bottom: 0.25rem;
+    left: 1.31rem;
+}
+
+.user_info .left .fans {
+    font-style: normal;
+    font-size: 0.2rem;
+    color: #b3b3b3;
+    position: absolute;
+    bottom: 0.25rem;
+    left: 2.46rem;
+}
+
+.user_info .right {
+   float: right;
+    width: 1rem;
+    border: 0.02rem solid #cead6f;
+    color: #cead6f;
+    padding: 0.01rem 0.1rem;
+    border-radius: 0.5rem;
+    margin-top: 0.27rem;
+}
+
+.user_info .right span {
+    font-size: 0.2rem;
+    cursor: pointer;
+}
+
+/*数据分析*/
+.analysis {
+    background: #ffffff;
+    padding: 0.4rem 0.2rem;
+}
+
+.analysis .content {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    height: 1.9rem;
+}
+
+.analysis .content .left .profit {
+    position: absolute;
+    left: 0.1rem;
+    top: 0;
+    font-size: 0.2rem;
+    color: #393939;
+}
+
+.analysis .content .left .left_line_top {
+    position: absolute;
+    left: 0;
+    top: 0.35rem;
+    width: 1.58rem;
+    height: 0.02rem;
+}
+
+.analysis .content .left .left_top {
+    position: absolute;
+    top: 0.35rem;
+    left: 1.57rem;
+    width: 0.55rem;
+    height: 0.72rem;
+}
+
+.analysis .content .left .risk {
+    position: absolute;
+    left: 0.1rem;
+    bottom: 0.1rem;
+    font-size: 0.2rem;
+    z-index: 100;
+    color: #393939;
+}
+
+.analysis .content .left .left_line_bottom {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 1.58rem;
+    height: 0.02rem;
+}
+
+.analysis .content .left .left_bottom {
+    position: absolute;
+    bottom: 0;
+    left: 1.57rem;
+    width: 0.55rem;
+    height: 0.72rem;
+}
+
+.analysis .content .mid .sum {
+    position: absolute;
+    top: 0.2rem;
+    left: 2.28rem;
+    font-size: 0.26rem;
+    color: #393939;
+}
+
+.analysis .content .mid .num {
+    position: absolute;
+    top: 0.45rem;
+    left: 2.22rem;
+    font-size: 0.48rem;
+    font-weight: 600;
+    color: #cead6f;
+}
+
+.analysis .content .mid .tray {
+    position: absolute;
+    width: 2.69rem;
+    height: 0.06rem;
+    background: #f5f5f5;
+    left: 2.2rem;
+    top: 1.05rem;
+}
+
+.analysis .content .mid .shadow {
+    position: absolute;
+    width: 2.69rem;
+    height: 0.79rem;
+    background: linear-gradient(top, #e8e8e8, #fafafa);
+    background: -webkit-linear-gradient(top, #e8e8e8, #fafafa);
+    bottom: 0;
+    left: 2.2rem;
+    z-index: 99;
+    text-align: center;
+    color: #999999;
+    padding-top: 0.15rem;
+    font-size: 0.2rem;
+}
+
+.analysis .content .right .copy {
+    position: absolute;
+    right: 0.1rem;
+    top: 0;
+    font-size: 0.2rem;
+    color: #393939;
+}
+
+.analysis .content .right .right_line_top {
+    position: absolute;
+    right: 0;
+    top: 0.35rem;
+    width: 1.58rem;
+    height: 0.02rem;
+}
+
+.analysis .content .right .right_top {
+    position: absolute;
+    top: 0.35rem;
+    right: 1.57rem;
+    width: 0.55rem;
+    height: 0.72rem;
+}
+
+.analysis .content .right .soft {
+    position: absolute;
+    right: 0.1rem;
+    bottom: 0.1rem;
+    font-size: 0.2rem;
+    color: #393939;
+    z-index: 99;
+}
+
+.analysis .content .right .right_line_bottom {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 1.58rem;
+    height: 0.02rem;
+}
+
+.analysis .content .right .right_bottom {
+    position: absolute;
+    bottom: 0;
+    right: 1.57rem;
+    width: 0.55rem;
+    height: 0.72rem;
+}
+
+/*调仓信息*/
+.title_box {
+    padding: 0.18rem 0 0.18rem 0.3rem;
+    border-bottom: 0.02rem solid #d4d7dc;
+}
+
+.title_box .title {
+    font-size: 0.32rem;
+    vertical-align: middle;
+}
+
+.title_box .time {
+    color: #999999;
+    font-size: 0.21rem;
+    padding-left: 0.15rem;
+    vertical-align: middle;
+}
+
+.news_box {
+    padding: 0 0.3rem;
+    overflow: hidden;
+}
+
+.news_box .news {
+    border-bottom: 0.01rem dashed #d4d7dc;
+    padding: 0.18rem 0;
+    overflow: hidden;
+}
+
+.news_box .news .left_box {
+    float: left;
+    text-align: center;
+    overflow: hidden;
+    margin-top: 0.05rem;
+}
+
+.news_box .news .left_box .icon {
+    width: 0.66rem;
+    height: 0.66rem;
+    border-radius: 50%;
+    float: left;
+    background: #d63f2b;
+    line-height: 0.66rem;
+    font-size: 0.23rem;
+    color: #ffffff;
+}
+
+.news_box .news .left_box .meg {
+    float: left;
+    padding-left: 0.1rem;
+}
+
+.news_box .news .left_box .meg .name {
+    display: block;
+    color: #605d5e;
+    font-size: 0.26rem;
+    margin-top: 0.05rem;
+}
+
+.news_box .news .left_box .meg .number {
+    color: #999999;
+    font-size: 0.18rem;
+    margin-top: 0.08rem;
+    display: inline-block;
+}
+
+.news_box .news .middle_box {
+    text-align: center;
+    padding-left: 1.86rem;
+}
+
+.news_box .news .middle_box .wave {
+    display: block;
+    font-size: 0.26rem;
+    color: #393939;
+}
+
+.news_box .news .middle_box .price {
+    color: #999999;
+    font-size: 0.18rem;
+    display: block;
+}
+
+.news_box .news .middle_box .new_time {
+    color: #999999;
+    font-size: 0.18rem;
+    display: block;
+}
+
+.news_box .news .right_box {
+    padding: 0.18rem 0;
+    overflow: hidden;
+    float: right;
+}
+
+.news_box .news .right_box .order_btn {
+    text-align: center;
+    width: 0.9rem;
+    height: 0.4rem;
+    border: 0.02rem solid #cead6f;
+    border-radius: 0.5rem;
+    line-height: 0.36rem;
+    font-size: 0.2rem;
+    color: #cead6f;
+    cursor: pointer;
+    padding: 0.05rem 0.2rem;
+}
+
+/*历史战绩*/
+.record_box {
+    padding: 0.2rem 0.3rem 0;
+    overflow: hidden;
+    text-align: center;
+}
+
+.record_box .record_items .left_item {
+    float: left;
+    font-size: 0.22rem;
+    color: #949293;
+}
+
+.record_box .record_items .middle_item {
+    font-size: 0.22rem;
+    color: #949293;
+    margin-left: 1rem;
+}
+
+.record_box .record_items .right_item {
+    float: right;
+    font-size: 0.22rem;
+    color: #949293;
+}
+
+.lists .items {
+    text-align: center;
+    margin: 0 0.3rem;
+    padding: 0.2rem 0;
+    overflow: hidden;
+    border-bottom: 0.01rem dashed #e9eae9;
+}
+
+.lists .items .list_name {
+    float: left;
+    color: #605d5e;
+    font-size: 0.26rem;
+}
+
+.lists .items .list_rose {
+    float: right;
+    font-size: 0.26rem;
+    color: #cead6f;
+}
+
+.lists .items .list_time {
+    font-size: 0.26rem;
+    color: #605d5e;
+    padding-left: 2.2rem;
+    padding-right: 1.05rem;
+}
+
+/*点评*/
+.comment {
+    text-align: center;
+    color: #999999;
+}
+
+/*提示信息*/
+#tip {
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 0.24rem;
+    padding: 0.1rem 0.2rem;
+    background: rgba(0, 0, 0, 0.5);
+    color: #ffffff;
+    border-radius: 0.1rem;
+    text-align: center;
+    z-index: 99;
+}

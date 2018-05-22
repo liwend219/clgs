@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    
+
+    <link rel="icon" href="images/logo01.png" type="image/x-icon">
+    <link rel="stylesheet" href="css/gupiao_guize.css">
+    <script src="js/jquery-3.2.1.js"></script>
+    <script src="js/public.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+    
+    <!-- 引入样式 -->
+    <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+    <!-- 引入组件库 -->
+    <script src="https://unpkg.com/element-ui/lib/index.js"></script>
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+
+    
+    
+    <title>规则</title>
+    <style>
+        .el-collapse-item__header{
+            padding:0 10px;
+        }
+        .el-collapse-item__content{
+            padding:10px;
+            background: #f3f3f3;
+        }
+        .el-collapse-item__content{
+            padding:0.15rem;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <div id="back_nav">
+            <a href=" ">
+                <img src="images/back.png" alt="" class="back_btn">
+            </a>
+            <span class="title" style="margin-left: 0;color: #393939">规则</span>
+        </div>
+
+        <el-collapse @change="handleChange" accordion>
+            <el-collapse-item title="投顾策略操作定义" name="1">
+                <div>一种关于“投顾策略”实施的交易，本质上是一种合约；
+                        投顾策略是以股票作为标的物的一种交易形式，指支付一定的投顾费用，在合约期内以约定价格买入（但非必须买入）股票，合约到期后进行结算以及计算盈亏（也可提前结算）。</div>
+            </el-collapse-item>
+            <el-collapse-item title="投顾策略包含的要素" name="2">
+                <div><b>1.</b>标的：沪深交易所上市的股票（除ST股、*ST股、次新股、停牌股等以及券商不支持的股票和无法交易的高风险股票）</div>
+                <div><b>2.</b>执行价格：投顾策略发布者在合约有效期限内买入标的股票事先约定的价格</div>
+                <div><b>3.</b>投顾期限：1周，2周，1月（到期自动行权，也可提前行权）</div>
+                <div><b>4.</b>投顾类型：美式看涨</div>
+                <div><b>5.</b>投顾到期日：合约约定的最后有效期</div>
+                <div><b>6.</b>执行方式：现金差价交割</div>
+                <div><b>7.</b>投顾费用：根据股票价格浮动计算给出投顾费用；投顾费用已经包含了通道收取的费用，平台服务费，税收等；投顾期限越短投顾费用越低，投顾期限越长投顾费用越高。</div>
+                <div><b>8.</b>盈亏公式：（期末卖出价-期初买入价）/ 期初买入价*投顾资产—投顾费用</div>
+                <div><b>9.</b>投顾资产：30万-200万，万的整数倍，最少不低于30万，最多不超过200万。</div>
+            </el-collapse-item>
+            <el-collapse-item title="什么股票都能买吗？" name="3">
+                <div><b>1.</b>不得投资于S、ST、*ST、S*ST及SST类股票；</div>
+                <div><b>2.</b>不得投资于公司亏损类高风险股票；</div>
+                <div><b>3.</b>不得投资于次新股股票、停牌股股票；</div>
+                <div><b>4.</b>不得投资于其他类高风险股票；</div>
+            </el-collapse-item>
+            <el-collapse-item title="投顾策略是否可以看跌？" name="4">
+                <div><b>1.</b>目前国内投顾策略只能做看涨策略；</div>
+                <div><b>2.</b>如果有别的平台可以做股票看跌策略，那您就要考虑他们平台的真实性了。</div>
+            </el-collapse-item>
+
+            <el-collapse-item title="投顾策略询价、持仓需要多长时间？" name="5">
+                100万以下的投顾策略可以即时询价成功；100万（含）以上的投顾策略需要等待人工报价；成交时间最终根据券商建仓时间确定的。
+                具体成交时间请参考投顾操作规则里的详细内容。
+            </el-collapse-item>
+            <el-collapse-item title="为什么平台询价快、起步低？" name="6">
+                为了满足投资者的需求，我司不断简化交易流程并加快服务的反馈速度，节约交易时间，同时，积极与通道沟通，丰富产品的多样性，从而使平台询价快，起步低。
+            </el-collapse-item>
+            <el-collapse-item title="投顾费用如何计算？" name="7">
+                <div><b>1.</b>投顾费用是根据个股波动率定的；</div>
+                <div><b>2.</b>投顾费用已经包含了通道收取的费用，平台服务费等；</div>
+                <div><b>3.</b>投顾期限越短投顾费用越低，投顾期限越长投顾费用越高。</div>
+            </el-collapse-item>
+            <el-collapse-item title="平仓后多久进行结算（资金多久到账）？" name="8">
+                最迟T+3个交易日，主要是以通道结算时间为准，平台第一时间为客户做结算。
+            </el-collapse-item>
+            <el-collapse-item title="投顾策略什么时候可以平仓？" name="9">
+                您可以选择到期自动平仓，也可以选择提前平仓。最短行权期限为T+1日。
+            </el-collapse-item>
+            <el-collapse-item title="如果不想进行交易能不能撤单？" name="10">
+                从立即成交开始，是不能撤单的。
+            </el-collapse-item>
+            <el-collapse-item title="成交期间股价波动导致收益受损怎么办？不成交的情..." name="11">
+                <div><b>1.</b>最终成交价格以券商实际成交价格为准。</div>
+                <div><b>2.</b>若最终券商不能成交，客服将通知投资者，此次交易结束，费用退回投资者账户。</div>
+                <div><b>3.</b>期初价格执行时段内，若交易指令对应的标的股票处于涨跌停状态，不能成交。</div>
+            </el-collapse-item>
+            
+            <el-collapse-item title="如果亏损超过支付的投顾费用，会被平仓吗？" name="12">
+                投顾策略的优势就是无论股价下跌到多少，平台都不会面临爆仓强平的风险；做投顾策略的费用就是认购时支付的投顾费用，至于投资资产的亏损则不需要投资者承担。
+            </el-collapse-item>
+            <el-collapse-item title="如何保证资金安全和交易是真实性？" name="13">
+                <div><b>1.</b>第三方支付平台保证资金入金的安全性，受第三方支付通道的监管。</div>
+                <div><b>2.</b>公司合法经营，诚信公正，对接通道，赚取差价，不存在信用对付风险。</div>
+            </el-collapse-item>
+            <el-collapse-item title="合约到期为非交易日如何结算？" name="14">
+                如果遇到周末或者节假日合约到期，行权将提前到前一个可卖出的交易日。
+            </el-collapse-item>
+        </el-collapse><br>
+        <div style="text-align:left;color:rgb(155, 155, 155);padding:0.15rem">
+            注意：<br>
+            1.平台不保证任何成交价格和成交时间，一切均以券商实际成交数据为准。<br>
+            2.最终解释权归本APP所有。
+        </div>
+    </div>
+    <script>
+        var vm = new Vue({
+            el:"#app",
+            data(){
+                return{
+                    activeNames:[1,2,3]
+                }
+            },
+            mounted(){
+                var arr=[];
+                for(let i=0;i<$('.el-collapse-item__header').length;i++){
+                    if($('.el-collapse-item__header').eq(i).html().length>82){
+                        arr.push(i)
+                    }
+                }
+                console.log(arr)
+            },
+            methods:{
+                handleChange(idnex) {
+                    
+                },
+            }
+        })
+    </script>
+</body>
+</html>
